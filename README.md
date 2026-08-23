@@ -4,7 +4,7 @@ English | [中文](languages/README_zh.md) | [Deutsch](languages/README_de.md) |
 
 Official User Manual · A lightweight Markdown note-taking extension with text selection for Chromium browsers.
 
-> Chromium · Manifest V3 · SidePanel · Local Storage · 6 Languages
+> Chromium · Manifest V3 · SidePanel · Local Storage
 
 ---
 
@@ -14,12 +14,11 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 | Advantage | Detail |
 |-----------|--------|
-| 📝 **Text Selection** | Select text on any webpage, right-click to create a Markdown note instantly |
+| 📝 **Text Selection** | Select text on any webpage, right-click to save as a Markdown note instantly |
 | 🔒 **Local Only** | All notes stored in `chrome.storage.local` — no cloud, no accounts, no tracking |
-| ✏️ **Markdown Editor** | Source editing + live preview with tables, images, code blocks, links, and more |
-| 📎 **Source Tracking** | One-click insert current page URL and title — always know where your notes came from |
+| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
+| 📎 **Source Tracking** | Source page link shown in editor tab bar — always know where your notes came from |
 | 📋 **Smart Quota** | Free 3 notes/day; delete today's notes to reclaim slots — never locked out |
-| 🌍 **6 Languages** | English, 中文, 日本語, Deutsch, Español, Français |
 
 ---
 
@@ -29,13 +28,17 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 | Feature | Description |
 |---------|-------------|
-| 📝 **Text Selection Notes** | Select text on any webpage → right-click → create Markdown note |
-| ✏️ **Markdown Editor** | Source editing + live preview with full Markdown syntax support |
+| 📝 **Save to vkt-note** | Right-click any selection or image → unified menu auto-detects content, converts HTML to Markdown, and saves silently |
+| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
+| 🧩 **HTML → Markdown** | Uses the Turndown library (industry standard) to convert HTML — tables, headings, lists, links, code blocks, images, and more |
+| ▦ **Table Picker** | List every table on the current page — pick one to insert as a Markdown table |
 | 📎 **Insert URL** | One-click insert current page URL as Markdown link |
 | 📑 **Insert Title** | One-click insert current page title into note |
+| 🔗 **Source Page Link** | Clickable source link shown in the editor tab bar for notes created from web pages |
+| 🛠️ **Formatting Toolbar** | Bold, Italic, Strikethrough, H1–H3, Link, Inline Code, Code Block, Bullet/Numbered List, Blockquote, Horizontal Rule |
+| 💾 **Auto-Save** | Notes auto-save 2 seconds after editing — no need to manually click Save |
 | 📋 **Daily Quota** | 3 new notes per day; editing existing notes does not consume quota |
 | 🔒 **Local Storage** | All notes stored locally — no data upload, no cloud sync |
-| 🌍 **Multi-Language** | 6 languages, auto-detected from browser settings |
 | 🏗️ **Manifest V3** | Built on Manifest V3 with SidePanel architecture |
 
 ### ⭐ Premium Features (License Required)
@@ -52,9 +55,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ## Preview
 
-<p align="center">
-  <img src="screenshot/preview.png" alt="vkt-note Preview" width="640">
-</p>
+> 📸 Screenshots will be published here with the store listing.
 
 ---
 
@@ -87,14 +88,25 @@ For your safety, only install vkt-note through official browser extension stores
 
 1. Click the **📝 vkt-note icon** in your browser toolbar to open the side panel
 2. Click **➕ New Note** to create a blank note
-3. Or **select text** on any webpage → right-click → **Create Markdown note from selection**
-4. Or **right-click an image** → **Add image link to new note**
+3. Or **select text** on any webpage → right-click → **Save to vkt-note**
+4. Or **right-click an image** → **Save to vkt-note**
+
+### Copying Web Content as Markdown
+
+- **Right-click a selection** → **Save to vkt-note**. The selection's HTML is converted to Markdown using the Turndown library. When the selection is inside a table cell, it is expanded to the complete cell, row, or table (the smallest complete unit).
+- **Right-click an image** → **Save to vkt-note**. The image link is saved as a Markdown image in a new note.
+- **▦ Table Picker** (toolbar). Lists every table on the current page; click one to insert it as a Markdown table into the open note (or a new note).
+
+### Formatting Toolbar
+
+The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~Strikethrough~~, H1, H2, H3, Link, Inline Code, Code Block, Bullet List, Numbered List, Blockquote, Horizontal Rule.
 
 ### Editing Notes
 
-- Switch between **Edit** (source code) and **Preview** (rendered) modes using the tabs
-- Use the **📎 Insert URL** button to insert a Markdown link to the current page
-- Use the **📑 Insert Title** button to insert the current page title
+- Notes **auto-save 2 seconds** after you stop typing — no need to click Save manually
+- The **Save** button still works for immediate save
+- Click **👁 Preview** to see formatted content in a **full-screen view** with a back button — no editor chrome visible
+- **Source page link**: when editing a note created from a web page, a clickable source link is shown in the editor tab bar
 - Titles are auto-generated as `笔记YYYYMMDD_N` — you can edit them freely
 
 ### Free Tier Rules
@@ -116,7 +128,7 @@ For your safety, only install vkt-note through official browser extension stores
 ## FAQ
 
 1. **Right-click menu doesn't appear?**
-   Make sure you've selected text first. The menu only appears when text is selected or when right-clicking an image.
+   The menu appears when you select text or right-click an image. It uses the unified "Save to vkt-note" option.
 
 2. **Notes disappear after reinstalling?**
    All notes are stored in `chrome.storage.local`. Uninstalling the extension permanently deletes all data. Export your notes before uninstalling (Premium feature).
@@ -145,7 +157,7 @@ vkt-note follows privacy-by-design principles:
 
 | Permission | Reason |
 |------------|--------|
-| `storage` | Save notes, draft, and settings locally |
+| `storage` | Save notes and settings locally |
 | `activeTab` | Get current page URL/title when you click insert buttons |
 | `sidePanel` | Display the extension UI in a side panel |
 | `contextMenus` | Right-click menu for creating notes from selected text or images |
