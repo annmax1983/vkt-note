@@ -29,6 +29,8 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | Feature | Description |
 |---------|-------------|
 | 📝 **Save to vkt-note** | Right-click any selection or image → unified menu auto-detects content, converts HTML to Markdown, and saves silently |
+| 🔍 **Note Search** | Quickly filter the note list by title and content |
+| 📋 **Copy as Markdown** | One click copies any note as Markdown to the clipboard — a free local backup |
 | ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
 | 🧩 **HTML → Markdown** | Uses the Turndown library (industry standard) to convert HTML — tables, headings, lists, links, code blocks, images, and more |
 | ▦ **Table Picker** | List every table on the current page — pick one to insert as a Markdown table |
@@ -106,6 +108,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - Notes **auto-save 2 seconds** after you stop typing — no need to click Save manually
 - The **Save** button still works for immediate save
 - Click **👁 Preview** to see formatted content in a **full-screen view** with a back button — no editor chrome visible
+- Preview note: deeply nested lists flatten to a single level in preview (the saved Markdown always keeps full fidelity)
 - **Source page link**: when editing a note created from a web page, a clickable source link is shown in the editor tab bar
 - Titles are auto-generated as `笔记YYYYMMDD_N` — you can edit them freely
 
@@ -150,7 +153,7 @@ vkt-note follows privacy-by-design principles:
 
 - ✅ All notes stored in `chrome.storage.local` — **no data is uploaded to any server**
 - ✅ No analytics, no tracking, no cookies
-- ✅ No `<all_urls>` permission — only accesses page content when you explicitly trigger insert or context menu
+- ✅ Page content is accessed only when you explicitly trigger save or insert (context menu, insert buttons, table picker) — never in the background
 - ✅ Exported JSON files are created locally and never transmitted
 
 ### Permissions
@@ -158,10 +161,10 @@ vkt-note follows privacy-by-design principles:
 | Permission | Reason |
 |------------|--------|
 | `storage` | Save notes and settings locally |
-| `activeTab` | Get current page URL/title when you click insert buttons |
 | `sidePanel` | Display the extension UI in a side panel |
 | `contextMenus` | Right-click menu for creating notes from selected text or images |
-| `scripting` | Required for context menu interaction with page content |
+| `scripting` | Inject the HTML→Markdown converter only when you trigger save / insert / table actions |
+| Host `<all_urls>` | Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access |
 
 - [Full Privacy Policy](https://annmax1983.github.io/vkt-note/privacy-policy.html)
 

@@ -45,10 +45,10 @@
 <table>
   <tr><th>Permission</th><th>Reason</th></tr>
   <tr><td><code>storage</code></td><td>Save notes and settings locally</td></tr>
-  <tr><td><code>activeTab</code></td><td>Get current page URL/title when user clicks insert buttons</td></tr>
   <tr><td><code>sidePanel</code></td><td>Display the extension UI in a side panel</td></tr>
   <tr><td><code>contextMenus</code></td><td>Right-click menu for creating notes from selected text or images</td></tr>
-  <tr><td><code>scripting</code></td><td>Required for context menu interaction with page content</td></tr>
+  <tr><td><code>scripting</code></td><td>Inject the HTML→Markdown converter only when you trigger save / insert / table actions</td></tr>
+  <tr><td>Host permission <code>&lt;all_urls&gt;</code></td><td>Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access</td></tr>
 </table>
 
 <h2>Important Notes</h2>
