@@ -17,7 +17,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 📝 **Textauswahl** | Text auf jeder Webseite auswählen, Rechtsklick → sofort als Markdown-Notiz speichern |
 | 🔒 **Nur lokal** | Alle Notizen in `chrome.storage.local` — keine Cloud, kein Konto, kein Tracking |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Vollbild-Vorschau |
-| 📎 **Quellverfolgung** | Quellseiten-Link in der Editor-Registerleiste — immer nachvollzieher, woher die Notiz kommt |
+| 🛡 **Entwurf-Schutz** | Vom Tageslimit blockierte neue Notizen bleiben als lokaler Entwurf erhalten — nichts geht verloren |
 | 📋 **Smartes Kontingent** | Kostenlos 3 Notizen/Tag; löschen Sie heutige Notizen, um Slots freizugeben — nie ausgesperrt |
 
 ---
@@ -36,7 +36,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | ▦ **Tabellenauswahl** | Listet alle Tabellen der aktuellen Seite — eine Auswahl fügt sie als Markdown-Tabelle ein |
 | 📎 **URL einfügen** | Ein-Klick-Einfügung der aktuellen Seiten-URL als Markdown-Link |
 | 📑 **Titel einfügen** | Ein-Klick-Einfügung des aktuellen Seitentitels in die Notiz |
-| 🔗 **Quellseiten-Link** | Klickbarer Quelllink in der Editor-Registerleiste für Notizen, die von Webseiten erstellt wurden |
+| 🛡 **Kontingent-Entwurf** | Blockiert das Tageskontingent eine neue Notiz, bleibt der Inhalt als lokaler Entwurf erhalten — beim nächsten Öffnen des Panels erscheint eine Wiederherstellungsabfrage |
 | 🛠️ **Formatierungsleiste** | Fett, Kursiv, Durchgestrichen, H1–H3, Link, Inline-Code, Codeblock, Aufzählung/Nummerierung, Zitat, Trennlinie |
 | 💾 **Auto-Speicherung** | Notizen werden 2 Sekunden nach der Bearbeitung automatisch gespeichert |
 | 📋 **Tageskontingent** | Maximal 3 neue Notizen pro Tag; Bearbeitung bestehender Notizen verbraucht kein Kontingent |
@@ -108,16 +108,17 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 - Notizen werden **2 Sekunden** nach der letzten Eingabe automatisch gespeichert — kein manueller Klick auf Speichern nötig
 - Der **Speichern**-Button funktioniert weiterhin für sofortiges Speichern
 - **👁 Vorschau** für formatierte Inhalte in **Vollbild-Ansicht** mit Zurück-Button — ohne Editor-Oberfläche
-- **Quellseiten-Link**: Beim Bearbeiten einer Notiz, die von einer Webseite erstellt wurde, erscheint ein klickbarer Quelllink in der Editor-Registerleiste
-- Titel werden automatisch als `NoteYYYYMMDD_N` generiert — frei editierbar
+- **Kontingent-Entwurf**: Blockiert das Tageslimit eine neue Notiz, wird der Inhalt lokal behalten und beim nächsten Öffnen des Panels eine Wiederherstellung angeboten
+- Titel werden automatisch als `Note N` generiert — frei editierbar
 
 ### Regeln für die kostenlose Stufe
 
 - Kostenlose Version: maximal **3 neue Notizen pro Tag**
-- Nur **Speichern** bei einer **neuen** Notiz zählt für das Tageslimit
+- Eine **neue** Notiz zählt für das Tageslimit (sowohl manuelles Speichern als auch die 2-Sekunden-Auto-Speicherung)
 - Bearbeitung bestehender Notizen verbraucht **kein** Kontingent
 - Löschen einer **heute** erstellten Notiz gibt einen Slot frei
 - Löschen einer Notiz von einem früheren Tag beeinflusst **nicht** das heutige Kontingent
+- Blockiert das Tageslimit eine neue Notiz, wird ihr Inhalt als lokaler Entwurf gespeichert — stellen Sie ihn wieder her, indem Sie das Panel innerhalb von 24 Stunden erneut öffnen
 - Titel-Sequenznummern können nach dem Löschen Lücken haben — das ist so gewollt
 
 ### Export (nur Premium)

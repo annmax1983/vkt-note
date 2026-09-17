@@ -17,7 +17,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | 📝 **Sélection de texte** | Sélectionnez du texte sur n'importe quelle page web, faites un clic droit pour sauvegarder instantanément en note Markdown |
 | 🔒 **100 % local** | Toutes les notes stockées dans `chrome.storage.local` — pas de cloud, pas de comptes, pas de suivi |
 | ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et prévisualisation plein écran |
-| 📎 **Traçabilité de la source** | Le lien vers la page source s'affiche dans la barre d'onglets de l'éditeur — vous savez toujours d'où viennent vos notes |
+| 🛡 **Sauvetage de brouillon** | Les nouvelles notes bloquées par la limite quotidienne sont conservées comme brouillon local et proposées pour restauration — rien de ce que vous écrivez n'est perdu |
 | 📋 **Quota intelligent** | 3 notes/jour gratuites ; supprimez les notes du jour pour récupérer des emplacements — jamais bloqué |
 
 ---
@@ -36,7 +36,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | ▦ **Sélecteur de tableaux** | Liste chaque tableau de la page courante — choisissez-en un pour l'insérer en tant que tableau Markdown |
 | 📎 **Insérer une URL** | Insérez en un clic l'URL de la page courante en tant que lien Markdown |
 | 📑 **Insérer un titre** | Insérez en un clic le titre de la page courante dans la note |
-| 🔗 **Lien vers la page source** | Lien source cliquable affiché dans la barre d'onglets de l'éditeur pour les notes créées depuis des pages web |
+| 🛡 **Brouillon de quota** | Si le quota quotidien bloque une nouvelle note, son contenu est conservé comme brouillon local et une restauration est proposée à la prochaine ouverture du panneau |
 | 🛠️ **Barre d'outils de formatage** | Gras, Italique, Barré, H1–H3, Lien, Code inline, Bloc de code, Liste à puces/numérotée, Citation, Ligne horizontale |
 | 💾 **Sauvegarde automatique** | Les notes se sauvegardent automatiquement 2 secondes après la modification — pas besoin de cliquer sur Sauvegarder manuellement |
 | 📋 **Quota quotidien** | 3 nouvelles notes par jour ; la modification de notes existantes ne consomme pas de quota |
@@ -109,16 +109,17 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 - Le bouton **Sauvegarder** fonctionne toujours pour une sauvegarde immédiate
 - Cliquez sur **👁 Aperçu** pour voir le contenu formaté en **vue plein écran** avec un bouton de retour — aucune interface d'éditeur visible
 - Note d'aperçu : les listes profondément imbriquées sont aplaties à un seul niveau dans l'aperçu (le Markdown sauvegardé conserve toujours toute la fidélité)
-- **Lien vers la page source** : lors de la modification d'une note créée depuis une page web, un lien source cliquable est affiché dans la barre d'onglets de l'éditeur
-- Les titres sont générés automatiquement sous la forme `笔记YYYYMMDD_N` — vous pouvez les modifier librement
+- **Brouillon de quota** : si une nouvelle note atteint la limite quotidienne, son contenu est conservé localement et il vous est demandé de la restaurer à la prochaine ouverture du panneau
+- Les titres sont générés automatiquement sous la forme `Note N` — vous pouvez les modifier librement
 
 ### Règles du niveau gratuit
 
 - Version gratuite : maximum **3 nouvelles notes par jour**
-- Seul le clic sur **Sauvegarder** sur une **nouvelle** note compte dans la limite quotidienne
+- La création d'une **nouvelle** note compte dans la limite quotidienne (sauvegarde manuelle et sauvegarde automatique après 2 secondes incluses)
 - La modification de notes existantes ne **consomme pas** de quota
 - La suppression d'une note créée **aujourd'hui** restaure un emplacement de quota
 - La suppression d'une note d'un jour précédent n'**affecte pas** le quota du jour
+- Si une nouvelle note est bloquée par la limite quotidienne, son contenu est enregistré comme brouillon local — rouvrez le panneau dans les 24 heures pour le restaurer
 - Les numéros de séquence des titres de notes peuvent présenter des trous après suppression — c'est prévu ainsi
 
 ### Export (Premium uniquement)

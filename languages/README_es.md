@@ -17,7 +17,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 📝 **Selección de texto** | Selecciona texto en cualquier página web, clic derecho para guardar como nota Markdown al instante |
 | 🔒 **Solo local** | Todas las notas se almacenan en `chrome.storage.local` — sin nube, sin cuentas, sin rastreo |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa a pantalla completa |
-| 📎 **Seguimiento de origen** | Enlace a la página de origen visible en la barra de pestañas del editor — siempre sabrás de dónde vienen tus notas |
+| 🛡 **Rescate de borrador** | Las notas nuevas bloqueadas por el límite diario se guardan como borrador local y se ofrecen para restaurar — nada de lo escrito se pierde |
 | 📋 **Cuota inteligente** | 3 notas/día gratis; elimina las notas de hoy para recuperar espacios — nunca te quedarás bloqueado |
 
 ---
@@ -36,7 +36,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | ▦ **Selector de tablas** | Lista todas las tablas de la página actual — elige una para insertarla como tabla Markdown |
 | 📏 **Insertar URL** | Inserta con un clic la URL de la página actual como enlace Markdown |
 | 📑 **Insertar título** | Inserta con un clic el título de la página actual en la nota |
-| 🔗 **Enlace a página de origen** | Enlace clicable al origen visible en la barra de pestañas del editor para notas creadas desde páginas web |
+| 🛡 **Borrador de cupo** | Si la cuota diaria bloquea una nota nueva, su contenido se guarda como borrador local y se ofrece restaurarlo al abrir el panel la próxima vez |
 | 🛠️ **Barra de herramientas de formato** | Negrita, Cursiva, Tachado, H1–H3, Enlace, Código en línea, Bloque de código, Lista con viñetas/numerada, Cita, Regla horizontal |
 | 💾 **Guardado automático** | Las notas se guardan automáticamente 2 segundos después de editar — no hace falta pulsar Guardar manualmente |
 | 📋 **Cuota diaria** | 3 notas nuevas por día; editar notas existentes no consume cuota |
@@ -109,16 +109,17 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 - El botón **Guardar** sigue funcionando para guardado inmediato
 - Haz clic en **👁 Vista previa** para ver el contenido formateado en una **vista a pantalla completa** con un botón de volver — sin el editor visible
 - Nota de vista previa: las listas anidadas profundamente se aplanan a un solo nivel en la vista previa (el Markdown guardado siempre mantiene la fidelidad completa)
-- **Enlace a página de origen**: al editar una nota creada desde una página web, se muestra un enlace clicable al origen en la barra de pestañas del editor
-- Los títulos se generan automáticamente como `笔记YYYYMMDD_N` — puedes editarlos libremente
+- **Borrador de cupo**: si una nota nueva alcanza el límite diario, su contenido se guarda localmente y se te pregunta si deseas restaurarlo al abrir el panel la próxima vez
+- Los títulos se generan automáticamente como `Note N` — puedes editarlos libremente
 
 ### Reglas del nivel gratuito
 
 - Versión gratuita: máximo **3 notas nuevas por día**
-- Solo pulsar **Guardar** en una **nota nueva** cuenta para el límite diario
+- Crear una **nota nueva** cuenta para el límite diario (tanto el guardado manual como el autoguardado a los 2 segundos)
 - Editar notas existentes **no** consume cuota
 - Eliminar una nota creada **hoy** restaura un espacio de cuota
 - Eliminar una nota de un día anterior **no** afecta a la cuota de hoy
+- Si una nota nueva es bloqueada por el límite diario, su contenido se guarda como borrador local — reabre el panel dentro de 24 horas para restaurarlo
 - Los números de secuencia de títulos de notas pueden tener huecos después de eliminar — esto es intencionado
 
 ### Exportar (Solo Premium)

@@ -17,7 +17,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | 📝 **Text Selection** | Select text on any webpage, right-click to save as a Markdown note instantly |
 | 🔒 **Local Only** | All notes stored in `chrome.storage.local` — no cloud, no accounts, no tracking |
 | ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
-| 📎 **Source Tracking** | Source page link shown in editor tab bar — always know where your notes came from |
+| 🛡 **Draft Rescue** | New notes blocked by the daily limit are kept as a local draft and offered for restore — nothing you typed is silently lost |
 | 📋 **Smart Quota** | Free 3 notes/day; delete today's notes to reclaim slots — never locked out |
 
 ---
@@ -36,7 +36,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | ▦ **Table Picker** | List every table on the current page — pick one to insert as a Markdown table |
 | 📎 **Insert URL** | One-click insert current page URL as Markdown link |
 | 📑 **Insert Title** | One-click insert current page title into note |
-| 🔗 **Source Page Link** | Clickable source link shown in the editor tab bar for notes created from web pages |
+| 🛡 **Quota Draft** | If the daily quota blocks a new note, its content is kept in a local draft and a restore prompt appears the next time the panel opens |
 | 🛠️ **Formatting Toolbar** | Bold, Italic, Strikethrough, H1–H3, Link, Inline Code, Code Block, Bullet/Numbered List, Blockquote, Horizontal Rule |
 | 💾 **Auto-Save** | Notes auto-save 2 seconds after editing — no need to manually click Save |
 | 📋 **Daily Quota** | 3 new notes per day; editing existing notes does not consume quota |
@@ -109,16 +109,17 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - The **Save** button still works for immediate save
 - Click **👁 Preview** to see formatted content in a **full-screen view** with a back button — no editor chrome visible
 - Preview note: deeply nested lists flatten to a single level in preview (the saved Markdown always keeps full fidelity)
-- **Source page link**: when editing a note created from a web page, a clickable source link is shown in the editor tab bar
-- Titles are auto-generated as `笔记YYYYMMDD_N` — you can edit them freely
+- **Quota draft**: if a new note hits the daily limit, its content is kept locally and you're asked whether to restore it the next time the panel opens
+- Titles are auto-generated as `Note N` — you can edit them freely
 
 ### Free Tier Rules
 
 - Free version: maximum **3 new notes per day**
-- Only clicking **Save** on a **new** note counts toward the daily limit
+- Creating a **new** note counts toward the daily limit (both manual save and the 2-second auto-save)
 - Editing existing notes does **not** consume quota
 - Deleting a note created **today** restores one quota slot
 - Deleting a note from a previous day does **not** affect today's quota
+- If a new note is blocked by the daily limit, its content is saved as a local draft — reopen the panel within 24 hours to restore it
 - Note title sequence numbers may have gaps after deletion — this is by design
 
 ### Export (Premium Only)
