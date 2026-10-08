@@ -10,7 +10,7 @@ Offizielle Anleitung · Eine leichtgewichtige Markdown-Notiz-Erweiterung mit Tex
 
 ## Warum vkt-note?
 
-Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note ist anders: **Alles bleibt in Ihrem Browser, keine Daten verlassen Ihr Gerät.**
+Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note ist anders: **Ihre Notizen bleiben in Ihrem Browser und werden niemals hochgeladen.**
 
 | Vorteil | Detail |
 |---------|--------|
@@ -40,7 +40,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 🛠️ **Formatierungsleiste** | Fett, Kursiv, Durchgestrichen, H1–H3, Link, Inline-Code, Codeblock, Aufzählung/Nummerierung, Zitat, Trennlinie |
 | 💾 **Auto-Speicherung** | Notizen werden 2 Sekunden nach der Bearbeitung automatisch gespeichert |
 | 📋 **Tageskontingent** | Maximal 3 neue Notizen pro Tag; Bearbeitung bestehender Notizen verbraucht kein Kontingent |
-| 🔒 **Lokale Speicherung** | Alle Notizen lokal — keine Datenübertragung, keine Cloud |
+| 🔒 **Lokale Speicherung** | Alle Notizen lokal — keine Notiz-Übertragung, keine Cloud |
 | 🏗️ **Manifest V3** | Aufgebaut auf Manifest V3 mit SidePanel-Architektur |
 
 ### ⭐ Premium-Funktionen (Lizenz erforderlich)
@@ -65,8 +65,8 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 | Browser | Status | Mindestversion |
 |---------|--------|----------------|
-| Google Chrome | ✅ Vollständig unterstützt | Chrome 114+ (SidePanel API) |
-| Microsoft Edge | ✅ Vollständig unterstützt | Edge 114+ |
+| Google Chrome | ✅ Vollständig unterstützt | Chrome 116+ (sidePanel.open) |
+| Microsoft Edge | ✅ Vollständig unterstützt | Edge 116+ |
 | Andere Chromium-Browser | ⚠️ Grundsätzlich kompatibel | Muss SidePanel API unterstützen |
 
 ---
@@ -151,7 +151,8 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 
 vkt-note folgt den Privacy-by-Design-Prinzipien:
 
-- ✅ Alle Notizen in `chrome.storage.local` gespeichert — **keine Daten werden an Server übertragen**
+- ✅ Alle Notizen in `chrome.storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
+- ✅ Die einzige ausgehende Anfrage ist die optionale Premium-Lizenzprüfung (Lizenzschlüssel, Geräte-Hash, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs
 - ✅ Keine Analyse, kein Tracking, keine Cookies
 - ✅ Seiteninhalt wird nur bei explizitem Auslösen von Speichern/Einfügen/Tabellenauswahl gelesen (Kontextmenü, Einfügen-Buttons, Tabellenauswahl) — nie im Hintergrund
 - ✅ Exportierte JSON-Dateien werden lokal erstellt und niemals übertragen

@@ -10,7 +10,7 @@ Manual de usuario oficial · Una extensión ligera de notas en Markdown con sele
 
 ## ¿Por qué vkt-note?
 
-La mayoría de extensiones de notas requieren cuentas, sincronización en la nube o suscripciones. vkt-note es diferente: **todo se queda en tu navegador, cero datos salen de tu dispositivo.**
+La mayoría de extensiones de notas requieren cuentas, sincronización en la nube o suscripciones. vkt-note es diferente: **tus notas se quedan en tu navegador y nunca se suben.**
 
 | Ventaja | Detalle |
 |---------|--------|
@@ -40,7 +40,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 🛠️ **Barra de herramientas de formato** | Negrita, Cursiva, Tachado, H1–H3, Enlace, Código en línea, Bloque de código, Lista con viñetas/numerada, Cita, Regla horizontal |
 | 💾 **Guardado automático** | Las notas se guardan automáticamente 2 segundos después de editar — no hace falta pulsar Guardar manualmente |
 | 📋 **Cuota diaria** | 3 notas nuevas por día; editar notas existentes no consume cuota |
-| 🔒 **Almacenamiento local** | Todas las notas se almacenan localmente — sin subida de datos, sin sincronización en la nube |
+| 🔒 **Almacenamiento local** | Todas las notas se almacenan localmente — sin subida de notas, sin sincronización en la nube |
 | 🏗️ **Manifest V3** | Construida sobre Manifest V3 con arquitectura SidePanel |
 
 ### ⭐ Funcionalidades Premium (requieren licencia)
@@ -65,8 +65,8 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 | Navegador | Estado | Versión mínima |
 |---------|--------|-----------------|
-| Google Chrome | ✅ Totalmente compatible | Chrome 114+ (SidePanel API) |
-| Microsoft Edge | ✅ Totalmente compatible | Edge 114+ |
+| Google Chrome | ✅ Totalmente compatible | Chrome 116+ (sidePanel.open) |
+| Microsoft Edge | ✅ Totalmente compatible | Edge 116+ |
 | Otros navegadores basados en Chromium | ⚠️ Básico compatible | Debe soportar SidePanel API |
 
 ---
@@ -152,7 +152,8 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 
 vkt-note sigue principios de privacidad desde el diseño:
 
-- ✅ Todas las notas se almacenan en `chrome.storage.local` — **no se suben datos a ningún servidor**
+- ✅ Todas las notas se almacenan en `chrome.storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
+- ✅ La única solicitud saliente es la comprobación opcional de licencia Premium (clave de licencia, hash del dispositivo, metadatos básicos del navegador) — sin notas, sin URL de páginas
 - ✅ Sin analíticas, sin rastreo, sin cookies
 - ✅ El contenido de la página se accede solo cuando activas explícitamente guardar o insertar (menú contextual, botones de insertar, selector de tablas) — nunca en segundo plano
 - ✅ Los archivos JSON exportados se crean localmente y nunca se transmiten

@@ -18,13 +18,14 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="date">Effective date: August 2026</p>
+<p class="date">Effective date: August 2026 · Last updated: September 26, 2026</p>
 
 <h2>Overview</h2>
-<p>vkt-note is a browser extension for Markdown note-taking with text selection support. <strong>All notes are stored locally in your browser using <code>chrome.storage.local</code>. No data is uploaded to any server.</strong></p>
+<p>vkt-note is a browser extension for Markdown note-taking with text selection support. <strong>All notes are stored locally in your browser using <code>chrome.storage.local</code>. Note content is never uploaded to any server.</strong></p>
+<p>The single outbound request the extension can make is the optional Premium license check described under <a href="#third-party">Third-Party Services</a>. It carries no note content, no page URLs, and no browsing history.</p>
 
 <h2>Data Collection</h2>
-<p>vkt-note does NOT collect, transmit, or share any user data. Specifically:</p>
+<p>vkt-note does NOT collect, sell, or share any user data. Specifically:</p>
 <ul>
   <li>❌ No browsing history is collected</li>
   <li>❌ No analytics or telemetry</li>
@@ -32,13 +33,20 @@
   <li>❌ No note content is sent to any server</li>
   <li>❌ No personal data is collected</li>
 </ul>
+<p>The one exception is the optional Premium license check. It is triggered only by activating a license key or by a periodic re-validation while a license is active, and it sends no note content. See <a href="#third-party">Third-Party Services</a> for the exact fields.</p>
 
 <h2>Data Storage</h2>
+<p>Everything below is stored in <code>chrome.storage.local</code> on your device and is removed when you uninstall the extension.</p>
 <table>
   <tr><th>Storage Key</th><th>Content</th></tr>
-  <tr><td><code>vkn_notes</code></td><td>All note data (title, Markdown content, timestamps, source URL)</td></tr>
+  <tr><td><code>vkn_notes</code></td><td>All note data (title, Markdown content, creation and update timestamps, and the local day the note was created)</td></tr>
   <tr><td><code>vkn_counters</code></td><td>Daily note creation/deletion counters for free tier limits</td></tr>
   <tr><td><code>vkn_config</code></td><td>Configuration including premium status</td></tr>
+  <tr><td><code>vkn_clipboard_md</code></td><td>Text or image you saved from the right-click menu, waiting to be inserted into a note (deleted once consumed, or after 5 minutes)</td></tr>
+  <tr><td><code>vkn_note_draft</code></td><td>Unsaved draft kept when the daily free-tier limit blocks a new note, so it can be restored</td></tr>
+  <tr><td><code>vkn_global_device_id</code></td><td>Non-identifying device hash used only to count license activations</td></tr>
+  <tr><td><code>vkt_license_vktnote</code></td><td>Your license key, its status, plan and expiry date (Premium only)</td></tr>
+  <tr><td><code>vkt_last_validate_vktnote</code></td><td>Timestamp of the last successful license check (Premium only)</td></tr>
 </table>
 
 <h2>Permissions</h2>
@@ -59,8 +67,8 @@
   <li>Markdown images store remote URLs only. Images may not load if the source website is down or blocks hotlinking.</li>
 </ul>
 
-<h2>Third-Party Services</h2>
-<p>License key validation communicates with <code>api.annmax1983.com</code>. Only the license key, device hash, and plugin ID are sent. No notes or browsing data are transmitted.</p>
+<h2 id="third-party">Third-Party Services</h2>
+<p>License key activation and periodic re-validation communicate with <code>api.annmax1983.com</code>. Each request contains the license key you entered, a device hash, the plugin ID, and basic technical metadata (browser name and major version, browser UI language, time zone, and user agent string). It never contains note content, exported notes, page URLs, or browsing history. Requests are made only when you activate or remove a license, or while a license is active and due for its periodic check.</p>
 
 <h2>Data Deletion</h2>
 <p>You can delete individual notes through the extension UI. Uninstalling the extension removes all stored data permanently.</p>

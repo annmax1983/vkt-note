@@ -10,7 +10,7 @@ Manuel officiel · Une extension légère de prise de notes en Markdown avec sé
 
 ## Pourquoi vkt-note ?
 
-La plupart des extensions de prise de notes nécessitent des comptes, une synchronisation cloud ou des abonnements. vkt-note est différent : **tout reste dans votre navigateur, zéro donnée ne quitte votre appareil.**
+La plupart des extensions de prise de notes nécessitent des comptes, une synchronisation cloud ou des abonnements. vkt-note est différent : **vos notes restent dans votre navigateur et ne sont jamais envoyées.**
 
 | Avantage | Détail |
 |-----------|--------|
@@ -40,7 +40,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | 🛠️ **Barre d'outils de formatage** | Gras, Italique, Barré, H1–H3, Lien, Code inline, Bloc de code, Liste à puces/numérotée, Citation, Ligne horizontale |
 | 💾 **Sauvegarde automatique** | Les notes se sauvegardent automatiquement 2 secondes après la modification — pas besoin de cliquer sur Sauvegarder manuellement |
 | 📋 **Quota quotidien** | 3 nouvelles notes par jour ; la modification de notes existantes ne consomme pas de quota |
-| 🔒 **Stockage local** | Toutes les notes stockées localement — aucun envoi de données, pas de synchronisation cloud |
+| 🔒 **Stockage local** | Toutes les notes stockées localement — aucun envoi de notes, pas de synchronisation cloud |
 | 🏗️ **Manifest V3** | Construit sur le Manifest V3 avec l'architecture SidePanel |
 
 ### ⭐ Fonctionnalités Premium (licence requise)
@@ -65,8 +65,8 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 
 | Navigateur | Statut | Version minimum |
 |---------|--------|-----------------|
-| Google Chrome | ✅ Entièrement pris en charge | Chrome 114+ (API SidePanel) |
-| Microsoft Edge | ✅ Entièrement pris en charge | Edge 114+ |
+| Google Chrome | ✅ Entièrement pris en charge | Chrome 116+ (sidePanel.open) |
+| Microsoft Edge | ✅ Entièrement pris en charge | Edge 116+ |
 | Autres navigateurs basés sur Chromium | ⚠️ Compatibilité de base | Doit supporter l'API SidePanel |
 
 ---
@@ -152,7 +152,8 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 
 vkt-note respecte les principes de confidentialité dès la conception :
 
-- ✅ Toutes les notes stockées dans `chrome.storage.local` — **aucune donnée n'est envoyée à un serveur**
+- ✅ Toutes les notes stockées dans `chrome.storage.local` — **le contenu des notes n'est jamais envoyé à un serveur**
+- ✅ La seule requête sortante est la vérification facultative de licence Premium (clé de licence, empreinte d'appareil, métadonnées de navigateur de base) — aucune note, aucune URL de page
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
 - ✅ Le contenu des pages n'est accédé que lorsque vous déclenchez explicitement une sauvegarde ou une insertion (menu contextuel, boutons d'insertion, sélecteur de tableaux) — jamais en arrière-plan
 - ✅ Les fichiers JSON exportés sont créés localement et jamais transmis

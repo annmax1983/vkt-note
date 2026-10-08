@@ -10,7 +10,7 @@ Official User Manual · A lightweight Markdown note-taking extension with text s
 
 ## Why vkt-note?
 
-Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-note is different: **everything stays in your browser, zero data leaves your device.**
+Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-note is different: **your notes stay in your browser and are never uploaded.**
 
 | Advantage | Detail |
 |-----------|--------|
@@ -40,7 +40,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | 🛠️ **Formatting Toolbar** | Bold, Italic, Strikethrough, H1–H3, Link, Inline Code, Code Block, Bullet/Numbered List, Blockquote, Horizontal Rule |
 | 💾 **Auto-Save** | Notes auto-save 2 seconds after editing — no need to manually click Save |
 | 📋 **Daily Quota** | 3 new notes per day; editing existing notes does not consume quota |
-| 🔒 **Local Storage** | All notes stored locally — no data upload, no cloud sync |
+| 🔒 **Local Storage** | All notes stored locally — no note upload, no cloud sync |
 | 🏗️ **Manifest V3** | Built on Manifest V3 with SidePanel architecture |
 
 ### ⭐ Premium Features (License Required)
@@ -65,8 +65,8 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 | Browser | Status | Minimum Version |
 |---------|--------|-----------------|
-| Google Chrome | ✅ Fully supported | Chrome 114+ (SidePanel API) |
-| Microsoft Edge | ✅ Fully supported | Edge 114+ |
+| Google Chrome | ✅ Fully supported | Chrome 116+ (sidePanel.open) |
+| Microsoft Edge | ✅ Fully supported | Edge 116+ |
 | Other Chromium-based browsers | ⚠️ Basic compatible | Must support SidePanel API |
 
 ---
@@ -152,7 +152,8 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 
 vkt-note follows privacy-by-design principles:
 
-- ✅ All notes stored in `chrome.storage.local` — **no data is uploaded to any server**
+- ✅ All notes stored in `chrome.storage.local` — **note content is never uploaded to any server**
+- ✅ The only outbound request is the optional Premium license check (license key, device hash, basic browser metadata) — no notes, no page URLs
 - ✅ No analytics, no tracking, no cookies
 - ✅ Page content is accessed only when you explicitly trigger save or insert (context menu, insert buttons, table picker) — never in the background
 - ✅ Exported JSON files are created locally and never transmitted
