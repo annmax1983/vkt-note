@@ -28,18 +28,23 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 | Funcionalidad | Descripción |
 |---------|-------------|
-| 📝 **Guardar en vkt-note** | Clic derecho en cualquier selección o imagen → el menú unificado detecta automáticamente el contenido, convierte HTML a Markdown y guarda silenciosamente |
+| 📝 **Guardar en vkt-note** | Clic derecho en cualquier selección o imagen → el menú unificado detecta automáticamente el contenido, convierte HTML a Markdown y guarda silenciosamente — con el título de la página |
 | 🔍 **Búsqueda de notas** | Filtra rápidamente la lista de notas por título y contenido |
 | 📋 **Copiar como Markdown** | Un clic copia cualquier nota como Markdown al portapapeles — un respaldo local gratuito |
+| ↩️ **Deshacer eliminación** | ¿Borraste una nota por error? Deshaz en 7 segundos — el cupo también vuelve |
+| 📌 **Fijar arriba** | Mantén las notas frecuentes fijadas encima de la lista |
+| 💾 **Descargar como .md** | Guarda cualquier nota como archivo Markdown — gratis, sin copiar y pegar |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa a pantalla completa |
+| ☑️ **Listas de tareas** | Las listas `- [ ]` / `- [x]` se muestran como casillas reales en la vista previa |
 | 🧩 **HTML → Markdown** | Usa la librería Turndown (estándar de la industria) para convertir HTML — tablas, encabezados, listas, enlaces, bloques de código, imágenes y más |
-| ▦ **Selector de tablas** | Lista todas las tablas de la página actual — elige una para insertarla como tabla Markdown |
+| ▦ **Selector de tablas** | Lista todas las tablas de la página actual — marca una o varias e insértalas en orden de página como Markdown; la página resalta las elegidas |
 | 📏 **Insertar URL** | Inserta con un clic la URL de la página actual como enlace Markdown |
 | 📑 **Insertar título** | Inserta con un clic el título de la página actual en la nota |
 | 🛡 **Borrador de cupo** | Si la cuota diaria bloquea una nota nueva, su contenido se guarda como borrador local y se ofrece restaurarlo al abrir el panel la próxima vez |
 | 🛠️ **Barra de herramientas de formato** | Negrita, Cursiva, Tachado, H1–H3, Enlace, Código en línea, Bloque de código, Lista con viñetas/numerada, Cita, Regla horizontal |
 | 💾 **Guardado automático** | Las notas se guardan automáticamente 2 segundos después de editar — no hace falta pulsar Guardar manualmente |
 | 📋 **Cuota diaria** | 3 notas nuevas por día; editar notas existentes no consume cuota |
+| 🔢 **Contador de palabras** | La barra de estado muestra el total de notas y palabras (caracteres CJK y palabras latinas contados correctamente) |
 | 🔒 **Almacenamiento local** | Todas las notas se almacenan localmente — sin subida de notas, sin sincronización en la nube |
 | 🏗️ **Manifest V3** | Construida sobre Manifest V3 con arquitectura SidePanel |
 
@@ -97,7 +102,7 @@ Por tu seguridad, instala vkt-note solo a través de las tiendas oficiales de ex
 
 - **Clic derecho en una selección** → **Guardar en vkt-note**. El HTML de la selección se convierte a Markdown usando la librería Turndown. Cuando la selección está dentro de una celda de tabla, se expande a la celda, fila o tabla completa (la unidad completa más pequeña).
 - **Clic derecho en una imagen** → **Guardar en vkt-note**. El enlace de la imagen se guarda como imagen Markdown en una nueva nota.
-- **▦ Selector de tablas** (barra de herramientas). Lista todas las tablas de la página actual; haz clic en una para insertarla como tabla Markdown en la nota abierta (o en una nueva nota).
+- **▦ Selector de tablas** (barra de herramientas). Lista todas las tablas de la página actual; marca una o varias y pulsa **Insertar** — se convierten a Markdown y se añaden en orden de página (o en una nota nueva), y la página vuelve y resalta las tablas elegidas.
 
 ### Barra de herramientas de formato
 
@@ -110,7 +115,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 - Haz clic en **👁 Vista previa** para ver el contenido formateado en una **vista a pantalla completa** con un botón de volver — sin el editor visible
 - Nota de vista previa: las listas anidadas profundamente se aplanan a un solo nivel en la vista previa (el Markdown guardado siempre mantiene la fidelidad completa)
 - **Borrador de cupo**: si una nota nueva alcanza el límite diario, su contenido se guarda localmente y se te pregunta si deseas restaurarlo al abrir el panel la próxima vez
-- Los títulos se generan automáticamente como `Note N` — puedes editarlos libremente
+- Las notas guardadas con clic derecho usan el título de la página de origen; las notas nuevas en blanco empiezan como `Note N` — ambas se pueden editar libremente
 
 ### Reglas del nivel gratuito
 
@@ -122,9 +127,10 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 - Si una nota nueva es bloqueada por el límite diario, su contenido se guarda como borrador local — reabre el panel dentro de 24 horas para restaurarlo
 - Los números de secuencia de títulos de notas pueden tener huecos después de eliminar — esto es intencionado
 
-### Exportar (Solo Premium)
+### Exportar y descargar
 
-- Los usuarios Premium pueden hacer clic en **📥 Exportar** para descargar todas las notas como archivo JSON
+- **Nota individual → archivo .md**: pulsa el icono ⬇ en cualquier tarjeta de nota para descargarla como archivo Markdown (gratis)
+- **Todas las notas → JSON** (Premium): pulsa **📥 Exportar** para descargar todas las notas como respaldo JSON estructurado
 - El archivo exportado es solo para respaldo/referencia — **la extensión no soporta importar notas**
 
 ---
@@ -153,7 +159,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 vkt-note sigue principios de privacidad desde el diseño:
 
 - ✅ Todas las notas se almacenan en `chrome.storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
-- ✅ La única solicitud saliente es la comprobación opcional de licencia Premium (clave de licencia, hash del dispositivo, metadatos básicos del navegador) — sin notas, sin URL de páginas
+- ✅ La única solicitud saliente es la comprobación opcional de licencia Premium (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas
 - ✅ Sin analíticas, sin rastreo, sin cookies
 - ✅ El contenido de la página se accede solo cuando activas explícitamente guardar o insertar (menú contextual, botones de insertar, selector de tablas) — nunca en segundo plano
 - ✅ Los archivos JSON exportados se crean localmente y nunca se transmiten

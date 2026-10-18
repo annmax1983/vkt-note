@@ -28,18 +28,23 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 | Feature | Description |
 |---------|-------------|
-| 📝 **Save to vkt-note** | Right-click any selection or image → unified menu auto-detects content, converts HTML to Markdown, and saves silently |
+| 📝 **Save to vkt-note** | Right-click any selection or image → unified menu auto-detects content, converts HTML to Markdown, and saves silently — titled after the page |
 | 🔍 **Note Search** | Quickly filter the note list by title and content |
 | 📋 **Copy as Markdown** | One click copies any note as Markdown to the clipboard — a free local backup |
+| ↩️ **Undo Delete** | Deleted a note by mistake? Undo within 7 seconds — the quota slot comes back too |
+| 📌 **Pin to Top** | Keep frequently used notes pinned above the list |
+| 💾 **Download as .md** | Save any single note as a Markdown file — free, no copy-paste needed |
 | ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
+| ☑️ **Task Lists** | `- [ ]` / `- [x]` checklists render as real checkboxes in preview |
 | 🧩 **HTML → Markdown** | Uses the Turndown library (industry standard) to convert HTML — tables, headings, lists, links, code blocks, images, and more |
-| ▦ **Table Picker** | List every table on the current page — pick one to insert as a Markdown table |
+| ▦ **Table Picker** | List every table on the current page — tick one or several, insert them in page order as Markdown, and the page highlights your picks |
 | 📎 **Insert URL** | One-click insert current page URL as Markdown link |
 | 📑 **Insert Title** | One-click insert current page title into note |
 | 🛡 **Quota Draft** | If the daily quota blocks a new note, its content is kept in a local draft and a restore prompt appears the next time the panel opens |
 | 🛠️ **Formatting Toolbar** | Bold, Italic, Strikethrough, H1–H3, Link, Inline Code, Code Block, Bullet/Numbered List, Blockquote, Horizontal Rule |
 | 💾 **Auto-Save** | Notes auto-save 2 seconds after editing — no need to manually click Save |
 | 📋 **Daily Quota** | 3 new notes per day; editing existing notes does not consume quota |
+| 🔢 **Word Count** | Status bar shows total note count and word count (CJK characters and Latin words counted properly) |
 | 🔒 **Local Storage** | All notes stored locally — no note upload, no cloud sync |
 | 🏗️ **Manifest V3** | Built on Manifest V3 with SidePanel architecture |
 
@@ -97,7 +102,7 @@ For your safety, only install vkt-note through official browser extension stores
 
 - **Right-click a selection** → **Save to vkt-note**. The selection's HTML is converted to Markdown using the Turndown library. When the selection is inside a table cell, it is expanded to the complete cell, row, or table (the smallest complete unit).
 - **Right-click an image** → **Save to vkt-note**. The image link is saved as a Markdown image in a new note.
-- **▦ Table Picker** (toolbar). Lists every table on the current page; click one to insert it as a Markdown table into the open note (or a new note).
+- **▦ Table Picker** (toolbar). Lists every table on the current page; tick one or several and click **Insert** — they are converted to Markdown and appended in page order (or a new note), and the page scrolls back to highlight the tables you picked.
 
 ### Formatting Toolbar
 
@@ -110,7 +115,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - Click **👁 Preview** to see formatted content in a **full-screen view** with a back button — no editor chrome visible
 - Preview note: deeply nested lists flatten to a single level in preview (the saved Markdown always keeps full fidelity)
 - **Quota draft**: if a new note hits the daily limit, its content is kept locally and you're asked whether to restore it the next time the panel opens
-- Titles are auto-generated as `Note N` — you can edit them freely
+- Notes saved via right-click are titled after the source page; new blank notes start as `Note N` — both are freely editable
 
 ### Free Tier Rules
 
@@ -122,10 +127,11 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - If a new note is blocked by the daily limit, its content is saved as a local draft — reopen the panel within 24 hours to restore it
 - Note title sequence numbers may have gaps after deletion — this is by design
 
-### Export (Premium Only)
+### Export & Download
 
-- Premium users can click **📥 Export** to download all notes as a JSON file
-- The exported file is for backup/reference only — **the extension does not support importing notes**
+- **Single note → .md file**: click the ⬇ icon on any note card to download it as a Markdown file (free)
+- **All notes → JSON** (Premium): click **📥 Export** to download all notes as a structured JSON backup
+- Exported files are for backup/reference only — **the extension does not support importing notes**
 
 ---
 
@@ -153,7 +159,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 vkt-note follows privacy-by-design principles:
 
 - ✅ All notes stored in `chrome.storage.local` — **note content is never uploaded to any server**
-- ✅ The only outbound request is the optional Premium license check (license key, device hash, basic browser metadata) — no notes, no page URLs
+- ✅ The only outbound request is the optional Premium license check (license key, random install identifier, basic browser metadata) — no notes, no page URLs
 - ✅ No analytics, no tracking, no cookies
 - ✅ Page content is accessed only when you explicitly trigger save or insert (context menu, insert buttons, table picker) — never in the background
 - ✅ Exported JSON files are created locally and never transmitted

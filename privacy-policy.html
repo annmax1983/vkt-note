@@ -18,7 +18,7 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="date">Effective date: August 2026 · Last updated: September 26, 2026</p>
+<p class="date">Effective date: August 2026 · Last updated: October 18, 2026</p>
 
 <h2>Overview</h2>
 <p>vkt-note is a browser extension for Markdown note-taking with text selection support. <strong>All notes are stored locally in your browser using <code>chrome.storage.local</code>. Note content is never uploaded to any server.</strong></p>
@@ -44,7 +44,7 @@
   <tr><td><code>vkn_config</code></td><td>Configuration including premium status</td></tr>
   <tr><td><code>vkn_clipboard_md</code></td><td>Text or image you saved from the right-click menu, waiting to be inserted into a note (deleted once consumed, or after 5 minutes)</td></tr>
   <tr><td><code>vkn_note_draft</code></td><td>Unsaved draft kept when the daily free-tier limit blocks a new note, so it can be restored</td></tr>
-  <tr><td><code>vkn_global_device_id</code></td><td>Non-identifying device hash used only to count license activations</td></tr>
+  <tr><td><code>vkt_install_id</code></td><td>Random per-installation identifier used only to count license activations</td></tr>
   <tr><td><code>vkt_license_vktnote</code></td><td>Your license key, its status, plan and expiry date (Premium only)</td></tr>
   <tr><td><code>vkt_last_validate_vktnote</code></td><td>Timestamp of the last successful license check (Premium only)</td></tr>
 </table>
@@ -53,6 +53,7 @@
 <table>
   <tr><th>Permission</th><th>Reason</th></tr>
   <tr><td><code>storage</code></td><td>Save notes and settings locally</td></tr>
+  <tr><td><code>unlimitedStorage</code></td><td>Lift the default 10 MB ceiling on local storage so a long note history never hits a write failure</td></tr>
   <tr><td><code>sidePanel</code></td><td>Display the extension UI in a side panel</td></tr>
   <tr><td><code>contextMenus</code></td><td>Right-click menu for creating notes from selected text or images</td></tr>
   <tr><td><code>scripting</code></td><td>Inject the HTML→Markdown converter only when you trigger save / insert / table actions</td></tr>
@@ -68,7 +69,7 @@
 </ul>
 
 <h2 id="third-party">Third-Party Services</h2>
-<p>License key activation and periodic re-validation communicate with <code>api.annmax1983.com</code>. Each request contains the license key you entered, a device hash, the plugin ID, and basic technical metadata (browser name and major version, browser UI language, time zone, and user agent string). It never contains note content, exported notes, page URLs, or browsing history. Requests are made only when you activate or remove a license, or while a license is active and due for its periodic check.</p>
+<p>License key activation and periodic re-validation communicate with <code>api.annmax1983.com</code>. Each request contains the license key you entered, a randomly generated install identifier, the plugin ID, and basic technical metadata (browser name and major version, browser UI language, time zone, and user agent string). It never contains note content, exported notes, page URLs, or browsing history. Requests are made only when you activate or remove a license, or while a license is active and due for its periodic check. Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p>
 
 <h2>Data Deletion</h2>
 <p>You can delete individual notes through the extension UI. Uninstalling the extension removes all stored data permanently.</p>

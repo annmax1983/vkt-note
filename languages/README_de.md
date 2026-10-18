@@ -28,18 +28,23 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 | Funktion | Beschreibung |
 |----------|-------------|
-| 📝 **In vkt-note speichern** | Rechtsklick auf Text oder Bild → einheitliches Menü erkennt Inhalt automatisch, wandelt HTML in Markdown um und speichert leise |
+| 📝 **In vkt-note speichern** | Rechtsklick auf Text oder Bild → einheitliches Menü erkennt Inhalt automatisch, wandelt HTML in Markdown um und speichert leise — Titel kommt vom Seitentitel |
 | 🔍 **Notizen durchsuchen** | Notizliste schnell nach Titel und Inhalt filtern |
 | 📋 **Als Markdown kopieren** | Ein Klick kopiert jede Notiz als Markdown in die Zwischenablage — ein lokales Backup |
+| ↩️ **Löschen rückgängig** | Versehentlich gelöscht? Innerhalb von 7 Sekunden wiederherstellen — Kontingent inklusive |
+| 📌 **Anheften** | Häufig genutzte Notizen oben in der Liste fixieren |
+| 💾 **Als .md herunterladen** | Einzelne Notiz als Markdown-Datei speichern — kostenlos, ohne Kopieren und Einfügen |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Vollbild-Vorschau |
+| ☑️ **Aufgabenlisten** | `- [ ]` / `- [x]` Checklists werden in der Vorschau als echte Checkboxen gerendert |
 | 🧩 **HTML → Markdown** | Nutzt die Turndown-Bibliothek (Branchenstandard) — Tabellen, Überschriften, Listen, Links, Codeblöcke, Bilder usw. |
-| ▦ **Tabellenauswahl** | Listet alle Tabellen der aktuellen Seite — eine Auswahl fügt sie als Markdown-Tabelle ein |
+| ▦ **Tabellenauswahl** | Listet alle Tabellen der aktuellen Seite — eine oder mehrere ankreuzen, in Seitenreihenfolge als Markdown einfügen; die Seite hebt die Auswahl hervor |
 | 📎 **URL einfügen** | Ein-Klick-Einfügung der aktuellen Seiten-URL als Markdown-Link |
 | 📑 **Titel einfügen** | Ein-Klick-Einfügung des aktuellen Seitentitels in die Notiz |
 | 🛡 **Kontingent-Entwurf** | Blockiert das Tageskontingent eine neue Notiz, bleibt der Inhalt als lokaler Entwurf erhalten — beim nächsten Öffnen des Panels erscheint eine Wiederherstellungsabfrage |
 | 🛠️ **Formatierungsleiste** | Fett, Kursiv, Durchgestrichen, H1–H3, Link, Inline-Code, Codeblock, Aufzählung/Nummerierung, Zitat, Trennlinie |
 | 💾 **Auto-Speicherung** | Notizen werden 2 Sekunden nach der Bearbeitung automatisch gespeichert |
 | 📋 **Tageskontingent** | Maximal 3 neue Notizen pro Tag; Bearbeitung bestehender Notizen verbraucht kein Kontingent |
+| 🔢 **Wortzähler** | Statusleiste zeigt Gesamtzahl der Notizen und Wörter (CJK-Zeichen und lateinische Wörter korrekt gezählt) |
 | 🔒 **Lokale Speicherung** | Alle Notizen lokal — keine Notiz-Übertragung, keine Cloud |
 | 🏗️ **Manifest V3** | Aufgebaut auf Manifest V3 mit SidePanel-Architektur |
 
@@ -97,7 +102,7 @@ Zu Ihrer Sicherheit vkt-note nur über offizielle Browser-Erweiterungstores inst
 
 - **Rechtsklick auf Auswahl** → **In vkt-note speichern**. Das HTML der Auswahl wird mit der Turndown-Bibliothek in Markdown umgewandelt. Wenn die Auswahl in einer Tabellenzelle steht, wird sie auf die vollständige Zelle, Zeile oder Tabelle erweitert (die kleinste vollständige Einheit).
 - **Rechtsklick auf Bild** → **In vkt-note speichern**. Der Bildlink wird als Markdown-Bild in einer neuen Notiz gespeichert.
-- **▦ Tabellenauswahl** (Toolbar). Listet alle Tabellen der aktuellen Seite; Klick fügt sie als Markdown-Tabelle in die offene Notiz ein (oder in eine neue Notiz).
+- **▦ Tabellenauswahl** (Toolbar). Listet alle Tabellen der aktuellen Seite; eine oder mehrere ankreuzen und auf **Einfügen** klicken — sie werden in Seitenreihenfolge als Markdown angehängt (oder in eine neue Notiz), und die Seite scrollt zurück und hebt die gewählten Tabellen hervor.
 
 ### Formatierungsleiste
 
@@ -109,7 +114,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 - Der **Speichern**-Button funktioniert weiterhin für sofortiges Speichern
 - **👁 Vorschau** für formatierte Inhalte in **Vollbild-Ansicht** mit Zurück-Button — ohne Editor-Oberfläche
 - **Kontingent-Entwurf**: Blockiert das Tageslimit eine neue Notiz, wird der Inhalt lokal behalten und beim nächsten Öffnen des Panels eine Wiederherstellung angeboten
-- Titel werden automatisch als `Note N` generiert — frei editierbar
+- Per Rechtsklick gespeicherte Notizen erhalten den Titel der Quellseite; neue leere Notizen starten als `Note N` — beides frei editierbar
 
 ### Regeln für die kostenlose Stufe
 
@@ -121,9 +126,10 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 - Blockiert das Tageslimit eine neue Notiz, wird ihr Inhalt als lokaler Entwurf gespeichert — stellen Sie ihn wieder her, indem Sie das Panel innerhalb von 24 Stunden erneut öffnen
 - Titel-Sequenznummern können nach dem Löschen Lücken haben — das ist so gewollt
 
-### Export (nur Premium)
+### Export & Download
 
-- Premium-Nutzer können **📥 Export** klicken, um alle Notizen als JSON-Datei herunterzuladen
+- **Einzelne Notiz → .md-Datei**: Klick auf das ⬇-Symbol auf einer Notizkarte lädt sie als Markdown-Datei herunter (kostenlos)
+- **Alle Notizen → JSON** (Premium): **📥 Export** lädt alle Notizen als strukturiertes JSON-Backup herunter
 - Die exportierte Datei dient nur zur Sicherung/Referenz — **die Erweiterung unterstützt keinen Import von Notizen**
 
 ---
@@ -152,7 +158,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 - ✅ Alle Notizen in `chrome.storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
-- ✅ Die einzige ausgehende Anfrage ist die optionale Premium-Lizenzprüfung (Lizenzschlüssel, Geräte-Hash, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs
+- ✅ Die einzige ausgehende Anfrage ist die optionale Premium-Lizenzprüfung (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs
 - ✅ Keine Analyse, kein Tracking, keine Cookies
 - ✅ Seiteninhalt wird nur bei explizitem Auslösen von Speichern/Einfügen/Tabellenauswahl gelesen (Kontextmenü, Einfügen-Buttons, Tabellenauswahl) — nie im Hintergrund
 - ✅ Exportierte JSON-Dateien werden lokal erstellt und niemals übertragen

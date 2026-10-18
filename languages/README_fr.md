@@ -28,18 +28,23 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 
 | Fonctionnalité | Description |
 |---------|-------------|
-| 📝 **Sauvegarder dans vkt-note** | Clic droit sur n'importe quelle sélection ou image → le menu unifié détecte automatiquement le contenu, convertit le HTML en Markdown et sauvegarde silencieusement |
+| 📝 **Sauvegarder dans vkt-note** | Clic droit sur n'importe quelle sélection ou image → le menu unifié détecte automatiquement le contenu, convertit le HTML en Markdown et sauvegarde silencieusement — titre repris de la page |
 | 🔍 **Recherche de notes** | Filtrez rapidement la liste des notes par titre et contenu |
 | 📋 **Copier en Markdown** | Un clic copie n'importe quelle note en Markdown dans le presse-papiers — une sauvegarde locale gratuite |
+| ↩️ **Annuler la suppression** | Note supprimée par erreur ? Annulez dans les 7 secondes — le quota aussi |
+| 📌 **Épingler en haut** | Gardez les notes fréquentes épinglées en tête de liste |
+| 💾 **Télécharger en .md** | Enregistrez n'importe quelle note en fichier Markdown — gratuit, sans copier-coller |
 | ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et prévisualisation plein écran |
+| ☑️ **Listes de tâches** | Les listes `- [ ]` / `- [x]` s'affichent comme de vraies cases à cocher dans l'aperçu |
 | 🧩 **HTML → Markdown** | Utilise la bibliothèque Turndown (standard de l'industrie) pour convertir le HTML — tableaux, titres, listes, liens, blocs de code, images, etc. |
-| ▦ **Sélecteur de tableaux** | Liste chaque tableau de la page courante — choisissez-en un pour l'insérer en tant que tableau Markdown |
+| ▦ **Sélecteur de tableaux** | Liste chaque tableau de la page courante — cochez-en un ou plusieurs et insérez-les dans l'ordre de la page en Markdown ; la page met en surbrillance vos choix |
 | 📎 **Insérer une URL** | Insérez en un clic l'URL de la page courante en tant que lien Markdown |
 | 📑 **Insérer un titre** | Insérez en un clic le titre de la page courante dans la note |
 | 🛡 **Brouillon de quota** | Si le quota quotidien bloque une nouvelle note, son contenu est conservé comme brouillon local et une restauration est proposée à la prochaine ouverture du panneau |
 | 🛠️ **Barre d'outils de formatage** | Gras, Italique, Barré, H1–H3, Lien, Code inline, Bloc de code, Liste à puces/numérotée, Citation, Ligne horizontale |
 | 💾 **Sauvegarde automatique** | Les notes se sauvegardent automatiquement 2 secondes après la modification — pas besoin de cliquer sur Sauvegarder manuellement |
 | 📋 **Quota quotidien** | 3 nouvelles notes par jour ; la modification de notes existantes ne consomme pas de quota |
+| 🔢 **Compteur de mots** | La barre d'état affiche le nombre total de notes et de mots (caractères CJK et mots latins comptés correctement) |
 | 🔒 **Stockage local** | Toutes les notes stockées localement — aucun envoi de notes, pas de synchronisation cloud |
 | 🏗️ **Manifest V3** | Construit sur le Manifest V3 avec l'architecture SidePanel |
 
@@ -97,7 +102,7 @@ Pour votre sécurité, n'installez vkt-note que via les boutiques officielles d'
 
 - **Clic droit sur une sélection** → **Sauvegarder dans vkt-note**. Le HTML de la sélection est converti en Markdown via la bibliothèque Turndown. Quand la sélection se trouve dans une cellule de tableau, elle est étendue à la cellule complète, la ligne ou le tableau (l'unité complète la plus petite).
 - **Clic droit sur une image** → **Sauvegarder dans vkt-note**. Le lien de l'image est sauvegardé en tant qu'image Markdown dans une nouvelle note.
-- **▦ Sélecteur de tableaux** (barre d'outils). Liste chaque tableau de la page courante ; cliquez-en un pour l'insérer en tant que tableau Markdown dans la note ouverte (ou dans une nouvelle note).
+- **▦ Sélecteur de tableaux** (barre d'outils). Liste chaque tableau de la page courante ; cochez-en un ou plusieurs et cliquez sur **Insérer** — ils sont convertis en Markdown et ajoutés dans l'ordre de la page (ou dans une nouvelle note), et la page revient en surlignant les tableaux choisis.
 
 ### Barre d'outils de formatage
 
@@ -110,7 +115,7 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 - Cliquez sur **👁 Aperçu** pour voir le contenu formaté en **vue plein écran** avec un bouton de retour — aucune interface d'éditeur visible
 - Note d'aperçu : les listes profondément imbriquées sont aplaties à un seul niveau dans l'aperçu (le Markdown sauvegardé conserve toujours toute la fidélité)
 - **Brouillon de quota** : si une nouvelle note atteint la limite quotidienne, son contenu est conservé localement et il vous est demandé de la restaurer à la prochaine ouverture du panneau
-- Les titres sont générés automatiquement sous la forme `Note N` — vous pouvez les modifier librement
+- Les notes sauvegardées par clic droit reprennent le titre de la page source ; les nouvelles notes vides commencent en `Note N` — les deux sont modifiables librement
 
 ### Règles du niveau gratuit
 
@@ -122,9 +127,10 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 - Si une nouvelle note est bloquée par la limite quotidienne, son contenu est enregistré comme brouillon local — rouvrez le panneau dans les 24 heures pour le restaurer
 - Les numéros de séquence des titres de notes peuvent présenter des trous après suppression — c'est prévu ainsi
 
-### Export (Premium uniquement)
+### Exporter et télécharger
 
-- Les utilisateurs Premium peuvent cliquer sur **📥 Exporter** pour télécharger toutes les notes en fichier JSON
+- **Note individuelle → fichier .md** : cliquez sur l'icône ⬇ de n'importe quelle note pour la télécharger en fichier Markdown (gratuit)
+- **Toutes les notes → JSON** (Premium) : cliquez sur **📥 Exporter** pour télécharger toutes les notes en sauvegarde JSON structurée
 - Le fichier exporté est destiné à la sauvegarde/consultation uniquement — **l'extension ne supporte pas l'import de notes**
 
 ---
@@ -153,7 +159,7 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 vkt-note respecte les principes de confidentialité dès la conception :
 
 - ✅ Toutes les notes stockées dans `chrome.storage.local` — **le contenu des notes n'est jamais envoyé à un serveur**
-- ✅ La seule requête sortante est la vérification facultative de licence Premium (clé de licence, empreinte d'appareil, métadonnées de navigateur de base) — aucune note, aucune URL de page
+- ✅ La seule requête sortante est la vérification facultative de licence Premium (clé de licence, un identifiant d'installation aléatoire, métadonnées de navigateur de base) — aucune note, aucune URL de page
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
 - ✅ Le contenu des pages n'est accédé que lorsque vous déclenchez explicitement une sauvegarde ou une insertion (menu contextuel, boutons d'insertion, sélecteur de tableaux) — jamais en arrière-plan
 - ✅ Les fichiers JSON exportés sont créés localement et jamais transmis
