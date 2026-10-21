@@ -16,8 +16,8 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 |---------|--------|
 | 📝 **Textauswahl** | Text auf jeder Webseite auswählen, Rechtsklick → sofort als Markdown-Notiz speichern |
 | 🔒 **Nur lokal** | Alle Notizen in `chrome.storage.local` — keine Cloud, kein Konto, kein Tracking |
-| ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Vollbild-Vorschau |
-| 🛡 **Entwurf-Schutz** | Vom Tageslimit blockierte neue Notizen bleiben als lokaler Entwurf erhalten — nichts geht verloren |
+| ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
+| 🛡 **Entwurf-Schutz** | Vom Tageslimit blockierte Notizen bleiben in einem lokalen Entwurf-Slot erhalten und werden zur Wiederherstellung angeboten |
 | 📋 **Smartes Kontingent** | Kostenlos 3 Notizen/Tag; löschen Sie heutige Notizen, um Slots freizugeben — nie ausgesperrt |
 
 ---
@@ -34,7 +34,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | ↩️ **Löschen rückgängig** | Versehentlich gelöscht? Innerhalb von 7 Sekunden wiederherstellen — Kontingent inklusive |
 | 📌 **Anheften** | Häufig genutzte Notizen oben in der Liste fixieren |
 | 💾 **Als .md herunterladen** | Einzelne Notiz als Markdown-Datei speichern — kostenlos, ohne Kopieren und Einfügen |
-| ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Vollbild-Vorschau |
+| ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
 | ☑️ **Aufgabenlisten** | `- [ ]` / `- [x]` Checklists werden in der Vorschau als echte Checkboxen gerendert |
 | 🧩 **HTML → Markdown** | Nutzt die Turndown-Bibliothek (Branchenstandard) — Tabellen, Überschriften, Listen, Links, Codeblöcke, Bilder usw. |
 | ▦ **Tabellenauswahl** | Listet alle Tabellen der aktuellen Seite — eine oder mehrere ankreuzen, in Seitenreihenfolge als Markdown einfügen; die Seite hebt die Auswahl hervor |
@@ -54,15 +54,14 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 |----------|-------------|
 | ♾️ **Unbegrenzte Notizen** | Kein Tageslimit — erstellen Sie so viele Notizen wie Sie möchten |
 | 📤 **Alle Notizen exportieren** | Alle Notizen als strukturierte JSON-Backup-Datei herunterladen |
-| 💬 **Priority-Support** | Prioritäts-E-Mail-Support für Premium-Nutzer |
 
-> Siehe [VKT Pricing](https://www.annmax1983.com/pricing.html) für Lizenzoptionen.
+> Siehe [VKT Pricing](https://www.annmax1983.com/checkout.html?plugin=vktnote) für Lizenzoptionen.
 
 ---
 
 ## Vorschau
 
-> 📸 Screenshots werden mit der Store-Veröffentlichung veröffentlicht.
+> 📸 Store-Grafiken und Screenshots liegen im Verzeichnis `screenshot/`.
 
 ---
 
@@ -112,7 +111,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 
 - Notizen werden **2 Sekunden** nach der letzten Eingabe automatisch gespeichert — kein manueller Klick auf Speichern nötig
 - Der **Speichern**-Button funktioniert weiterhin für sofortiges Speichern
-- **👁 Vorschau** für formatierte Inhalte in **Vollbild-Ansicht** mit Zurück-Button — ohne Editor-Oberfläche
+- **👁 Vorschau** zeigt die gerenderten Markdown-Inhalte im Vorschau-Tab des Editors
 - **Kontingent-Entwurf**: Blockiert das Tageslimit eine neue Notiz, wird der Inhalt lokal behalten und beim nächsten Öffnen des Panels eine Wiederherstellung angeboten
 - Per Rechtsklick gespeicherte Notizen erhalten den Titel der Quellseite; neue leere Notizen starten als `Note N` — beides frei editierbar
 
@@ -140,7 +139,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
    Das Menü erscheint bei Textauswahl oder Rechtsklick auf ein Bild. Es verwendet die einheitliche Option „In vkt-note speichern".
 
 2. **Notizen nach Neuinstallation verschwunden?**
-   Alle Notizen sind in `chrome.storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation (Premium-Funktion).
+   Alle Notizen sind in `chrome.storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation (Premium exportiert alle Notizen als eine JSON-Datei; in der kostenlosen Version können Sie Notizen einzeln kopieren oder herunterladen).
 
 3. **Bilder in Notizen werden nicht angezeigt?**
    Markdown-Bilder speichern nur Remote-URLs. Wenn die Quellseite nicht erreichbar ist, Hotlinking blockiert oder das Bild entfernt wurde, wird es nicht geladen.
@@ -168,6 +167,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 | Berechtigung | Grund |
 |--------------|-------|
 | `storage` | Notizen und Einstellungen lokal speichern |
+| `unlimitedStorage` | Hebt die standardmäßige lokale Speichergrenze an, damit eine lange Notizhistorie nie an ein Schreiblimit stößt |
 | `sidePanel` | Erweiterungs-UI in einer Seitenleiste anzeigen |
 | `contextMenus` | Rechtsklick-Menü zum Erstellen von Notizen aus Textauswahl oder Bildern |
 | `scripting` | HTML→Markdown-Konverter nur bei Speichern/Einfügen/Tabellen-Aktionen injizieren |
@@ -187,7 +187,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 ## Hinweis zum Quellcode
 
-> ⚠️ **Dieses Repository veröffentlicht keinen Quellcode.** Es enthält nur Nutzerdokumentation, Versionshinweise und Support-Ressourcen. Die Erweiterung wird ausschließlich über den Chrome Web Store vertrieben. Es werden keine Offline-Installationspakete oder Quellcodes für Endbenutzer bereitgestellt.
+> ⚠️ **Dieses Repository wird für die Entwicklung und das Verpacken von Releases gepflegt.** Der Quellcode ist proprietär und darf nicht weiterverbreitet oder neu verpackt werden. Die Erweiterung wird über offizielle Browser-Erweiterungstores (Chrome Web Store und Microsoft Edge Add-ons) vertrieben; es werden keine Offline-Installationspakete bereitgestellt.
 
 ---
 

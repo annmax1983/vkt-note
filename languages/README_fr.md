@@ -16,8 +16,8 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 |-----------|--------|
 | 📝 **Sélection de texte** | Sélectionnez du texte sur n'importe quelle page web, faites un clic droit pour sauvegarder instantanément en note Markdown |
 | 🔒 **100 % local** | Toutes les notes stockées dans `chrome.storage.local` — pas de cloud, pas de comptes, pas de suivi |
-| ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et prévisualisation plein écran |
-| 🛡 **Sauvetage de brouillon** | Les nouvelles notes bloquées par la limite quotidienne sont conservées comme brouillon local et proposées pour restauration — rien de ce que vous écrivez n'est perdu |
+| ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et aperçu Markdown en direct |
+| 🛡 **Sauvetage de brouillon** | Les notes bloquées par la limite quotidienne sont conservées dans un emplacement de brouillon local et proposées pour restauration |
 | 📋 **Quota intelligent** | 3 notes/jour gratuites ; supprimez les notes du jour pour récupérer des emplacements — jamais bloqué |
 
 ---
@@ -34,7 +34,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | ↩️ **Annuler la suppression** | Note supprimée par erreur ? Annulez dans les 7 secondes — le quota aussi |
 | 📌 **Épingler en haut** | Gardez les notes fréquentes épinglées en tête de liste |
 | 💾 **Télécharger en .md** | Enregistrez n'importe quelle note en fichier Markdown — gratuit, sans copier-coller |
-| ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et prévisualisation plein écran |
+| ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et aperçu Markdown en direct |
 | ☑️ **Listes de tâches** | Les listes `- [ ]` / `- [x]` s'affichent comme de vraies cases à cocher dans l'aperçu |
 | 🧩 **HTML → Markdown** | Utilise la bibliothèque Turndown (standard de l'industrie) pour convertir le HTML — tableaux, titres, listes, liens, blocs de code, images, etc. |
 | ▦ **Sélecteur de tableaux** | Liste chaque tableau de la page courante — cochez-en un ou plusieurs et insérez-les dans l'ordre de la page en Markdown ; la page met en surbrillance vos choix |
@@ -54,15 +54,14 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 |---------|-------------|
 | ♾️ **Notes illimitées** | Pas de quota quotidien — créez autant de notes que vous voulez |
 | 📤 **Exporter toutes les notes** | Téléchargez toutes les notes en fichier JSON structuré |
-| 💬 **Support prioritaire** | Support e-mail prioritaire pour les utilisateurs Premium |
 
-> Voir les [tarifs VKT](https://www.annmax1983.com/pricing.html) pour les options de licence.
+> Voir les [tarifs VKT](https://www.annmax1983.com/checkout.html?plugin=vktnote) pour les options de licence.
 
 ---
 
 ## Aperçu
 
-> 📸 Les captures d'écran seront publiées ici avec la présentation de la boutique.
+> 📸 Les visuels de la boutique et les captures d'écran se trouvent dans le répertoire `screenshot/`.
 
 ---
 
@@ -112,7 +111,7 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 
 - Les notes se **sauvegardent automatiquement 2 secondes** après la fin de la saisie — pas besoin de cliquer sur Sauvegarder manuellement
 - Le bouton **Sauvegarder** fonctionne toujours pour une sauvegarde immédiate
-- Cliquez sur **👁 Aperçu** pour voir le contenu formaté en **vue plein écran** avec un bouton de retour — aucune interface d'éditeur visible
+- Cliquez sur **👁 Aperçu** pour afficher le Markdown rendu dans l'onglet d'aperçu de l'éditeur
 - Note d'aperçu : les listes profondément imbriquées sont aplaties à un seul niveau dans l'aperçu (le Markdown sauvegardé conserve toujours toute la fidélité)
 - **Brouillon de quota** : si une nouvelle note atteint la limite quotidienne, son contenu est conservé localement et il vous est demandé de la restaurer à la prochaine ouverture du panneau
 - Les notes sauvegardées par clic droit reprennent le titre de la page source ; les nouvelles notes vides commencent en `Note N` — les deux sont modifiables librement
@@ -141,7 +140,7 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
    Le menu apparaît quand vous sélectionnez du texte ou faites un clic droit sur une image. Il utilise l'option unifiée « Sauvegarder dans vkt-note ».
 
 2. **Les notes disparaissent après réinstallation ?**
-   Toutes les notes sont stockées dans `chrome.storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation (fonctionnalité Premium).
+   Toutes les notes sont stockées dans `chrome.storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation (Premium exporte toutes les notes dans un seul fichier JSON ; la version gratuite permet de copier ou télécharger les notes une par une).
 
 3. **Les images dans les notes s'affichent cassées ?**
    Les images Markdown stockent uniquement les URLs distantes. Si le site source est en panne, bloque le hotlinking ou si l'image est supprimée, elle ne se chargera pas.
@@ -169,6 +168,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 | Permission | Raison |
 |------------|--------|
 | `storage` | Sauvegarder les notes et les paramètres en local |
+| `unlimitedStorage` | Relève le plafond de stockage local par défaut afin qu'un long historique de notes ne rencontre jamais d'échec d'écriture |
 | `sidePanel` | Afficher l'interface de l'extension dans un panneau latéral |
 | `contextMenus` | Menu contextuel pour créer des notes à partir de texte ou d'images sélectionnés |
 | `scripting` | Injecter le convertisseur HTML→Markdown uniquement quand vous déclenchez une action de sauvegarde / insertion / tableau |
@@ -188,7 +188,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 
 ## Avis sur le code source
 
-> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de version et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store. Aucun package d'installation hors ligne ni code source destiné aux utilisateurs finaux n'est fourni.
+> ⚠️ **Ce dépôt est maintenu pour le développement et le conditionnement des versions.** Le code source est propriétaire et ne peut être ni redistribué ni reconditionné. L'extension est distribuée via les boutiques officielles d'extensions de navigateur (Chrome Web Store et Microsoft Edge Add-ons) ; aucun package d'installation hors ligne n'est fourni.
 
 ---
 

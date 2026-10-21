@@ -16,8 +16,8 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 |-----------|--------|
 | 📝 **Text Selection** | Select text on any webpage, right-click to save as a Markdown note instantly |
 | 🔒 **Local Only** | All notes stored in `chrome.storage.local` — no cloud, no accounts, no tracking |
-| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
-| 🛡 **Draft Rescue** | New notes blocked by the daily limit are kept as a local draft and offered for restore — nothing you typed is silently lost |
+| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and live Markdown preview |
+| 🛡 **Draft Rescue** | New notes blocked by the daily limit are kept in a local draft queue and offered for restore |
 | 📋 **Smart Quota** | Free 3 notes/day; delete today's notes to reclaim slots — never locked out |
 
 ---
@@ -34,13 +34,13 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | ↩️ **Undo Delete** | Deleted a note by mistake? Undo within 7 seconds — the quota slot comes back too |
 | 📌 **Pin to Top** | Keep frequently used notes pinned above the list |
 | 💾 **Download as .md** | Save any single note as a Markdown file — free, no copy-paste needed |
-| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and full-screen preview |
+| ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and live Markdown preview |
 | ☑️ **Task Lists** | `- [ ]` / `- [x]` checklists render as real checkboxes in preview |
 | 🧩 **HTML → Markdown** | Uses the Turndown library (industry standard) to convert HTML — tables, headings, lists, links, code blocks, images, and more |
 | ▦ **Table Picker** | List every table on the current page — tick one or several, insert them in page order as Markdown, and the page highlights your picks |
 | 📎 **Insert URL** | One-click insert current page URL as Markdown link |
 | 📑 **Insert Title** | One-click insert current page title into note |
-| 🛡 **Quota Draft** | If the daily quota blocks a new note, its content is kept in a local draft and a restore prompt appears the next time the panel opens |
+| 🛡 **Quota Drafts** | If the daily quota blocks a new note, its content joins a local draft queue (up to 50 drafts, kept 24 hours); a restore list appears the next time the panel opens |
 | 🛠️ **Formatting Toolbar** | Bold, Italic, Strikethrough, H1–H3, Link, Inline Code, Code Block, Bullet/Numbered List, Blockquote, Horizontal Rule |
 | 💾 **Auto-Save** | Notes auto-save 2 seconds after editing — no need to manually click Save |
 | 📋 **Daily Quota** | 3 new notes per day; editing existing notes does not consume quota |
@@ -54,15 +54,14 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 |---------|-------------|
 | ♾️ **Unlimited Notes** | No daily quota — create as many notes as you want |
 | 📤 **Export All Notes** | Download all notes as a structured JSON backup file |
-| 💬 **Priority Support** | Priority email support for Premium users |
 
-> See [VKT Pricing](https://www.annmax1983.com/pricing.html) for license options.
+> See [VKT Pricing](https://www.annmax1983.com/checkout.html?plugin=vktnote) for license options.
 
 ---
 
 ## Preview
 
-> 📸 Screenshots will be published here with the store listing.
+> 📸 Store artwork and screenshots are kept in [`screenshot/`](screenshot/).
 
 ---
 
@@ -112,9 +111,9 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 
 - Notes **auto-save 2 seconds** after you stop typing — no need to click Save manually
 - The **Save** button still works for immediate save
-- Click **👁 Preview** to see formatted content in a **full-screen view** with a back button — no editor chrome visible
+- Click **👁 Preview** to render the note as Markdown in the preview tab
 - Preview note: deeply nested lists flatten to a single level in preview (the saved Markdown always keeps full fidelity)
-- **Quota draft**: if a new note hits the daily limit, its content is kept locally and you're asked whether to restore it the next time the panel opens
+- **Quota drafts**: if a new note hits the daily limit, its content joins a local draft queue; the next time the panel opens you can restore or delete any recent draft
 - Notes saved via right-click are titled after the source page; new blank notes start as `Note N` — both are freely editable
 
 ### Free Tier Rules
@@ -124,7 +123,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - Editing existing notes does **not** consume quota
 - Deleting a note created **today** restores one quota slot
 - Deleting a note from a previous day does **not** affect today's quota
-- If a new note is blocked by the daily limit, its content is saved as a local draft — reopen the panel within 24 hours to restore it
+- If a new note is blocked by the daily limit, its content is saved in a local draft queue — drafts stay for 24 hours (up to 50) and can be restored from the list that appears when the panel opens
 - Note title sequence numbers may have gaps after deletion — this is by design
 
 ### Export & Download
@@ -141,7 +140,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
    The menu appears when you select text or right-click an image. It uses the unified "Save to vkt-note" option.
 
 2. **Notes disappear after reinstalling?**
-   All notes are stored in `chrome.storage.local`. Uninstalling the extension permanently deletes all data. Export your notes before uninstalling (Premium feature).
+   All notes are stored in `chrome.storage.local`. Uninstalling the extension permanently deletes all data. Export your notes before uninstalling (Premium exports everything as one JSON file; the free plan can copy or download notes individually).
 
 3. **Images in notes show as broken?**
    Markdown images store remote URLs only. If the source website is down, blocks hotlinking, or the image is removed, the image will not load.
@@ -150,7 +149,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
    No. The JSON export is for manual backup only. The extension does not support importing notes back.
 
 5. **How do I get more than 3 notes per day?**
-   Delete notes created today to free up slots, or upgrade to Premium for unlimited notes.
+   Delete notes created today to free up slots, or activate Premium from the upgrade prompt for unlimited notes.
 
 ---
 
@@ -169,6 +168,7 @@ vkt-note follows privacy-by-design principles:
 | Permission | Reason |
 |------------|--------|
 | `storage` | Save notes and settings locally |
+| `unlimitedStorage` | Lift the default local storage ceiling so a long note history never hits a write failure |
 | `sidePanel` | Display the extension UI in a side panel |
 | `contextMenus` | Right-click menu for creating notes from selected text or images |
 | `scripting` | Inject the HTML→Markdown converter only when you trigger save / insert / table actions |
@@ -188,7 +188,7 @@ vkt-note follows privacy-by-design principles:
 
 ## Source Code Notice
 
-> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store. No offline installation packages or end-user source code are provided.
+> ⚠️ **This repository is maintained for development and release packaging.** The source code is proprietary and may not be redistributed or repackaged. The extension is distributed through official browser extension stores (Chrome Web Store and Microsoft Edge Add-ons); no offline installation packages are distributed to end users.
 
 ---
 

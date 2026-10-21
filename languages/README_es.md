@@ -16,8 +16,8 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 |---------|--------|
 | 📝 **Selección de texto** | Selecciona texto en cualquier página web, clic derecho para guardar como nota Markdown al instante |
 | 🔒 **Solo local** | Todas las notas se almacenan en `chrome.storage.local` — sin nube, sin cuentas, sin rastreo |
-| ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa a pantalla completa |
-| 🛡 **Rescate de borrador** | Las notas nuevas bloqueadas por el límite diario se guardan como borrador local y se ofrecen para restaurar — nada de lo escrito se pierde |
+| ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
+| 🛡 **Rescate de borrador** | Las notas bloqueadas por el límite diario se guardan en un espacio de borrador local y se ofrecen para restaurar |
 | 📋 **Cuota inteligente** | 3 notas/día gratis; elimina las notas de hoy para recuperar espacios — nunca te quedarás bloqueado |
 
 ---
@@ -34,7 +34,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | ↩️ **Deshacer eliminación** | ¿Borraste una nota por error? Deshaz en 7 segundos — el cupo también vuelve |
 | 📌 **Fijar arriba** | Mantén las notas frecuentes fijadas encima de la lista |
 | 💾 **Descargar como .md** | Guarda cualquier nota como archivo Markdown — gratis, sin copiar y pegar |
-| ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa a pantalla completa |
+| ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
 | ☑️ **Listas de tareas** | Las listas `- [ ]` / `- [x]` se muestran como casillas reales en la vista previa |
 | 🧩 **HTML → Markdown** | Usa la librería Turndown (estándar de la industria) para convertir HTML — tablas, encabezados, listas, enlaces, bloques de código, imágenes y más |
 | ▦ **Selector de tablas** | Lista todas las tablas de la página actual — marca una o varias e insértalas en orden de página como Markdown; la página resalta las elegidas |
@@ -54,15 +54,14 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 |---------|-------------|
 | ♾️ **Notas ilimitadas** | Sin cuota diaria — crea tantas notas como quieras |
 | 📤 **Exportar todas las notas** | Descarga todas las notas como archivo de respaldo JSON estructurado |
-| 💬 **Soporte prioritario** | Soporte prioritario por correo electrónico para usuarios Premium |
 
-> Consulta [VKT Pricing](https://www.annmax1983.com/pricing.html) para opciones de licencia.
+> Consulta [VKT Pricing](https://www.annmax1983.com/checkout.html?plugin=vktnote) para opciones de licencia.
 
 ---
 
 ## Vista previa
 
-> 📸 Las capturas de pantalla se publicarán aquí con el listado de la tienda.
+> 📸 Los recursos gráficos y las capturas de pantalla están en el directorio `screenshot/`.
 
 ---
 
@@ -112,7 +111,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 
 - Las notas **se guardan automáticamente 2 segundos** después de dejar de escribir — no hace falta pulsar Guardar manualmente
 - El botón **Guardar** sigue funcionando para guardado inmediato
-- Haz clic en **👁 Vista previa** para ver el contenido formateado en una **vista a pantalla completa** con un botón de volver — sin el editor visible
+- Haz clic en **👁 Vista previa** para ver el Markdown renderizado en la pestaña de vista previa del editor
 - Nota de vista previa: las listas anidadas profundamente se aplanan a un solo nivel en la vista previa (el Markdown guardado siempre mantiene la fidelidad completa)
 - **Borrador de cupo**: si una nota nueva alcanza el límite diario, su contenido se guarda localmente y se te pregunta si deseas restaurarlo al abrir el panel la próxima vez
 - Las notas guardadas con clic derecho usan el título de la página de origen; las notas nuevas en blanco empiezan como `Note N` — ambas se pueden editar libremente
@@ -141,7 +140,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
    El menú aparece cuando seleccionas texto o haces clic derecho en una imagen. Usa la opción unificada "Guardar en vkt-note".
 
 2. **¿Las notas desaparecen al reinstalar?**
-   Todas las notas se almacenan en `chrome.storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar (funcionalidad Premium).
+   Todas las notas se almacenan en `chrome.storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar (Premium exporta todas las notas en un único archivo JSON; el plan gratuito permite copiar o descargar las notas de una en una).
 
 3. **¿Las imágenes en las notas se mueven rotas?**
    Las imágenes Markdown almacenan solo URLs remotas. Si el sitio web de origen no está disponible, bloquea el hotlinking o la imagen se elimina, la imagen no se cargará.
@@ -169,6 +168,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 | Permiso | Razón |
 |------------|--------|
 | `storage` | Guardar notas y configuración localmente |
+| `unlimitedStorage` | Eleva el límite de almacenamiento local predeterminado para que un historial de notas extenso nunca provoque un fallo de escritura |
 | `sidePanel` | Mostrar la interfaz de la extensión en un panel lateral |
 | `contextMenus` | Menú de clic derecho para crear notas desde texto seleccionado o imágenes |
 | `scripting` | Inyectar el conversor HTML→Markdown solo cuando activas guardar / insertar / acciones de tabla |
@@ -188,7 +188,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 
 ## Aviso sobre el código fuente
 
-> ⚠️ **Este repositorio no publica código fuente.** Contiene únicamente documentación de uso, notas de lanzamiento y recursos de soporte. La extensión se distribuye exclusivamente a través de Chrome Web Store. No se proporcionan paquetes de instalación sin conexión ni código fuente para usuarios finales.
+> ⚠️ **Este repositorio se mantiene para el desarrollo y el empaquetado de versiones.** El código fuente es propietario y no puede redistribuirse ni reempaquetarse. La extensión se distribuye a través de las tiendas oficiales de extensiones del navegador (Chrome Web Store y Microsoft Edge Add-ons); no se proporcionan paquetes de instalación sin conexión.
 
 ---
 
