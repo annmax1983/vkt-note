@@ -156,6 +156,7 @@ button,select{font:inherit}
   .policy-hero{padding:26px 0 4px}
   .policy-hero-card{padding:30px 24px 28px;border-radius:22px}
   .policy-layout{grid-template-columns:1fr;gap:16px;padding:22px 0 30px}
+  .policy-layout > *{min-width:0}
   .toc{position:static;max-height:none;padding:14px}
   #p-toc{grid-template-columns:1fr 1fr}
   .policy-card{padding:23px 20px}
@@ -218,14 +219,16 @@ button,select{font:inherit}
   <li>❌ No personal data is collected</li>
 </ul>
 <p>The one exception is the optional Premium license check. It is triggered only by activating a license key or by a periodic re-validation while a license is active, and it sends no note content. See <a href="#third-party">Third-Party Services</a> for the exact fields.</p></div></article>
-<article class="policy-card" id="section-3"><h2><span class="policy-num">03</span>Data Storage</h2><div class="policy-body"><p>Everything below is stored in <code>chrome.storage.local</code> on your device and is removed when you uninstall the extension.</p>
+<article class="policy-card" id="section-3"><h2><span class="policy-num">03</span>Data Storage</h2><div class="policy-body"><p>Everything below is stored on your device in extension storage and is removed when you uninstall the extension. The clipboard row notes the one key that uses session storage instead.</p>
 <div class="table-wrap"><table>
   <tr><th>Storage Key</th><th>Content</th></tr>
-  <tr><td><code>vkn_notes</code></td><td>All note data (title, Markdown content, creation and update timestamps, and the local day the note was created)</td></tr>
+  <tr><td><code>vkn_notes</code></td><td>All note data (title, Markdown content or AES-256-GCM ciphertext, encryption metadata, word count, creation and update timestamps, and the local day the note was created)</td></tr>
+  <tr><td><code>vkn_trash</code></td><td>Notes deleted while Premium is active, with a deletion timestamp; removed automatically after 30 days</td></tr>
+  <tr><td><code>vkn_note_drafts</code></td><td>Draft queue kept when the daily free-tier limit blocks a new note (encrypted when that note or the notebook has a password)</td></tr>
+  <tr><td><code>vkn_vault</code></td><td>Notebook password metadata: PBKDF2 salt, iteration count and an encrypted verifier. The password itself is never stored</td></tr>
   <tr><td><code>vkn_counters</code></td><td>Daily note creation/deletion counters for free tier limits</td></tr>
   <tr><td><code>vkn_config</code></td><td>Configuration including premium status</td></tr>
-  <tr><td><code>vkn_clipboard_md</code></td><td>Text or image you saved from the right-click menu, waiting to be inserted into a note (deleted once consumed, or after 5 minutes)</td></tr>
-  <tr><td><code>vkn_note_draft</code></td><td>Unsaved draft kept when the daily free-tier limit blocks a new note, so it can be restored</td></tr>
+  <tr><td><code>vkn_clipboard_md</code></td><td>Text or image you saved from the right-click menu, waiting to be inserted into a note (deleted once consumed, or after 5 minutes). Stored in <code>chrome.storage.session</code> while a notebook password is enabled, so its plaintext does not touch disk</td></tr>
   <tr><td><code>vkt_install_id</code></td><td>Random per-installation identifier used only to count license activations</td></tr>
   <tr><td><code>vkt_license_vktnote</code></td><td>Your license key, its status, plan and expiry date (Premium only)</td></tr>
   <tr><td><code>vkt_last_validate_vktnote</code></td><td>Timestamp of the last successful license check (Premium only)</td></tr>
@@ -237,16 +240,20 @@ button,select{font:inherit}
   <tr><td><code>sidePanel</code></td><td>Display the extension UI in a side panel</td></tr>
   <tr><td><code>contextMenus</code></td><td>Right-click menu for creating notes from selected text or images</td></tr>
   <tr><td><code>scripting</code></td><td>Inject the HTML→Markdown converter only when you trigger save / insert / table actions</td></tr>
+  <tr><td><code>alarms</code></td><td>Run the daily cleanup that removes Trash items older than 30 days</td></tr>
   <tr><td>Host permission <code>&lt;all_urls&gt;</code></td><td>Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access</td></tr>
 </table></div></div></article>
 <article class="policy-card" id="section-5"><h2><span class="policy-num">05</span>Important Notes</h2><div class="policy-body"><ul>
-  <li>All notes are stored <strong>locally in your browser</strong>. They are not synced or backed up anywhere.</li>
+  <li>All notes are stored <strong>locally in your browser</strong>. They are not synced or backed up automatically.</li>
+  <li>Optional passwords encrypt note content at rest with AES-256-GCM (PBKDF2-HMAC-SHA256, 600,000 iterations). Passwords and derived keys are never stored. Keys exist only in the side panel's memory and are dropped when it closes or you press Lock now.</li>
+  <li>Note titles, timestamps and word counts remain unencrypted so the note list can show them while content is locked.</li>
+  <li>There is no password recovery. A forgotten per-note password leaves permanent deletion as the only option; resetting a forgotten notebook password permanently deletes every note, Trash item and draft protected by it.</li>
   <li>Switching browser profiles or uninstalling the extension will permanently delete all notes.</li>
-  <li>Exported JSON files are for manual backup only. The extension does not support importing notes.</li>
+  <li>Exported JSON files are for manual backup only. Encrypted notes are exported as ciphertext, and the extension does not support importing notes, so those notes cannot be read or restored from the export. Keep a readable copy with Copy as Markdown or Download .md while the note is unlocked.</li>
   <li>Markdown images store remote URLs only. Images may not load if the source website is down or blocks hotlinking.</li>
 </ul></div></article>
 <article class="policy-card" id="section-6"><h2><span class="policy-num">06</span>Third-Party Services</h2><div class="policy-body"><p>License key activation and periodic re-validation communicate with <code>api.annmax1983.com</code>. Each request contains the license key you entered, a randomly generated install identifier, the plugin ID, and basic technical metadata (browser name and major version, browser UI language, time zone, and user agent string). It never contains note content, exported notes, page URLs, or browsing history. Requests are made only when you activate or remove a license, or while a license is active and due for its periodic check. Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p></div></article>
-<article class="policy-card" id="section-7"><h2><span class="policy-num">07</span>Data Retention &amp; Deletion</h2><div class="policy-body"><p>You can delete individual notes through the extension UI. Uninstalling the extension removes all stored data permanently.</p></div></article>
+<article class="policy-card" id="section-7"><h2><span class="policy-num">07</span>Data Retention &amp; Deletion</h2><div class="policy-body"><p>You can delete individual notes through the extension UI. On Premium, deleted notes stay in Trash for 30 days and are then removed automatically; you can restore them or delete them permanently at any time before that. On the Free plan, deletion is permanent after the short undo window. A forgotten notebook password can only be reset by permanently deleting the items it protects. Uninstalling the extension removes all stored data permanently.</p></div></article>
 <article class="policy-card" id="section-8"><h2><span class="policy-num">08</span>Changes to this policy</h2><div class="policy-body"><p>If this policy changes, the revised version will be published on this page with a new date. Material changes will be noted in the extension's release notes.</p></div></article>
 <article class="policy-card" id="section-9"><h2><span class="policy-num">09</span>Contact</h2><div class="policy-body"><p>Questions about this policy? Email <a href="mailto:support@annmax1983.com">support@annmax1983.com</a> or open an issue on <a href="https://github.com/annmax1983/vkt-note" target="_blank" rel="noopener">GitHub</a>.</p></div></article>
     </div>
