@@ -63,7 +63,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ## Preview
 
-> 📸 Store artwork and screenshots are kept in [`screenshot/`](screenshot/).
+> 📸 Store artwork and screenshots are kept in [`screenshots/`](screenshots/).
 
 ---
 
@@ -79,14 +79,12 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ## Installation
 
-For your safety, only install vkt-note through official browser extension stores:
+| Store | Link |
+|---|---|
+| Chrome Web Store | Coming soon 🚧 |
+| Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
 
-1. Open **Chrome Web Store** or **Microsoft Edge Add-ons**
-2. Search: `vkt-note`
-3. Click **"Add to Chrome"** / **"Add to Edge"**
-4. Click the 📝 vkt-note icon in your toolbar to open the side panel
-
-> ⚠️ Do not install from third-party websites. Unauthorized versions may compromise your data security.
+> Install only from the official stores above — avoid third-party download sites.
 
 ---
 

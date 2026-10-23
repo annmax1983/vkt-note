@@ -63,7 +63,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 ## Vista previa
 
-> 📸 Los recursos gráficos y las capturas de pantalla están en el directorio `screenshot/`.
+> 📸 Los recursos gráficos y las capturas de pantalla están en el directorio `screenshots/`.
 
 ---
 
@@ -79,14 +79,12 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 ## Instalación
 
-Por tu seguridad, instala vkt-note solo a través de las tiendas oficiales de extensiones del navegador:
+| Tienda | Enlace |
+|---|---|
+| Chrome Web Store | Próximamente 🚧 |
+| Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
 
-1. Abre **Chrome Web Store** o **Microsoft Edge Add-ons**
-2. Busca: `vkt-note`
-3. Haz clic en **"Añadir a Chrome"** / **"Añadir a Edge"**
-4. Haz clic en el icono 📝 de vkt-note en tu barra de herramientas para abrir el panel lateral
-
-> ⚠️ No instales desde sitios web de terceros. Las versiones no autorizadas pueden comprometer la seguridad de tus datos.
+> Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
 ---
 

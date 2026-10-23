@@ -63,7 +63,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 ## Vorschau
 
-> 📸 Store-Grafiken und Screenshots liegen im Verzeichnis `screenshot/`.
+> 📸 Store-Grafiken und Screenshots liegen im Verzeichnis `screenshots/`.
 
 ---
 
@@ -79,14 +79,12 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 ## Installation
 
-Zu Ihrer Sicherheit vkt-note nur über offizielle Browser-Erweiterungstores installieren:
+| Store | Link |
+|---|---|
+| Chrome Web Store | Demnächst verfügbar 🚧 |
+| Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
 
-1. **Chrome Web Store** oder **Microsoft Edge Add-ons** öffnen
-2. Suche: `vkt-note`
-3. **„Zu Chrome hinzufügen"** / **„Zu Edge hinzufügen"** klicken
-4. Das 📝 vkt-note-Symbol in der Symbolleiste klicken, um die Seitenleiste zu öffnen
-
-> ⚠️ Nicht von Drittanbieter-Webseiten installieren. Nicht autorisierte Versionen können Ihre Datensicherheit gefährden.
+> Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
 ---
 
