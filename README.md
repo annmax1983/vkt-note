@@ -2,9 +2,9 @@
 
 English | [中文](languages/README_zh.md) | [Deutsch](languages/README_de.md) | [Español](languages/README_es.md) | [日本語](languages/README_ja.md) | [Français](languages/README_fr.md)
 
-Official User Manual · A lightweight Markdown note-taking extension with text selection for Chromium browsers.
+Official User Manual · A lightweight Markdown note-taking extension with text selection for Chrome, Edge and Firefox.
 
-> Chromium · Manifest V3 · SidePanel · Local Storage
+> Chrome · Edge · Firefox · Manifest V3 · Side panel / Sidebar · Local Storage
 
 ---
 
@@ -15,7 +15,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | Advantage | Detail |
 |-----------|--------|
 | 📝 **Text Selection** | Select text on any webpage, right-click to save as a Markdown note instantly |
-| 🔒 **Local Only** | All notes stored in `chrome.storage.local` — no cloud, no accounts, no tracking |
+| 🔒 **Local Only** | All notes stored in the extension's local storage — no cloud, no accounts, no tracking |
 | 🔐 **Real Encryption** | Protect one note or the whole notebook with a password — AES-256-GCM ciphertext at rest, keys never stored |
 | ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and live Markdown preview |
 | 🗑 **Trash (Premium)** | Premium deletions stay recoverable for 30 days before automatic removal |
@@ -46,9 +46,9 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | 🔢 **Word Count** | Status bar shows total note count and word count (CJK characters and Latin words counted properly) |
 | 🔐 **Per-Note Password** | Lock a single note with its own password; it outranks the notebook password, so only one password is ever asked |
 | 🔒 **Notebook Password** | Hide all note content behind one password while keeping titles in the list; unlock once per panel session |
-| 🔓 **Lock Now** | One click drops every key from memory; closing the side panel locks the notebook too |
+| 🔓 **Lock Now** | One click drops every key from memory; closing the panel locks the notebook too |
 | 🔒 **Local Storage** | All notes stored locally — no note upload, no cloud sync |
-| 🏗️ **Manifest V3** | Built on Manifest V3 with SidePanel architecture |
+| 🏗️ **Manifest V3** | Built on Manifest V3 — side panel on Chrome / Edge, Firefox sidebar on Firefox |
 
 ### ⭐ Premium Features (License Required)
 
@@ -69,11 +69,14 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ## Supported Browsers
 
-| Browser | Status | Minimum Version |
-|---------|--------|-----------------|
-| Google Chrome | ✅ Fully supported | Chrome 116+ (sidePanel.open) |
-| Microsoft Edge | ✅ Fully supported | Edge 116+ |
-| Other Chromium-based browsers | ⚠️ Basic compatible | Must support SidePanel API |
+| Browser | Status | Minimum Version | UI |
+|---------|--------|-----------------|----|
+| Google Chrome | ✅ Fully supported | Chrome 116+ (sidePanel.open) | Side panel |
+| Microsoft Edge | ✅ Fully supported | Edge 116+ | Side panel |
+| Mozilla Firefox | ✅ Fully supported | Firefox 140+ (desktop) | Sidebar |
+| Other Chromium-based browsers | ⚠️ Basic compatible | Must support the SidePanel API | Side panel |
+
+> **Firefox note:** the notebook opens in Firefox's **Sidebar** (*View → Sidebar → vkt-note*) because Firefox has no SidePanel API — the `sidePanel` permission is not declared in the Firefox build. Notes, Markdown editing, right-click clipping, the table picker, passwords/encryption (AES-256-GCM at rest), Trash and exports all work the same way. Note the extension UI is a sidebar panel: closing it still drops every key from memory, exactly as closing the side panel does on Chrome / Edge. Firefox asks for `storage`, `unlimitedStorage`, `contextMenus`, `scripting`, `alarms` and `<all_urls>`.
 
 ---
 
@@ -83,6 +86,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 |---|---|
 | Chrome Web Store | Coming soon 🚧 |
 | Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
+| Firefox Add-ons (AMO) | Coming soon 🚧 |
 
 > Install only from the official stores above — avoid third-party download sites.
 
@@ -92,7 +96,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ### Creating Notes
 
-1. Click the **📝 vkt-note icon** in your browser toolbar to open the side panel
+1. Click the **📝 vkt-note icon** in your browser toolbar to open the panel (side panel on Chrome / Edge, sidebar on Firefox)
 2. Click **➕ New Note** to create a blank note
 3. Or **select text** on any webpage → right-click → **Save to vkt-note**
 4. Or **right-click an image** → **Save to vkt-note**
@@ -117,16 +121,16 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 
 ### Password Protection
 
-Encryption is a free feature. Passwords are never stored, and your notes are encrypted on this device with AES-256-GCM before they are written to `chrome.storage.local`.
+Encryption is a free feature. Passwords are never stored, and your notes are encrypted on this device with AES-256-GCM before they are written to local storage.
 
 - **Notebook password** — open **Settings → Notebook password** to set one. The note list (titles, dates and word counts) stays visible; content, snippets and content-based search matches stay hidden until you unlock. The password is asked once per panel session.
 - **Per-note password** — open a note, click the 🔐/🔒 button in the editor header and choose **Set note password**. That note then uses its own password. A per-note password **takes precedence** over the notebook password, so you are never asked for both.
-- **Lock now** — the 🔒 button in the panel header drops the notebook key and every per-note key from memory. Closing the side panel does the same. You can also click it again to unlock.
+- **Lock now** — the 🔒 button in the panel header drops the notebook key and every per-note key from memory. Closing the panel does the same. You can also click it again to unlock.
 - **Remove a password** — open the note security dialog and choose **Remove note password**, or remove the notebook password in Settings. Removing the notebook password decrypts vault-protected notes back to local plaintext; per-note passwords are kept.
 - **No complexity rules** — any non-empty password is accepted.
 - **Forgot a password** — there is no recovery. Deleting the note is the only way past a per-note password. If you forgot the notebook password, **Reset notebook password** permanently deletes every note, Trash item and draft protected by that password, then turns the notebook password off; notes with their own passwords remain.
 
-Encrypted notes are still searchable by title, but their content is not indexed or shown in snippets while locked. JSON export never decrypts: encrypted notes are exported as ciphertext, and the export dialog warns you first. Because the extension does not import notes, a ciphertext export cannot be used to read those notes — to keep a readable copy, unlock the note and use **Copy as Markdown** or **Download .md** before exporting. A pending right-click clip is held in `chrome.storage.session` while a notebook password is enabled, so its plaintext does not touch disk.
+Encrypted notes are still searchable by title, but their content is not indexed or shown in snippets while locked. JSON export never decrypts: encrypted notes are exported as ciphertext, and the export dialog warns you first. Because the extension does not import notes, a ciphertext export cannot be used to read those notes — to keep a readable copy, unlock the note and use **Copy as Markdown** or **Download .md** before exporting. A pending right-click clip is held in `storage.session` while a notebook password is enabled, so its plaintext does not touch disk.
 
 ### Trash (Premium)
 
@@ -156,7 +160,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
    The menu appears when you select text or right-click an image. It uses the unified "Save to vkt-note" option.
 
 2. **Notes disappear after reinstalling?**
-   All notes are stored in `chrome.storage.local`. Uninstalling the extension permanently deletes all data. Export your notes before uninstalling (Premium exports every note as one JSON file, with password-protected notes kept as ciphertext; the free plan can copy or download notes individually).
+   All notes are stored in the extension's local storage. Uninstalling the extension permanently deletes all data. Export your notes before uninstalling (Premium exports every note as one JSON file, with password-protected notes kept as ciphertext; the free plan can copy or download notes individually).
 
 3. **Images in notes show as broken?**
    Markdown images store remote URLs only. If the source website is down, blocks hotlinking, or the image is removed, the image will not load.
@@ -185,7 +189,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
 
 vkt-note follows privacy-by-design principles:
 
-- ✅ All notes stored in `chrome.storage.local` — **note content is never uploaded to any server**
+- ✅ All notes stored in the extension's local storage — **note content is never uploaded to any server**
 - ✅ Optional password protection encrypts note content at rest with AES-256-GCM (PBKDF2-HMAC-SHA256, 600,000 iterations); passwords and derived keys are never stored or transmitted
 - ✅ The only outbound request is the optional Premium license check (license key, random install identifier, basic browser metadata) — no notes, no page URLs
 - ✅ No analytics, no tracking, no cookies
@@ -194,15 +198,15 @@ vkt-note follows privacy-by-design principles:
 
 ### Permissions
 
-| Permission | Reason |
-|------------|--------|
-| `storage` | Save notes and settings locally |
-| `unlimitedStorage` | Lift the default local storage ceiling so a long note history never hits a write failure |
-| `sidePanel` | Display the extension UI in a side panel |
-| `contextMenus` | Right-click menu for creating notes from selected text or images |
-| `scripting` | Inject the HTML→Markdown converter only when you trigger save / insert / table actions |
-| `alarms` | Run the daily job that removes Trash items older than 30 days |
-| Host `<all_urls>` | Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access |
+| Permission | Reason | Platforms |
+|------------|--------|-----------|
+| `storage` | Save notes and settings locally | All |
+| `unlimitedStorage` | Lift the default local storage ceiling so a long note history never hits a write failure | All |
+| `contextMenus` | Right-click menu for creating notes from selected text or images | All |
+| `scripting` | Inject the HTML→Markdown converter only when you trigger save / insert / table actions | All |
+| `alarms` | Run the daily job that removes Trash items older than 30 days | All |
+| `sidePanel` | Display the extension UI in a side panel | Chrome / Edge only — Firefox uses `sidebar_action`, which needs no permission |
+| Host `<all_urls>` | Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access | All |
 
 - [Full Privacy Policy](https://annmax1983.github.io/vkt-note/privacy-policy.html)
 
@@ -218,7 +222,7 @@ vkt-note follows privacy-by-design principles:
 
 ## Source Code Notice
 
-> ⚠️ **This repository is maintained for development and release packaging.** The source code is proprietary and may not be redistributed or repackaged. The extension is distributed through official browser extension stores (Chrome Web Store and Microsoft Edge Add-ons); no offline installation packages are distributed to end users.
+> ⚠️ **This repository is maintained for development and release packaging.** The source code is proprietary and may not be redistributed or repackaged. The extension is distributed through official browser extension stores (Chrome Web Store, Microsoft Edge Add-ons and Firefox Add-ons); no offline installation packages are distributed to end users.
 
 ---
 

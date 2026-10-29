@@ -2,9 +2,9 @@
 
 [English](../README.md) | [中文](README_zh.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [日本語](README_ja.md) | Français
 
-Manuel officiel · Une extension légère de prise de notes en Markdown avec sélection de texte pour navigateurs Chromium.
+Manuel officiel · Une extension légère de prise de notes en Markdown avec sélection de texte pour navigateurs Chrome, Edge et Firefox.
 
-> Chromium · Manifest V3 · SidePanel · Stockage local
+> Chrome / Edge / Firefox · Manifest V3 · Panneau latéral / Barre latérale · Stockage local
 
 ---
 
@@ -15,7 +15,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | Avantage | Détail |
 |-----------|--------|
 | 📝 **Sélection de texte** | Sélectionnez du texte sur n'importe quelle page web, faites un clic droit pour sauvegarder instantanément en note Markdown |
-| 🔒 **100 % local** | Toutes les notes stockées dans `chrome.storage.local` — pas de cloud, pas de comptes, pas de suivi |
+| 🔒 **100 % local** | Toutes les notes stockées dans `storage.local` — pas de cloud, pas de comptes, pas de suivi |
 | 🔐 **Chiffrement réel** | Protégez une note ou tout le carnet par mot de passe — texte chiffré au repos en AES-256-GCM, clés jamais stockées |
 | ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et aperçu Markdown en direct |
 | 🗑 **Corbeille (Premium)** | Les suppressions Premium restent récupérables pendant 30 jours avant leur suppression automatique |
@@ -48,7 +48,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | 🔒 **Mot de passe du carnet** | Masquez tout le contenu des notes derrière un seul mot de passe tout en gardant les titres dans la liste ; déverrouillez une fois par session du panneau |
 | 🔓 **Verrouiller maintenant** | Un clic retire toutes les clés de la mémoire ; fermer le panneau latéral verrouille aussi le carnet |
 | 🔒 **Stockage local** | Toutes les notes stockées localement — aucun envoi de notes, pas de synchronisation cloud |
-| 🏗️ **Manifest V3** | Construit sur le Manifest V3 avec l'architecture SidePanel |
+| 🏗️ **Manifest V3** | Construit sur le Manifest V3 : panneau latéral sous Chrome / Edge, barre latérale sous Firefox |
 
 ### ⭐ Fonctionnalités Premium (licence requise)
 
@@ -73,7 +73,10 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 |---------|--------|-----------------|
 | Google Chrome | ✅ Entièrement pris en charge | Chrome 116+ (sidePanel.open) |
 | Microsoft Edge | ✅ Entièrement pris en charge | Edge 116+ |
+| Mozilla Firefox | ✅ Entièrement pris en charge | Firefox 140+ (bureau) |
 | Autres navigateurs basés sur Chromium | ⚠️ Compatibilité de base | Doit supporter l'API SidePanel |
+
+> **Note Firefox :** L’interface s’ouvre dans la barre latérale de Firefox (Affichage → Barre latérale → vkt-note), la version Firefox ne demande donc pas la permission `sidePanel`. Fermer la barre latérale efface également toutes les clés de la mémoire. Le reste des fonctions se comporte comme sous Chrome / Edge.
 
 ---
 
@@ -83,6 +86,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 |---|---|
 | Chrome Web Store | Bientôt disponible 🚧 |
 | Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
+| Modules complémentaires Firefox (AMO) | Bientôt disponible 🚧 |
 
 > Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
 
@@ -117,7 +121,7 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 
 ### Protection par mot de passe
 
-Le chiffrement est une fonctionnalité gratuite. Les mots de passe ne sont jamais stockés et vos notes sont chiffrées sur cet appareil avec AES-256-GCM avant d'être écrites dans `chrome.storage.local`.
+Le chiffrement est une fonctionnalité gratuite. Les mots de passe ne sont jamais stockés et vos notes sont chiffrées sur cet appareil avec AES-256-GCM avant d'être écrites dans `storage.local`.
 
 - **Mot de passe du carnet** — ouvrez **Paramètres → Mot de passe du carnet** pour en définir un. La liste des notes (titres, dates et nombre de mots) reste visible ; le contenu, les extraits et les correspondances de recherche sur le contenu restent masqués jusqu'au déverrouillage. Le mot de passe est demandé une fois par session du panneau.
 - **Mot de passe par note** — ouvrez une note, cliquez sur le bouton 🔐/🔒 dans l'en-tête de l'éditeur et choisissez **Définir le mot de passe de la note**. Cette note utilise alors son propre mot de passe. Un mot de passe par note **prime** sur le mot de passe du carnet, si bien que les deux ne vous sont jamais demandés.
@@ -126,7 +130,7 @@ Le chiffrement est une fonctionnalité gratuite. Les mots de passe ne sont jamai
 - **Aucune règle de complexité** — tout mot de passe non vide est accepté.
 - **Mot de passe oublié** — il n'existe aucune récupération. Supprimer la note est la seule façon de contourner un mot de passe par note. Si vous avez oublié le mot de passe du carnet, **Réinitialiser le mot de passe du carnet** supprime définitivement chaque note, élément de la Corbeille et brouillon protégés par ce mot de passe, puis désactive le mot de passe du carnet ; les notes dotées de leur propre mot de passe sont conservées.
 
-Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni indexé ni affiché dans les extraits tant qu'elles sont verrouillées. L'export JSON ne déchiffre jamais : les notes chiffrées sont exportées sous forme de texte chiffré et la boîte de dialogue d'export vous en avertit au préalable. Comme l'extension ne prend pas en charge l'import, un export chiffré ne permet pas de lire ces notes : pour en conserver une copie lisible, déverrouillez la note et utilisez **Copier en Markdown** ou **Télécharger .md**. Un extrait de clic droit en attente est conservé dans `chrome.storage.session` lorsqu'un mot de passe de carnet est activé, afin que son texte en clair ne touche pas le disque.
+Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni indexé ni affiché dans les extraits tant qu'elles sont verrouillées. L'export JSON ne déchiffre jamais : les notes chiffrées sont exportées sous forme de texte chiffré et la boîte de dialogue d'export vous en avertit au préalable. Comme l'extension ne prend pas en charge l'import, un export chiffré ne permet pas de lire ces notes : pour en conserver une copie lisible, déverrouillez la note et utilisez **Copier en Markdown** ou **Télécharger .md**. Un extrait de clic droit en attente est conservé dans `storage.session` lorsqu'un mot de passe de carnet est activé, afin que son texte en clair ne touche pas le disque.
 
 ### Corbeille (Premium)
 
@@ -156,7 +160,7 @@ Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni
    Le menu apparaît quand vous sélectionnez du texte ou faites un clic droit sur une image. Il utilise l'option unifiée « Sauvegarder dans vkt-note ».
 
 2. **Les notes disparaissent après réinstallation ?**
-   Toutes les notes sont stockées dans `chrome.storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation (Premium exporte toutes les notes dans un seul fichier JSON, les notes avec mot de passe restant chiffrées ; la version gratuite permet de copier ou télécharger les notes une par une).
+   Toutes les notes sont stockées dans `storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation (Premium exporte toutes les notes dans un seul fichier JSON, les notes avec mot de passe restant chiffrées ; la version gratuite permet de copier ou télécharger les notes une par une).
 
 3. **Les images dans les notes s'affichent cassées ?**
    Les images Markdown stockent uniquement les URLs distantes. Si le site source est en panne, bloque le hotlinking ou si l'image est supprimée, elle ne se chargera pas.
@@ -185,7 +189,7 @@ Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni
 
 vkt-note respecte les principes de confidentialité dès la conception :
 
-- ✅ Toutes les notes stockées dans `chrome.storage.local` — **le contenu des notes n'est jamais envoyé à un serveur**
+- ✅ Toutes les notes stockées dans `storage.local` — **le contenu des notes n'est jamais envoyé à un serveur**
 - ✅ Une protection facultative par mot de passe chiffre le contenu des notes au repos avec AES-256-GCM (PBKDF2-HMAC-SHA256, 600 000 itérations) ; les mots de passe et les clés dérivées ne sont jamais stockés ni transmis
 - ✅ La seule requête sortante est la vérification facultative de licence Premium (clé de licence, un identifiant d'installation aléatoire, métadonnées de navigateur de base) — aucune note, aucune URL de page
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
@@ -198,7 +202,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 |------------|--------|
 | `storage` | Sauvegarder les notes et les paramètres en local |
 | `unlimitedStorage` | Relève le plafond de stockage local par défaut afin qu'un long historique de notes ne rencontre jamais d'échec d'écriture |
-| `sidePanel` | Afficher l'interface de l'extension dans un panneau latéral |
+| `sidePanel` | Afficher l'interface de l'extension dans un panneau latéral (uniquement Chrome / Edge) |
 | `contextMenus` | Menu contextuel pour créer des notes à partir de texte ou d'images sélectionnés |
 | `scripting` | Injecter le convertisseur HTML→Markdown uniquement quand vous déclenchez une action de sauvegarde / insertion / tableau |
 | `alarms` | Exécuter la tâche quotidienne qui supprime les éléments de la Corbeille âgés de plus de 30 jours |
@@ -218,7 +222,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 
 ## Avis sur le code source
 
-> ⚠️ **Ce dépôt est maintenu pour le développement et le conditionnement des versions.** Le code source est propriétaire et ne peut être ni redistribué ni reconditionné. L'extension est distribuée via les boutiques officielles d'extensions de navigateur (Chrome Web Store et Microsoft Edge Add-ons) ; aucun package d'installation hors ligne n'est fourni.
+> ⚠️ **Ce dépôt est maintenu pour le développement et le conditionnement des versions.** Le code source est propriétaire et ne peut être ni redistribué ni reconditionné. L'extension est distribuée via les boutiques officielles d'extensions de navigateur (Chrome Web Store, Microsoft Edge Add-ons et Firefox Add-ons AMO) ; aucun package d'installation hors ligne n'est fourni.
 
 ---
 

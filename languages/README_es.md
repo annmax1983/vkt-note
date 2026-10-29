@@ -2,9 +2,9 @@
 
 [English](../README.md) | [中文](README_zh.md) | [Deutsch](README_de.md) | Español | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Manual de usuario oficial · Una extensión ligera de notas en Markdown con selección de texto para navegadores Chromium.
+Manual de usuario oficial · Una extensión ligera de notas en Markdown con selección de texto para navegadores Chrome, Edge y Firefox.
 
-> Chromium · Manifest V3 · SidePanel · Almacenamiento local
+> Chrome / Edge / Firefox · Manifest V3 · Panel lateral / Barra lateral · Almacenamiento local
 
 ---
 
@@ -15,7 +15,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | Ventaja | Detalle |
 |---------|--------|
 | 📝 **Selección de texto** | Selecciona texto en cualquier página web, clic derecho para guardar como nota Markdown al instante |
-| 🔒 **Solo local** | Todas las notas se almacenan en `chrome.storage.local` — sin nube, sin cuentas, sin rastreo |
+| 🔒 **Solo local** | Todas las notas se almacenan en `storage.local` — sin nube, sin cuentas, sin rastreo |
 | 🔐 **Cifrado real** | Protege una nota o todo el cuaderno con una contraseña — texto cifrado AES-256-GCM en reposo, claves nunca almacenadas |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
 | 🗑 **Papelera (Premium)** | Las eliminaciones Premium se pueden recuperar durante 30 días antes de borrarse automáticamente |
@@ -48,7 +48,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 🔒 **Contraseña del cuaderno** | Oculta todo el contenido de las notas tras una contraseña y mantiene los títulos en la lista; se desbloquea una vez por sesión del panel |
 | 🔓 **Bloquear ahora** | Un clic elimina todas las claves de la memoria; cerrar el panel lateral también bloquea el cuaderno |
 | 🔒 **Almacenamiento local** | Todas las notas se almacenan localmente — sin subida de notas, sin sincronización en la nube |
-| 🏗️ **Manifest V3** | Construida sobre Manifest V3 con arquitectura SidePanel |
+| 🏗️ **Manifest V3** | Construida sobre Manifest V3: panel lateral en Chrome / Edge, barra lateral en Firefox |
 
 ### ⭐ Funcionalidades Premium (requieren licencia)
 
@@ -73,7 +73,10 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 |---------|--------|-----------------|
 | Google Chrome | ✅ Totalmente compatible | Chrome 116+ (sidePanel.open) |
 | Microsoft Edge | ✅ Totalmente compatible | Edge 116+ |
+| Mozilla Firefox | ✅ Totalmente compatible | Firefox 140+ (escritorio) |
 | Otros navegadores basados en Chromium | ⚠️ Básico compatible | Debe soportar SidePanel API |
+
+> **Nota sobre Firefox:** La interfaz se abre en la barra lateral de Firefox (Ver → Barra lateral → vkt-note), por lo que la versión de Firefox no solicita el permiso `sidePanel`. Cerrar la barra lateral también borra todas las claves de la memoria. El resto de funciones se comporta igual que en Chrome / Edge.
 
 ---
 
@@ -83,6 +86,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 |---|---|
 | Chrome Web Store | Próximamente 🚧 |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
+| Complementos de Firefox (AMO) | Próximamente 🚧 |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
@@ -117,7 +121,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 
 ### Protección con contraseña
 
-El cifrado es una función gratuita. Las contraseñas nunca se almacenan y tus notas se cifran en este dispositivo con AES-256-GCM antes de escribirse en `chrome.storage.local`.
+El cifrado es una función gratuita. Las contraseñas nunca se almacenan y tus notas se cifran en este dispositivo con AES-256-GCM antes de escribirse en `storage.local`.
 
 - **Contraseña del cuaderno** — abre **Configuración → Contraseña del cuaderno** para establecer una. La lista de notas (títulos, fechas y recuentos de palabras) sigue visible; el contenido, los fragmentos y las coincidencias de búsqueda por contenido permanecen ocultos hasta que desbloquees. La contraseña se pide una vez por sesión del panel.
 - **Contraseña por nota** — abre una nota, haz clic en el botón 🔐/🔒 de la cabecera del editor y elige **Establecer contraseña de nota**. Esa nota usará su propia contraseña. Una contraseña por nota **tiene prioridad** sobre la contraseña del cuaderno, así que nunca se te pedirán las dos.
@@ -126,7 +130,7 @@ El cifrado es una función gratuita. Las contraseñas nunca se almacenan y tus n
 - **Sin reglas de complejidad** — se acepta cualquier contraseña no vacía.
 - **¿Olvidaste una contraseña?** — no hay recuperación. Eliminar la nota es la única forma de superar una contraseña por nota. Si olvidaste la contraseña del cuaderno, **Restablecer contraseña del cuaderno** elimina permanentemente todas las notas, elementos de la papelera y borradores protegidos por esa contraseña, y después desactiva la contraseña del cuaderno; las notas con su propia contraseña se conservan.
 
-Las notas cifradas siguen siendo buscables por título, pero su contenido no se indexa ni se muestra en los fragmentos mientras están bloqueadas. La exportación JSON nunca descifra: las notas cifradas se exportan como texto cifrado y el diálogo de exportación te avisa primero. Como la extensión no importa notas, una exportación cifrada no sirve para leer esas notas: para conservar una copia legible, desbloquea la nota y usa **Copiar como Markdown** o **Descargar .md**. Mientras una contraseña del cuaderno está activa, un recorte pendiente del menú contextual se mantiene en `chrome.storage.session`, de modo que su texto sin formato no toca el disco.
+Las notas cifradas siguen siendo buscables por título, pero su contenido no se indexa ni se muestra en los fragmentos mientras están bloqueadas. La exportación JSON nunca descifra: las notas cifradas se exportan como texto cifrado y el diálogo de exportación te avisa primero. Como la extensión no importa notas, una exportación cifrada no sirve para leer esas notas: para conservar una copia legible, desbloquea la nota y usa **Copiar como Markdown** o **Descargar .md**. Mientras una contraseña del cuaderno está activa, un recorte pendiente del menú contextual se mantiene en `storage.session`, de modo que su texto sin formato no toca el disco.
 
 ### Papelera (Premium)
 
@@ -156,7 +160,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    El menú aparece cuando seleccionas texto o haces clic derecho en una imagen. Usa la opción unificada "Guardar en vkt-note".
 
 2. **¿Las notas desaparecen al reinstalar?**
-   Todas las notas se almacenan en `chrome.storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar (Premium exporta todas las notas en un único archivo JSON, con las notas protegidas por contraseña en texto cifrado; el plan gratuito permite copiar o descargar las notas de una en una).
+   Todas las notas se almacenan en `storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar (Premium exporta todas las notas en un único archivo JSON, con las notas protegidas por contraseña en texto cifrado; el plan gratuito permite copiar o descargar las notas de una en una).
 
 3. **¿Las imágenes en las notas se mueven rotas?**
    Las imágenes Markdown almacenan solo URLs remotas. Si el sitio web de origen no está disponible, bloquea el hotlinking o la imagen se elimina, la imagen no se cargará.
@@ -185,7 +189,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
 
 vkt-note sigue principios de privacidad desde el diseño:
 
-- ✅ Todas las notas se almacenan en `chrome.storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
+- ✅ Todas las notas se almacenan en `storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
 - ✅ La protección con contraseña opcional cifra el contenido de las notas en reposo con AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 iteraciones); las contraseñas y las claves derivadas nunca se almacenan ni se transmiten
 - ✅ La única solicitud saliente es la comprobación opcional de licencia Premium (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas
 - ✅ Sin analíticas, sin rastreo, sin cookies
@@ -198,7 +202,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 |------------|--------|
 | `storage` | Guardar notas y configuración localmente |
 | `unlimitedStorage` | Eleva el límite de almacenamiento local predeterminado para que un historial de notas extenso nunca provoque un fallo de escritura |
-| `sidePanel` | Mostrar la interfaz de la extensión en un panel lateral |
+| `sidePanel` | Mostrar la interfaz de la extensión en un panel lateral (solo Chrome / Edge) |
 | `contextMenus` | Menú de clic derecho para crear notas desde texto seleccionado o imágenes |
 | `scripting` | Inyectar el conversor HTML→Markdown solo cuando activas guardar / insertar / acciones de tabla |
 | `alarms` | Ejecutar la tarea diaria que elimina los elementos de la papelera con más de 30 días |
@@ -218,7 +222,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 
 ## Aviso sobre el código fuente
 
-> ⚠️ **Este repositorio se mantiene para el desarrollo y el empaquetado de versiones.** El código fuente es propietario y no puede redistribuirse ni reempaquetarse. La extensión se distribuye a través de las tiendas oficiales de extensiones del navegador (Chrome Web Store y Microsoft Edge Add-ons); no se proporcionan paquetes de instalación sin conexión.
+> ⚠️ **Este repositorio se mantiene para el desarrollo y el empaquetado de versiones.** El código fuente es propietario y no puede redistribuirse ni reempaquetarse. La extensión se distribuye a través de las tiendas oficiales de extensiones del navegador (Chrome Web Store, Microsoft Edge Add-ons y Firefox Add-ons AMO); no se proporcionan paquetes de instalación sin conexión.
 
 ---
 

@@ -2,9 +2,9 @@
 
 [English](../README.md) | [中文](README_zh.md) | Deutsch | [Español](README_es.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Offizielle Anleitung · Eine leichtgewichtige Markdown-Notiz-Erweiterung mit Textauswahl für Chromium-Browser.
+Offizielle Anleitung · Eine leichtgewichtige Markdown-Notiz-Erweiterung mit Textauswahl für Chrome-, Edge- und Firefox-Browser.
 
-> Chromium · Manifest V3 · SidePanel · Lokale Speicherung
+> Chrome / Edge / Firefox · Manifest V3 · Side Panel / Seitenleiste · Lokale Speicherung
 
 ---
 
@@ -15,7 +15,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | Vorteil | Detail |
 |---------|--------|
 | 📝 **Textauswahl** | Text auf jeder Webseite auswählen, Rechtsklick → sofort als Markdown-Notiz speichern |
-| 🔒 **Nur lokal** | Alle Notizen in `chrome.storage.local` — keine Cloud, kein Konto, kein Tracking |
+| 🔒 **Nur lokal** | Alle Notizen in `storage.local` — keine Cloud, kein Konto, kein Tracking |
 | 🔐 **Echte Verschlüsselung** | Eine Notiz oder das ganze Notizbuch mit einem Passwort schützen — AES-256-GCM-Chiffrat im Ruhezustand, Schlüssel werden nie gespeichert |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
 | 🗑 **Papierkorb (Premium)** | Premium-Löschungen bleiben 30 Tage lang wiederherstellbar, bevor sie automatisch entfernt werden |
@@ -48,7 +48,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 🔒 **Notebook-Passwort** | Gesamten Notizinhalt hinter einem Passwort verbergen, während die Titel in der Liste sichtbar bleiben; einmal pro Panel-Sitzung entsperren |
 | 🔓 **Jetzt sperren** | Ein Klick entfernt alle Schlüssel aus dem Speicher; das Schließen der Seitenleiste sperrt das Notizbuch ebenfalls |
 | 🔒 **Lokale Speicherung** | Alle Notizen lokal — keine Notiz-Übertragung, keine Cloud |
-| 🏗️ **Manifest V3** | Aufgebaut auf Manifest V3 mit SidePanel-Architektur |
+| 🏗️ **Manifest V3** | Auf Manifest V3 aufgebaut — Side Panel unter Chrome / Edge, Seitenleiste unter Firefox |
 
 ### ⭐ Premium-Funktionen (Lizenz erforderlich)
 
@@ -73,7 +73,10 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 |---------|--------|----------------|
 | Google Chrome | ✅ Vollständig unterstützt | Chrome 116+ (sidePanel.open) |
 | Microsoft Edge | ✅ Vollständig unterstützt | Edge 116+ |
+| Mozilla Firefox | ✅ Vollständig unterstützt | Firefox 140+ (Desktop) |
 | Andere Chromium-Browser | ⚠️ Grundsätzlich kompatibel | Muss SidePanel API unterstützen |
+
+> **Firefox-Hinweis:** Die Oberfläche öffnet sich in der Firefox-Seitenleiste (Ansicht → Seitenleiste → vkt-note); die Berechtigung `sidePanel` wird in der Firefox-Version daher nicht angefordert. Auch das Schließen der Seitenleiste löscht alle Schlüssel aus dem Speicher. Die übrigen Funktionen verhalten sich wie unter Chrome / Edge.
 
 ---
 
@@ -83,6 +86,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 |---|---|
 | Chrome Web Store | Demnächst verfügbar 🚧 |
 | Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
+| Firefox-Add-ons (AMO) | Demnächst verfügbar 🚧 |
 
 > Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
@@ -116,7 +120,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 
 ### Passwortschutz
 
-Verschlüsselung ist eine kostenlose Funktion. Passwörter werden niemals gespeichert, und Ihre Notizen werden auf diesem Gerät mit AES-256-GCM verschlüsselt, bevor sie in `chrome.storage.local` geschrieben werden.
+Verschlüsselung ist eine kostenlose Funktion. Passwörter werden niemals gespeichert, und Ihre Notizen werden auf diesem Gerät mit AES-256-GCM verschlüsselt, bevor sie in `storage.local` geschrieben werden.
 
 - **Notebook-Passwort** — Öffnen Sie **Einstellungen → Notebook-Passwort**, um eines festzulegen. Die Notizliste (Titel, Datum und Wortzahl) bleibt sichtbar; Inhalt, Textauszüge und inhaltliche Suchtreffer bleiben verborgen, bis Sie entsperren. Das Passwort wird einmal pro Panel-Sitzung abgefragt.
 - **Passwort pro Notiz** — Öffnen Sie eine Notiz, klicken Sie auf die 🔐/🔒-Schaltfläche in der Editor-Kopfzeile und wählen Sie **Notizpasswort festlegen**. Diese Notiz verwendet dann ihr eigenes Passwort. Ein Passwort pro Notiz hat **Vorrang** vor dem Notebook-Passwort, sodass Sie nie nach beiden gefragt werden.
@@ -125,7 +129,7 @@ Verschlüsselung ist eine kostenlose Funktion. Passwörter werden niemals gespei
 - **Keine Komplexitätsregeln** — Jedes nicht leere Passwort wird akzeptiert.
 - **Passwort vergessen** — Es gibt keine Wiederherstellung. Bei einem Notizpasswort ist das Löschen der Notiz der einzige Ausweg. Wenn Sie das Notebook-Passwort vergessen haben, löscht **Notebook-Passwort zurücksetzen** alle durch dieses Passwort geschützten Notizen, Papierkorb-Einträge und Entwürfe dauerhaft und schaltet das Notebook-Passwort danach aus; Notizen mit eigenem Passwort bleiben erhalten.
 
-Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird jedoch nicht indexiert und nicht in Textauszügen angezeigt, solange sie gesperrt sind. Der JSON-Export entschlüsselt nie: Verschlüsselte Notizen werden als Chiffrat exportiert, und der Export-Dialog warnt Sie vorher. Da die Erweiterung keinen Import unterstützt, lässt sich ein Chiffrat-Export nicht zum Lesen dieser Notizen verwenden — für eine lesbare Kopie entsperren Sie die Notiz und verwenden **Als Markdown kopieren** oder **.md herunterladen**. Ein ausstehender Rechtsklick-Ausschnitt wird in `chrome.storage.session` gehalten, solange ein Notebook-Passwort aktiv ist, damit sein Klartext nicht auf die Festplatte gelangt.
+Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird jedoch nicht indexiert und nicht in Textauszügen angezeigt, solange sie gesperrt sind. Der JSON-Export entschlüsselt nie: Verschlüsselte Notizen werden als Chiffrat exportiert, und der Export-Dialog warnt Sie vorher. Da die Erweiterung keinen Import unterstützt, lässt sich ein Chiffrat-Export nicht zum Lesen dieser Notizen verwenden — für eine lesbare Kopie entsperren Sie die Notiz und verwenden **Als Markdown kopieren** oder **.md herunterladen**. Ein ausstehender Rechtsklick-Ausschnitt wird in `storage.session` gehalten, solange ein Notebook-Passwort aktiv ist, damit sein Klartext nicht auf die Festplatte gelangt.
 
 ### Papierkorb (Premium)
 
@@ -155,7 +159,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Das Menü erscheint bei Textauswahl oder Rechtsklick auf ein Bild. Es verwendet die einheitliche Option „In vkt-note speichern".
 
 2. **Notizen nach Neuinstallation verschwunden?**
-   Alle Notizen sind in `chrome.storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation (Premium exportiert alle Notizen als eine JSON-Datei, Notizen mit Passwort als Chiffrat; in der kostenlosen Version können Sie Notizen einzeln kopieren oder herunterladen).
+   Alle Notizen sind in `storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation (Premium exportiert alle Notizen als eine JSON-Datei, Notizen mit Passwort als Chiffrat; in der kostenlosen Version können Sie Notizen einzeln kopieren oder herunterladen).
 
 3. **Bilder in Notizen werden nicht angezeigt?**
    Markdown-Bilder speichern nur Remote-URLs. Wenn die Quellseite nicht erreichbar ist, Hotlinking blockiert oder das Bild entfernt wurde, wird es nicht geladen.
@@ -184,7 +188,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
 
 vkt-note folgt den Privacy-by-Design-Prinzipien:
 
-- ✅ Alle Notizen in `chrome.storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
+- ✅ Alle Notizen in `storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
 - ✅ Optionaler Passwortschutz verschlüsselt Notizinhalte im Ruhezustand mit AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 Iterationen); Passwörter und abgeleitete Schlüssel werden niemals gespeichert oder übertragen
 - ✅ Die einzige ausgehende Anfrage ist die optionale Premium-Lizenzprüfung (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs
 - ✅ Keine Analyse, kein Tracking, keine Cookies
@@ -197,7 +201,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 |--------------|-------|
 | `storage` | Notizen und Einstellungen lokal speichern |
 | `unlimitedStorage` | Hebt die standardmäßige lokale Speichergrenze an, damit eine lange Notizhistorie nie an ein Schreiblimit stößt |
-| `sidePanel` | Erweiterungs-UI in einer Seitenleiste anzeigen |
+| `sidePanel` | Erweiterungs-UI in einer Seitenleiste anzeigen (nur Chrome / Edge) |
 | `contextMenus` | Rechtsklick-Menü zum Erstellen von Notizen aus Textauswahl oder Bildern |
 | `scripting` | HTML→Markdown-Konverter nur bei Speichern/Einfügen/Tabellen-Aktionen injizieren |
 | `alarms` | Führt den täglichen Auftrag aus, der Papierkorb-Einträge entfernt, die älter als 30 Tage sind |
@@ -217,7 +221,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 ## Hinweis zum Quellcode
 
-> ⚠️ **Dieses Repository wird für die Entwicklung und das Verpacken von Releases gepflegt.** Der Quellcode ist proprietär und darf nicht weiterverbreitet oder neu verpackt werden. Die Erweiterung wird über offizielle Browser-Erweiterungstores (Chrome Web Store und Microsoft Edge Add-ons) vertrieben; es werden keine Offline-Installationspakete bereitgestellt.
+> ⚠️ **Dieses Repository wird für die Entwicklung und das Verpacken von Releases gepflegt.** Der Quellcode ist proprietär und darf nicht weiterverbreitet oder neu verpackt werden. Die Erweiterung wird über offizielle Browser-Erweiterungstores (Chrome Web Store, Microsoft Edge Add-ons und Firefox-Add-ons AMO) vertrieben; es werden keine Offline-Installationspakete bereitgestellt.
 
 ---
 
