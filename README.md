@@ -128,7 +128,7 @@ Encryption is a free feature. Passwords are never stored, and your notes are enc
 - **Lock now** — the 🔒 button in the panel header drops the notebook key and every per-note key from memory. Closing the panel does the same. You can also click it again to unlock.
 - **Remove a password** — open the note security dialog and choose **Remove note password**, or remove the notebook password in Settings. Removing the notebook password decrypts vault-protected notes back to local plaintext; per-note passwords are kept.
 - **No complexity rules** — any non-empty password is accepted.
-- **Forgot a password** — there is no recovery. Deleting the note is the only way past a per-note password. If you forgot the notebook password, **Reset notebook password** permanently deletes every note, Trash item and draft protected by that password, then turns the notebook password off; notes with their own passwords remain.
+- **Forgot a password** — there is no recovery. Deleting the note is the only way past a per-note password. If you forgot the notebook password, **Reset notebook password** permanently deletes every note and Trash item protected by that password, then turns the notebook password off; notes with their own passwords remain.
 
 Encrypted notes are still searchable by title, but their content is not indexed or shown in snippets while locked. JSON export never decrypts: encrypted notes are exported as ciphertext, and the export dialog warns you first. Because the extension does not import notes, a ciphertext export cannot be used to read those notes — to keep a readable copy, unlock the note and use **Copy as Markdown** or **Download .md** before exporting. A pending right-click clip is held in `storage.session` while a notebook password is enabled, so its plaintext does not touch disk.
 
@@ -172,7 +172,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
    No daily limit — create as many notes as you need. Premium adds bulk JSON export and a 30-day Trash.
 
 6. **I forgot my password. Can it be recovered?**
-   No. The password is never stored, only a verifier that cannot reverse the encryption. A per-note password can only be bypassed by deleting that note. For a forgotten notebook password, the reset flow permanently deletes every note, Trash item and draft protected by it; per-note protected notes survive.
+   No. The password is never stored, only a verifier that cannot reverse the encryption. A per-note password can only be bypassed by deleting that note. For a forgotten notebook password, the reset flow permanently deletes every note and Trash item protected by it; per-note protected notes survive.
 
 7. **Can I see note titles when the notebook is locked?**
    Yes. Titles, timestamps and word counts remain visible by design so you can find the note you want; content, snippets and content-based search matches stay hidden until it is unlocked. Title search still works.
