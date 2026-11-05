@@ -18,7 +18,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 🔒 **Nur lokal** | Alle Notizen in `storage.local` — keine Cloud, kein Konto, kein Tracking |
 | 🔐 **Echte Verschlüsselung** | Eine Notiz oder das ganze Notizbuch mit einem Passwort schützen — AES-256-GCM-Chiffrat im Ruhezustand, Schlüssel werden nie gespeichert |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
-| 🗑 **Papierkorb (Premium)** | Premium-Löschungen bleiben 30 Tage lang wiederherstellbar, bevor sie automatisch entfernt werden |
+| 🗑 **Papierkorb** | Gelöschte Notizen bleiben wiederherstellbar — 7 Tage kostenlos, 30 Tage mit Premium |
 
 ---
 
@@ -31,7 +31,9 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 📝 **In vkt-note speichern** | Rechtsklick auf Text oder Bild → einheitliches Menü erkennt Inhalt automatisch, wandelt HTML in Markdown um und speichert leise — Titel kommt vom Seitentitel |
 | 🔍 **Notizen durchsuchen** | Notizliste schnell nach Titel und Inhalt filtern |
 | 📋 **Als Markdown kopieren** | Ein Klick kopiert jede Notiz als Markdown in die Zwischenablage — ein lokales Backup |
-| ↩️ **Löschen rückgängig** | Versehentlich gelöscht? Innerhalb von 7 Sekunden aus der Notizliste wiederherstellen |
+| ↩️ **Löschen rückgängig** | Versehentlich gelöscht? Rückgängig machen innerhalb von 10 Sekunden aus der Notizliste |
+| 🗑 **7-Tage-Papierkorb** | Jede Löschung landet im Papierkorb und ist 7 Tage wiederherstellbar — kostenlos |
+| 📤 **Alle Notizen exportieren (JSON)** | Das ganze Notizbuch als eine strukturierte JSON-Datei herunterladen — kostenlos |
 | 📌 **Anheften** | Häufig genutzte Notizen oben in der Liste fixieren |
 | 💾 **Als .md herunterladen** | Einzelne Notiz als Markdown-Datei speichern — kostenlos, ohne Kopieren und Einfügen |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
@@ -54,10 +56,14 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 | Funktion | Beschreibung |
 |----------|-------------|
-| 📤 **Alle Notizen exportieren** | Alle Notizen als strukturierte JSON-Datei herunterladen; Notizen mit Passwort bleiben Chiffrat |
-| 🗑 **Papierkorb** | Premium-Löschungen landen im Papierkorb, lassen sich 30 Tage lang wiederherstellen und werden danach automatisch entfernt |
+| 🗑 **30-Tage-Papierkorb** | Gelöschte Notizen bleiben 30 statt 7 Tage wiederherstellbar |
+| 🕘 **Versionsverlauf** | Jede Änderung nach >5 Minuten Abstand sichert den Vorher-Inhalt — die letzten 20 Versionen innerhalb von 30 Tagen wiederherstellbar |
+| 🗂 **Ordner & Tags** | Notizen in Ordner ablegen und taggen; Liste nach Ordner oder Tag filtern |
+| 🔎 **Gespeicherte Suchen** | Ordner + Tag + Stichwort-Kombination speichern und per Klick erneut anwenden |
+| ☑️ **Stapelaktionen** | Notizen mehrfach auswählen und in einem Schritt verschieben, taggen oder löschen |
+| 📦 **Erweiterter Export** | Markdown-ZIP mit eingebetteten Bildern, HTML-Sammlung oder Drucken → PDF — inklusive Ordnerstruktur |
 
-> Siehe [VKT Pricing](https://www.annmax1983.com/checkout.html?plugin=vktnote) für Lizenzoptionen.
+> Siehe [VKT Pricing](https://annmax1983.com/checkout?plugin=vktnote) für Lizenzoptionen.
 
 ---
 
@@ -86,7 +92,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 |---|---|
 | Chrome Web Store | Demnächst verfügbar 🚧 |
 | Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
-| Firefox-Add-ons (AMO) | Demnächst verfügbar 🚧 |
+| Firefox-Add-ons (AMO) | [Für Firefox installieren](https://addons.mozilla.org/firefox/addon/vkt-note-markdown/) |
 
 > Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
@@ -118,6 +124,14 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 - **👁 Vorschau** zeigt die gerenderten Markdown-Inhalte im Vorschau-Tab des Editors
 - Per Rechtsklick gespeicherte Notizen erhalten den Titel der Quellseite; neue leere Notizen starten als `Note N` — beides frei editierbar
 
+### Notizen organisieren (Premium)
+
+- **Ordner** — Ordner unter **Einstellungen → Ordner verwalten** anlegen, dann Notizen im Editor einordnen oder im Stapelmodus mehrere auf einmal verschieben
+- **Tags** — bis zu 12 Tags pro Notiz im Editor hinzufügen; in der Filterleiste auf einen Tag klicken, um die Liste einzugrenzen
+- **Gespeicherte Suchen** — Stichwort, Ordner und Tags in der Filterleiste kombinieren und über **🔖 Suche speichern** als bis zu 30 Vorlagen behalten
+- **Stapelmodus** — die ☑-Schaltfläche in der Kopfzeile schaltet die Liste auf Mehrfachauswahl; die Auswahl in einem Schritt verschieben, taggen oder löschen
+- **Versionsverlauf** — eine Notiz öffnen und auf **🕘 Verlauf** klicken, um frühere Sicherungen anzusehen und wiederherzustellen; auch das Wiederherstellen bleibt über die Verlaufsliste rückgängig machbar
+
 ### Passwortschutz
 
 Verschlüsselung ist eine kostenlose Funktion. Passwörter werden niemals gespeichert, und Ihre Notizen werden auf diesem Gerät mit AES-256-GCM verschlüsselt, bevor sie in `storage.local` geschrieben werden.
@@ -127,28 +141,30 @@ Verschlüsselung ist eine kostenlose Funktion. Passwörter werden niemals gespei
 - **Jetzt sperren** — Die 🔒-Schaltfläche in der Kopfzeile des Panels entfernt den Notebook-Schlüssel und alle Schlüssel einzelner Notizen aus dem Speicher. Das Schließen der Seitenleiste bewirkt dasselbe. Ein erneuter Klick entsperrt wieder.
 - **Passwort entfernen** — Öffnen Sie den Sicherheitsdialog der Notiz und wählen Sie **Notizpasswort entfernen**, oder entfernen Sie das Notebook-Passwort in den Einstellungen. Das Entfernen des Notebook-Passworts entschlüsselt die dadurch geschützten Notizen wieder in lokalen Klartext; Passwörter einzelner Notizen bleiben erhalten.
 - **Keine Komplexitätsregeln** — Jedes nicht leere Passwort wird akzeptiert.
-- **Passwort vergessen** — Es gibt keine Wiederherstellung. Bei einem Notizpasswort ist das Löschen der Notiz der einzige Ausweg. Wenn Sie das Notebook-Passwort vergessen haben, löscht **Notebook-Passwort zurücksetzen** alle durch dieses Passwort geschützten Notizen, Papierkorb-Einträge und Entwürfe dauerhaft und schaltet das Notebook-Passwort danach aus; Notizen mit eigenem Passwort bleiben erhalten.
+- **Passwort vergessen** — Es gibt keine Wiederherstellung. Bei einem Notizpasswort ist das Löschen der Notiz der einzige Ausweg. Wenn Sie das Notebook-Passwort vergessen haben, löscht **Notebook-Passwort zurücksetzen** alle durch dieses Passwort geschützten Notizen und Papierkorb-Einträge dauerhaft und schaltet das Notebook-Passwort danach aus; Notizen mit eigenem Passwort bleiben erhalten.
 
 Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird jedoch nicht indexiert und nicht in Textauszügen angezeigt, solange sie gesperrt sind. Der JSON-Export entschlüsselt nie: Verschlüsselte Notizen werden als Chiffrat exportiert, und der Export-Dialog warnt Sie vorher. Da die Erweiterung keinen Import unterstützt, lässt sich ein Chiffrat-Export nicht zum Lesen dieser Notizen verwenden — für eine lesbare Kopie entsperren Sie die Notiz und verwenden **Als Markdown kopieren** oder **.md herunterladen**. Ein ausstehender Rechtsklick-Ausschnitt wird in `storage.session` gehalten, solange ein Notebook-Passwort aktiv ist, damit sein Klartext nicht auf die Festplatte gelangt.
 
-### Papierkorb (Premium)
+### Papierkorb
 
-- Wenn Premium aktiv ist, wandert eine gelöschte Notiz in den **Papierkorb**, statt entfernt zu werden.
-- Papierkorb-Einträge lassen sich jederzeit innerhalb von **30 Tagen** wiederherstellen; danach werden sie automatisch gelöscht.
-- **Papierkorb leeren** und **Endgültig löschen** entfernen Einträge sofort und können nicht rückgängig gemacht werden.
-- Löschungen im kostenlosen Plan sind dauerhaft: Der 7-Sekunden-Undo ist die einzige Wiederherstellung.
-- Wenn Premium abläuft, bleiben vorhandene Papierkorb-Einträge zum Wiederherstellen oder Löschen verfügbar; nur neue Löschungen folgen der Regel des kostenlosen Plans.
+- In jedem Plan wandert eine gelöschte Notiz in den **Papierkorb** — nichts verschwindet kommentarlos.
+- Der Papierkorb des kostenlosen Plans bewahrt Einträge **7 Tage**; Premium bewahrt sie **30 Tage**. Nach Ablauf des Zeitraums wird ein Eintrag automatisch entfernt.
+- Innerhalb des Zeitraums können Sie **Wiederherstellen** oder **Endgültig löschen** wählen; **Papierkorb leeren** entfernt alles sofort und kann nicht rückgängig gemacht werden.
+- Der Zeitraum folgt dem aktuell aktiven Plan: Wenn Premium abläuft, werden beim nächsten täglichen Aufrämlauf alle Einträge entfernt, die älter als 7 Tage sind.
+- Das 10-Sekunden-**Undo** in der Notizliste ist der schnelle Weg direkt nach einer Löschung; der Papierkorb ist danach das Sicherheitsnetz.
 
 ### Hinweise zur kostenlosen Version
 
 - Kein Tageslimit für neue Notizen — der kostenlose Plan ist ein vollständiges Notizbuch, keine Testversion
 - Die Bearbeitung bestehender Notizen ist immer unbegrenzt
+- Der JSON-Export des gesamten Notizbuchs und der 7-Tage-Papierkorb sind im Gratisplan enthalten
 - Titel-Sequenznummern können nach dem Löschen Lücken haben — das ist so gewollt
 
 ### Export & Download
 
 - **Einzelne Notiz → .md-Datei**: Klick auf das ⬇-Symbol auf einer Notizkarte lädt sie als Markdown-Datei herunter (kostenlos)
-- **Alle Notizen → JSON** (Premium): **📥 Export** lädt alle Notizen als strukturierte JSON-Datei herunter; Notizen mit Passwort bleiben Chiffrat
+- **Alle Notizen → JSON** (kostenlos): **📥 Export** lädt das ganze Notizbuch als eine strukturierte JSON-Datei herunter; Notizen mit Passwort bleiben Chiffrat
+- **Erweiterter Export** (Premium): Markdown-ZIP mit eingebetteten Bildern, HTML-Sammlung oder Drucken → PDF — inklusive Ordnerstruktur
 - Die exportierte Datei dient nur zur Sicherung/Referenz — **die Erweiterung unterstützt keinen Import von Notizen**, daher lassen sich verschlüsselte Notizen nicht aus der Datei lesen oder wiederherstellen
 
 ---
@@ -159,7 +175,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Das Menü erscheint bei Textauswahl oder Rechtsklick auf ein Bild. Es verwendet die einheitliche Option „In vkt-note speichern".
 
 2. **Notizen nach Neuinstallation verschwunden?**
-   Alle Notizen sind in `storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation (Premium exportiert alle Notizen als eine JSON-Datei, Notizen mit Passwort als Chiffrat; in der kostenlosen Version können Sie Notizen einzeln kopieren oder herunterladen).
+   Alle Notizen sind in `storage.local` gespeichert. Deinstallation der Erweiterung löscht alle Daten dauerhaft. Exportieren Sie Ihre Notizen vor der Deinstallation — das ganze Notizbuch lässt sich kostenlos als eine JSON-Datei sichern, Notizen mit Passwort werden als Chiffrat exportiert.
 
 3. **Bilder in Notizen werden nicht angezeigt?**
    Markdown-Bilder speichern nur Remote-URLs. Wenn die Quellseite nicht erreichbar ist, Hotlinking blockiert oder das Bild entfernt wurde, wird es nicht geladen.
@@ -168,10 +184,10 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Nein. Der JSON-Export dient nur zur manuellen Sicherung. Die Erweiterung unterstützt keinen Import von Notizen.
 
 5. **Gibt es ein Limit für neue Notizen?**
-   Nein. Neue Notizen sind in beiden Plänen unbegrenzt; Premium bietet zusätzlich den Sammel-JSON-Export und einen 30-Tage-Papierkorb.
+   Nein. Neue Notizen sind in beiden Plänen unbegrenzt; Premium erweitert den Papierkorb von 7 auf 30 Tage und ergänzt Versionsverlauf, Ordner & Tags, gespeicherte Suchen, Stapelaktionen und erweiterten Export.
 
 6. **Ich habe mein Passwort vergessen. Kann es wiederhergestellt werden?**
-   Nein. Das Passwort wird nie gespeichert, nur ein Prüfwert, mit dem sich die Verschlüsselung nicht umkehren lässt. Ein Passwort pro Notiz lässt sich nur durch Löschen dieser Notiz umgehen. Bei einem vergessenen Notebook-Passwort löscht der Zurücksetzen-Vorgang dauerhaft alle dadurch geschützten Notizen, Papierkorb-Einträge und Entwürfe; Notizen mit eigenem Passwort bleiben erhalten.
+   Nein. Das Passwort wird nie gespeichert, nur ein Prüfwert, mit dem sich die Verschlüsselung nicht umkehren lässt. Ein Passwort pro Notiz lässt sich nur durch Löschen dieser Notiz umgehen. Bei einem vergessenen Notebook-Passwort löscht der Zurücksetzen-Vorgang dauerhaft alle dadurch geschützten Notizen und Papierkorb-Einträge; Notizen mit eigenem Passwort bleiben erhalten.
 
 7. **Sehe ich Notiztitel, wenn das Notizbuch gesperrt ist?**
    Ja. Titel, Zeitstempel und Wortzahlen bleiben bewusst sichtbar, damit Sie die gewünschte Notiz finden; Inhalt, Textauszüge und inhaltliche Suchtreffer bleiben verborgen, bis entsperrt wird. Die Titelsuche funktioniert weiterhin.
@@ -180,7 +196,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Sie werden als Chiffrat exportiert, nicht als Klartext. Der Export-Dialog warnt Sie, wenn verschlüsselte Notizen enthalten sind. Da die Erweiterung keinen Import unterstützt, lässt sich die JSON-Datei nicht zum Lesen oder erneuten Importieren dieser Notizen verwenden. Für eine lesbare Kopie entsperren Sie die Notiz und verwenden **Als Markdown kopieren** oder **.md herunterladen**.
 
 9. **Wohin gelangen gelöschte Notizen?**
-   Mit Premium landen sie im Papierkorb und bleiben 30 Tage lang wiederherstellbar. Im kostenlosen Plan ist das Löschen nach dem 7-Sekunden-Undo-Zeitfenster endgültig.
+   Jede Löschung landet im Papierkorb und ist dort 7 Tage (Gratisplan) bzw. 30 Tage (Premium) wiederherstellbar. Das 10-Sekunden-Undo deckt unmittelbare Versehentlichkeiten ab.
 
 ---
 
@@ -190,7 +206,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 - ✅ Alle Notizen in `storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
 - ✅ Optionaler Passwortschutz verschlüsselt Notizinhalte im Ruhezustand mit AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 Iterationen); Passwörter und abgeleitete Schlüssel werden niemals gespeichert oder übertragen
-- ✅ Die einzige ausgehende Anfrage ist die optionale Premium-Lizenzprüfung (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs
+- ✅ Die einzigen Anfragen an unsere Server sind die optionalen Premium-Lizenzprüfungen (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs. Zusätzlich kann die Erweiterung Bild-URLs laden, die bereits in Ihren eigenen Notizen stehen (Markdown-Vorschau, Premium-Export mit Bildern); diese gehen an das Bild, niemals an uns
 - ✅ Keine Analyse, kein Tracking, keine Cookies
 - ✅ Seiteninhalt wird nur bei explizitem Auslösen von Speichern/Einfügen/Tabellenauswahl gelesen (Kontextmenü, Einfügen-Buttons, Tabellenauswahl) — nie im Hintergrund
 - ✅ Exportierte JSON-Dateien werden lokal erstellt und niemals übertragen; verschlüsselte Notizen bleiben in Exporten als Chiffrat erhalten
@@ -204,7 +220,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 | `sidePanel` | Erweiterungs-UI in einer Seitenleiste anzeigen (nur Chrome / Edge) |
 | `contextMenus` | Rechtsklick-Menü zum Erstellen von Notizen aus Textauswahl oder Bildern |
 | `scripting` | HTML→Markdown-Konverter nur bei Speichern/Einfügen/Tabellen-Aktionen injizieren |
-| `alarms` | Führt den täglichen Auftrag aus, der Papierkorb-Einträge entfernt, die älter als 30 Tage sind |
+| `alarms` | Führt den täglichen Auftrag aus, der Papierkorb-Einträge außerhalb des Zeitraums des aktuellen Plans (7 Tage kostenlos / 30 Tage Premium) entfernt und abgelaufenen Versionsverlauf aufräumt |
 | Host `<all_urls>` | Ermöglicht diesen Aktionen, die aktuelle Seitenauswahl, Tabellen, URL und Titel zu lesen — kein Hintergrund- oder Verlaufszugriff |
 
 - [Vollständige Datenschutzerklärung](https://annmax1983.github.io/vkt-note/privacy-policy.html)
@@ -241,3 +257,12 @@ Diese Software ist Closed-Source-Proprietärsoftware. Ohne offizielle schriftlic
 Wenn Ihnen vkt-note gefällt, kaufen Sie dem Entwickler doch einen Kaffee!
 
 **[👉 Hier unterstützen](https://ko-fi.com/annmax?buyACoffee=true&ref=vkt-note)**
+
+---
+
+## Links
+
+- **Offizielle Website:** https://annmax1983.com/
+- **Diese Erweiterung:** https://annmax1983.com/extensions/vkt-note
+- **Datenschutz:** https://annmax1983.com/privacy
+- **Kontakt:** support@annmax1983.com

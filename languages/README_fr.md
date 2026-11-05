@@ -18,7 +18,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | 🔒 **100 % local** | Toutes les notes stockées dans `storage.local` — pas de cloud, pas de comptes, pas de suivi |
 | 🔐 **Chiffrement réel** | Protégez une note ou tout le carnet par mot de passe — texte chiffré au repos en AES-256-GCM, clés jamais stockées |
 | ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et aperçu Markdown en direct |
-| 🗑 **Corbeille (Premium)** | Les suppressions Premium restent récupérables pendant 30 jours avant leur suppression automatique |
+| 🗑 **Corbeille** | Les notes supprimées restent récupérables — 7 jours en gratuit, 30 jours avec Premium |
 
 ---
 
@@ -31,7 +31,9 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 | 📝 **Sauvegarder dans vkt-note** | Clic droit sur n'importe quelle sélection ou image → le menu unifié détecte automatiquement le contenu, convertit le HTML en Markdown et sauvegarde silencieusement — titre repris de la page |
 | 🔍 **Recherche de notes** | Filtrez rapidement la liste des notes par titre et contenu |
 | 📋 **Copier en Markdown** | Un clic copie n'importe quelle note en Markdown dans le presse-papiers — une sauvegarde locale gratuite |
-| ↩️ **Annuler la suppression** | Note supprimée par erreur ? Annulez dans les 7 secondes depuis la liste |
+| ↩️ **Annuler la suppression** | Note supprimée par erreur ? Annulez dans les 10 secondes depuis la liste |
+| 🗑 **Corbeille 7 jours** | Chaque suppression part dans la corbeille, restaurable pendant 7 jours — gratuit |
+| 📤 **Export de toutes les notes (JSON)** | Téléchargez tout le carnet en un seul fichier JSON structuré — gratuit |
 | 📌 **Épingler en haut** | Gardez les notes fréquentes épinglées en tête de liste |
 | 💾 **Télécharger en .md** | Enregistrez n'importe quelle note en fichier Markdown — gratuit, sans copier-coller |
 | ✏️ **Éditeur Markdown** | Édition en source avec barre d'outils de formatage, sauvegarde automatique et aperçu Markdown en direct |
@@ -54,10 +56,14 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 
 | Fonctionnalité | Description |
 |---------|-------------|
-| 📤 **Exporter toutes les notes** | Téléchargez toutes les notes en fichier JSON structuré ; les notes avec mot de passe restent chiffrées |
-| 🗑 **Corbeille** | Les suppressions Premium vont dans la Corbeille, peuvent être restaurées pendant 30 jours, puis sont supprimées automatiquement |
+| 🗑 **Corbeille 30 jours** | Les notes supprimées restent restaurables pendant 30 jours au lieu de 7 |
+| 🕘 **Historique des versions** | Chaque modification après un délai de plus de 5 minutes enregistre l'état précédent — restaurez l'une des 20 dernières versions dans les 30 jours |
+| 🗂 **Dossiers et étiquettes** | Rangez et étiquetez vos notes, filtrez la liste par dossier ou étiquette |
+| 🔎 **Recherches enregistrées** | Enregistrez une combinaison dossier + étiquette + mot-clé et réappliquez-la en un clic — jusqu'à 30 préréglages |
+| ☑️ **Actions groupées** | Sélection multiple : déplacez, étiquetez ou supprimez en une seule action |
+| 📦 **Export enrichi** | ZIP Markdown avec images incluses, export HTML ou Imprimer → PDF — mise en page par dossier |
 
-> Voir les [tarifs VKT](https://www.annmax1983.com/checkout.html?plugin=vktnote) pour les options de licence.
+> Voir les [tarifs VKT](https://annmax1983.com/checkout?plugin=vktnote) pour les options de licence.
 
 ---
 
@@ -86,7 +92,7 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 |---|---|
 | Chrome Web Store | Bientôt disponible 🚧 |
 | Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
-| Modules complémentaires Firefox (AMO) | Bientôt disponible 🚧 |
+| Modules complémentaires Firefox (AMO) | [Installer pour Firefox](https://addons.mozilla.org/firefox/addon/vkt-note-markdown/) |
 
 > Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
 
@@ -119,6 +125,14 @@ La barre au-dessus de l'éditeur propose un formatage rapide : **Gras**, *Italiq
 - Note d'aperçu : les listes profondément imbriquées sont aplaties à un seul niveau dans l'aperçu (le Markdown sauvegardé conserve toujours toute la fidélité)
 - Les notes sauvegardées par clic droit reprennent le titre de la page source ; les nouvelles notes vides commencent en `Note N` — les deux sont modifiables librement
 
+### Organiser les notes (Premium)
+
+- **Dossiers** — créez des dossiers dans **Paramètres → Gérer les dossiers**, puis classez une note depuis l'éditeur ou déplacez-en plusieurs d'un coup en mode groupé
+- **Étiquettes** — ajoutez jusqu'à 12 étiquettes par note depuis l'éditeur ; touchez une étiquette dans la barre de filtres pour restreindre la liste
+- **Recherches enregistrées** — combinez un mot-clé, un dossier et des étiquettes dans la barre de filtres, puis cliquez sur **🔖 Enregistrer la recherche** pour conserver jusqu'à 30 préréglages
+- **Mode groupé** — le bouton ☑ dans l'en-tête passe la liste en sélection multiple ; déplacez, étiquetez ou supprimez la sélection en une seule action
+- **Historique des versions** — ouvrez une note et cliquez sur **🕘 Historique** pour parcourir et restaurer les instantanés antérieurs ; la restauration elle-même reste annulable via la liste d'historique
+
 ### Protection par mot de passe
 
 Le chiffrement est une fonctionnalité gratuite. Les mots de passe ne sont jamais stockés et vos notes sont chiffrées sur cet appareil avec AES-256-GCM avant d'être écrites dans `storage.local`.
@@ -128,28 +142,30 @@ Le chiffrement est une fonctionnalité gratuite. Les mots de passe ne sont jamai
 - **Verrouiller maintenant** — le bouton 🔒 dans l'en-tête du panneau retire de la mémoire la clé du carnet et toutes les clés par note. Fermer le panneau latéral fait de même. Cliquez à nouveau dessus pour déverrouiller.
 - **Retirer un mot de passe** — ouvrez la boîte de dialogue de sécurité de la note et choisissez **Retirer le mot de passe de la note**, ou retirez le mot de passe du carnet dans les Paramètres. Retirer le mot de passe du carnet déchiffre les notes protégées par le carnet en clair local ; les mots de passe par note sont conservés.
 - **Aucune règle de complexité** — tout mot de passe non vide est accepté.
-- **Mot de passe oublié** — il n'existe aucune récupération. Supprimer la note est la seule façon de contourner un mot de passe par note. Si vous avez oublié le mot de passe du carnet, **Réinitialiser le mot de passe du carnet** supprime définitivement chaque note, élément de la Corbeille et brouillon protégés par ce mot de passe, puis désactive le mot de passe du carnet ; les notes dotées de leur propre mot de passe sont conservées.
+- **Mot de passe oublié** — il n'existe aucune récupération. Supprimer la note est la seule façon de contourner un mot de passe par note. Si vous avez oublié le mot de passe du carnet, **Réinitialiser le mot de passe du carnet** supprime définitivement chaque note et élément de la Corbeille protégés par ce mot de passe, puis désactive le mot de passe du carnet ; les notes dotées de leur propre mot de passe sont conservées.
 
 Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni indexé ni affiché dans les extraits tant qu'elles sont verrouillées. L'export JSON ne déchiffre jamais : les notes chiffrées sont exportées sous forme de texte chiffré et la boîte de dialogue d'export vous en avertit au préalable. Comme l'extension ne prend pas en charge l'import, un export chiffré ne permet pas de lire ces notes : pour en conserver une copie lisible, déverrouillez la note et utilisez **Copier en Markdown** ou **Télécharger .md**. Un extrait de clic droit en attente est conservé dans `storage.session` lorsqu'un mot de passe de carnet est activé, afin que son texte en clair ne touche pas le disque.
 
-### Corbeille (Premium)
+### Corbeille
 
-- Lorsque Premium est actif, la suppression d'une note la déplace vers la **Corbeille** au lieu de la supprimer.
-- Les éléments de la Corbeille peuvent être restaurés à tout moment dans un délai de **30 jours** ; passé ce délai, ils sont supprimés automatiquement.
-- **Vider la corbeille** et **Supprimer définitivement** retirent les éléments immédiatement et sont irréversibles.
-- Les suppressions du niveau gratuit sont définitives : l'annulation de 7 secondes est la seule récupération.
-- Si Premium expire, les éléments déjà présents dans la Corbeille restent disponibles pour restauration ou suppression ; seules les nouvelles suppressions suivent la règle du niveau gratuit.
+- Sur tous les plans, la suppression d'une note la déplace vers la **Corbeille** — rien ne disparaît silencieusement.
+- La Corbeille du plan gratuit conserve les éléments **7 jours** ; Premium les conserve **30 jours**. Passé ce délai, un élément est supprimé automatiquement.
+- Pendant le délai, vous pouvez **Restaurer** ou **Supprimer définitivement** ; **Vider la corbeille** efface tout immédiatement et de façon irréversible.
+- Le délai suit le plan actif : si Premium expire, les éléments âgés de plus de 7 jours sont supprimés lors du prochain nettoyage quotidien.
+- L'**annulation de 10 secondes** dans la liste des notes est le chemin immédiat juste après une suppression ; la Corbeille est le filet de sécurité au-delà.
 
 ### Notes sur le niveau gratuit
 
 - Pas de limite quotidienne de nouvelles notes : le niveau gratuit est un carnet complet, pas un essai
 - La modification de notes existantes est toujours illimitée
+- L'export JSON complet du carnet et la corbeille de 7 jours sont inclus dans le plan gratuit
 - Les numéros de séquence des titres de notes peuvent présenter des trous après suppression — c'est prévu ainsi
 
 ### Exporter et télécharger
 
 - **Note individuelle → fichier .md** : cliquez sur l'icône ⬇ de n'importe quelle note pour la télécharger en fichier Markdown (gratuit)
-- **Toutes les notes → JSON** (Premium) : cliquez sur **📥 Exporter** pour télécharger toutes les notes dans un fichier JSON structuré ; les notes avec mot de passe restent chiffrées
+- **Toutes les notes → JSON** (gratuit) : cliquez sur **📥 Exporter** pour télécharger tout le carnet en un seul fichier JSON structuré ; les notes avec mot de passe restent sous forme de texte chiffré
+- **Exports enrichis** (Premium) : ZIP Markdown avec images incluses, export HTML ou Imprimer → PDF, mise en page par dossier
 - Le fichier exporté est destiné à la sauvegarde/consultation uniquement — **l'extension ne supporte pas l'import de notes**, donc les notes chiffrées ne peuvent être ni lues ni restaurées depuis ce fichier
 
 ---
@@ -160,7 +176,7 @@ Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni
    Le menu apparaît quand vous sélectionnez du texte ou faites un clic droit sur une image. Il utilise l'option unifiée « Sauvegarder dans vkt-note ».
 
 2. **Les notes disparaissent après réinstallation ?**
-   Toutes les notes sont stockées dans `storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation (Premium exporte toutes les notes dans un seul fichier JSON, les notes avec mot de passe restant chiffrées ; la version gratuite permet de copier ou télécharger les notes une par une).
+   Toutes les notes sont stockées dans `storage.local`. La désinstallation de l'extension supprime définitivement toutes les données. Exportez vos notes avant la désinstallation — tout le carnet peut être sauvegardé gratuitement en un seul fichier JSON, les notes protégées par mot de passe restant exportées sous forme de texte chiffré.
 
 3. **Les images dans les notes s'affichent cassées ?**
    Les images Markdown stockent uniquement les URLs distantes. Si le site source est en panne, bloque le hotlinking ou si l'image est supprimée, elle ne se chargera pas.
@@ -169,10 +185,10 @@ Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni
    Non. L'export JSON est uniquement destiné à la sauvegarde manuelle. L'extension ne supporte pas la réimportation de notes.
 
 5. **Y a-t-il une limite de nouvelles notes ?**
-   Non. La création est illimitée dans les deux offres ; Premium ajoute l'export JSON complet et une Corbeille de 30 jours.
+   Non. La création est illimitée dans les deux offres ; Premium étend la Corbeille de 7 à 30 jours et ajoute l'historique des versions, les dossiers et étiquettes, les recherches enregistrées, les actions groupées et les exports enrichis.
 
 6. **J'ai oublié mon mot de passe. Peut-il être récupéré ?**
-   Non. Le mot de passe n'est jamais stocké, seulement un vérificateur qui ne permet pas d'inverser le chiffrement. Un mot de passe par note ne peut être contourné qu'en supprimant la note. Pour un mot de passe de carnet oublié, la réinitialisation supprime définitivement chaque note, élément de la Corbeille et brouillon protégés par ce mot de passe ; les notes protégées par leur propre mot de passe survivent.
+   Non. Le mot de passe n'est jamais stocké, seulement un vérificateur qui ne permet pas d'inverser le chiffrement. Un mot de passe par note ne peut être contourné qu'en supprimant la note. Pour un mot de passe de carnet oublié, la réinitialisation supprime définitivement chaque note et élément de la Corbeille protégés par ce mot de passe ; les notes protégées par leur propre mot de passe survivent.
 
 7. **Puis-je voir les titres des notes quand le carnet est verrouillé ?**
    Oui. Les titres, horodatages et nombres de mots restent visibles par conception pour vous permettre de retrouver la note voulue ; le contenu, les extraits et les correspondances de recherche sur le contenu restent masqués jusqu'au déverrouillage. La recherche par titre fonctionne toujours.
@@ -181,7 +197,7 @@ Les notes chiffrées restent recherchables par titre, mais leur contenu n'est ni
    Elles sont exportées sous forme de texte chiffré, pas en clair. La boîte de dialogue d'export vous avertit lorsque des notes chiffrées sont incluses. Comme l'extension ne prend pas en charge l'import, le fichier JSON ne permet pas de lire ni de réimporter ces notes. Pour en conserver une copie lisible, déverrouillez la note et utilisez **Copier en Markdown** ou **Télécharger .md**.
 
 9. **Où vont les notes supprimées ?**
-   Avec Premium, elles vont dans la Corbeille et restent récupérables pendant 30 jours. Avec le niveau gratuit, la suppression est définitive après la fenêtre d'annulation de 7 secondes.
+   Chaque suppression va dans la **Corbeille** — récupérable pendant 7 jours avec le plan gratuit, 30 jours avec Premium. La fenêtre d'annulation de 10 secondes couvre les erreurs immédiates.
 
 ---
 
@@ -191,7 +207,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 
 - ✅ Toutes les notes stockées dans `storage.local` — **le contenu des notes n'est jamais envoyé à un serveur**
 - ✅ Une protection facultative par mot de passe chiffre le contenu des notes au repos avec AES-256-GCM (PBKDF2-HMAC-SHA256, 600 000 itérations) ; les mots de passe et les clés dérivées ne sont jamais stockés ni transmis
-- ✅ La seule requête sortante est la vérification facultative de licence Premium (clé de licence, un identifiant d'installation aléatoire, métadonnées de navigateur de base) — aucune note, aucune URL de page
+- ✅ Les seules requêtes vers nos serveurs sont les vérifications facultatives de licence Premium (clé de licence, un identifiant d'installation aléatoire, métadonnées de navigateur de base) — aucune note, aucune URL de page. L'extension peut aussi charger les URL d'images déjà présentes dans vos propres notes (aperçu Markdown, export Premium avec images) ; elles partent vers l'hébergeur de l'image, jamais vers nous
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
 - ✅ Le contenu des pages n'est accédé que lorsque vous déclenchez explicitement une sauvegarde ou une insertion (menu contextuel, boutons d'insertion, sélecteur de tableaux) — jamais en arrière-plan
 - ✅ Les fichiers JSON exportés sont créés localement et jamais transmis ; les notes chiffrées restent chiffrées dans les exports
@@ -205,7 +221,7 @@ vkt-note respecte les principes de confidentialité dès la conception :
 | `sidePanel` | Afficher l'interface de l'extension dans un panneau latéral (uniquement Chrome / Edge) |
 | `contextMenus` | Menu contextuel pour créer des notes à partir de texte ou d'images sélectionnés |
 | `scripting` | Injecter le convertisseur HTML→Markdown uniquement quand vous déclenchez une action de sauvegarde / insertion / tableau |
-| `alarms` | Exécuter la tâche quotidienne qui supprime les éléments de la Corbeille âgés de plus de 30 jours |
+| `alarms` | Exécuter la tâche quotidienne qui supprime les éléments de la Corbeille au-delà du délai du plan actif (7 jours gratuit / 30 jours Premium) et purge les versions expirées de l'historique des versions |
 | Hôte `<all_urls>` | Permet à ces actions explicites de lire la sélection de la page courante, les tableaux, l'URL et le titre — pas d'accès en arrière-plan ni à l'historique de navigation |
 
 - [Politique de confidentialité complète](https://annmax1983.github.io/vkt-note/privacy-policy.html)
@@ -242,3 +258,12 @@ Ce logiciel est un logiciel propriétaire fermé. Sans autorisation écrite offi
 Si vkt-note vous est utile, offrez un café au développeur !
 
 **[👉 Cliquez ici pour soutenir](https://ko-fi.com/annmax?buyACoffee=true&ref=vkt-note)**
+
+---
+
+## Liens
+
+- **Site officiel:** https://annmax1983.com/
+- **Cette extension:** https://annmax1983.com/extensions/vkt-note
+- **Confidentialité:** https://annmax1983.com/privacy
+- **Contact:** support@annmax1983.com

@@ -18,7 +18,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 🔒 **Solo local** | Todas las notas se almacenan en `storage.local` — sin nube, sin cuentas, sin rastreo |
 | 🔐 **Cifrado real** | Protege una nota o todo el cuaderno con una contraseña — texto cifrado AES-256-GCM en reposo, claves nunca almacenadas |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
-| 🗑 **Papelera (Premium)** | Las eliminaciones Premium se pueden recuperar durante 30 días antes de borrarse automáticamente |
+| 🗑 **Papelera** | Las notas borradas siguen recuperables — 7 días gratis, 30 días con Premium |
 
 ---
 
@@ -31,7 +31,9 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 📝 **Guardar en vkt-note** | Clic derecho en cualquier selección o imagen → el menú unificado detecta automáticamente el contenido, convierte HTML a Markdown y guarda silenciosamente — con el título de la página |
 | 🔍 **Búsqueda de notas** | Filtra rápidamente la lista de notas por título y contenido |
 | 📋 **Copiar como Markdown** | Un clic copia cualquier nota como Markdown al portapapeles — un respaldo local gratuito |
-| ↩️ **Deshacer eliminación** | ¿Borraste una nota por error? Deshaz en 7 segundos desde la lista de notas |
+| ↩️ **Deshacer eliminación** | ¿Borraste una nota por error? Deshaz en 10 segundos desde la lista de notas |
+| 🗑 **Papelera de 7 días** | Cada borrado va a la papelera y se puede restaurar durante 7 días — gratis |
+| 📤 **Exportar todas las notas (JSON)** | Descarga todo el cuaderno como un único archivo JSON estructurado — gratis |
 | 📌 **Fijar arriba** | Mantén las notas frecuentes fijadas encima de la lista |
 | 💾 **Descargar como .md** | Guarda cualquier nota como archivo Markdown — gratis, sin copiar y pegar |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
@@ -54,10 +56,14 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 | Funcionalidad | Descripción |
 |---------|-------------|
-| 📤 **Exportar todas las notas** | Descarga todas las notas como archivo JSON estructurado; las notas con contraseña permanecen cifradas |
-| 🗑 **Papelera** | Las eliminaciones Premium van a la papelera, se pueden restaurar durante 30 días y después se eliminan automáticamente |
+| 🗑 **Papelera de 30 días** | Las notas eliminadas se pueden restaurar durante 30 días en lugar de 7 |
+| 🕘 **Historial de versiones** | Cada edición tras un intervalo de 5 minutos guarda una copia del contenido anterior: recupera cualquiera de las últimas 20 versiones dentro de 30 días |
+| 🗂 **Carpetas y etiquetas** | Organiza las notas en carpetas y etiquétalas; filtra la lista por carpeta o etiqueta |
+| 🔎 **Búsquedas guardadas** | Guarda una combinación de carpeta + etiqueta + palabra clave y vuelve a aplicarla con un clic |
+| ☑️ **Operaciones en lote** | Selecciona varias notas y muévelas, etiquétalas o elimínalas en una sola acción |
+| 📦 **Exportación avanzada** | ZIP de Markdown con imágenes incluidas, paquete HTML o Imprimir → PDF, con distribución por carpetas |
 
-> Consulta [VKT Pricing](https://www.annmax1983.com/checkout.html?plugin=vktnote) para opciones de licencia.
+> Consulta [VKT Pricing](https://annmax1983.com/checkout?plugin=vktnote) para opciones de licencia.
 
 ---
 
@@ -86,7 +92,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 |---|---|
 | Chrome Web Store | Próximamente 🚧 |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/imdfdonlhgecdhcfaapfohphcfnjgcef) |
-| Complementos de Firefox (AMO) | Próximamente 🚧 |
+| Complementos de Firefox (AMO) | [Instalar para Firefox](https://addons.mozilla.org/firefox/addon/vkt-note-markdown/) |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
@@ -119,6 +125,14 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 - Nota de vista previa: las listas anidadas profundamente se aplanan a un solo nivel en la vista previa (el Markdown guardado siempre mantiene la fidelidad completa)
 - Las notas guardadas con clic derecho usan el título de la página de origen; las notas nuevas en blanco empiezan como `Note N` — ambas se pueden editar libremente
 
+### Organizar notas (Premium)
+
+- **Carpetas** — crea carpetas en **Configuración → Gestionar carpetas** y después archiva una nota desde el editor o mueve varias a la vez en el modo en lote
+- **Etiquetas** — añade hasta 12 etiquetas por nota desde el editor; pulsa cualquier etiqueta en la barra de filtros para reducir la lista
+- **Búsquedas guardadas** — combina una palabra clave, una carpeta y etiquetas en la barra de filtros y pulsa **🔖 Guardar búsqueda** para conservar hasta 30 presets
+- **Modo en lote** — el botón ☑ de la cabecera cambia la lista a selección múltiple; mueve, etiqueta o elimina la selección en una sola acción
+- **Historial de versiones** — abre una nota y pulsa **🕘 Historial** para explorar y restaurar copias anteriores; restaurar también se puede deshacer desde el propio historial
+
 ### Protección con contraseña
 
 El cifrado es una función gratuita. Las contraseñas nunca se almacenan y tus notas se cifran en este dispositivo con AES-256-GCM antes de escribirse en `storage.local`.
@@ -128,28 +142,30 @@ El cifrado es una función gratuita. Las contraseñas nunca se almacenan y tus n
 - **Bloquear ahora** — el botón 🔒 de la cabecera del panel elimina de la memoria la clave del cuaderno y todas las claves de notas. Cerrar el panel lateral hace lo mismo. También puedes volver a pulsarlo para desbloquear.
 - **Quitar una contraseña** — abre el diálogo de seguridad de la nota y elige **Quitar contraseña de la nota**, o quita la contraseña del cuaderno en Configuración. Quitar la contraseña del cuaderno descifra las notas protegidas y las devuelve a texto sin formato local; las contraseñas por nota se conservan.
 - **Sin reglas de complejidad** — se acepta cualquier contraseña no vacía.
-- **¿Olvidaste una contraseña?** — no hay recuperación. Eliminar la nota es la única forma de superar una contraseña por nota. Si olvidaste la contraseña del cuaderno, **Restablecer contraseña del cuaderno** elimina permanentemente todas las notas, elementos de la papelera y borradores protegidos por esa contraseña, y después desactiva la contraseña del cuaderno; las notas con su propia contraseña se conservan.
+- **¿Olvidaste una contraseña?** — no hay recuperación. Eliminar la nota es la única forma de superar una contraseña por nota. Si olvidaste la contraseña del cuaderno, **Restablecer contraseña del cuaderno** elimina permanentemente todas las notas y elementos de la papelera protegidos por esa contraseña, y después desactiva la contraseña del cuaderno; las notas con su propia contraseña se conservan.
 
 Las notas cifradas siguen siendo buscables por título, pero su contenido no se indexa ni se muestra en los fragmentos mientras están bloqueadas. La exportación JSON nunca descifra: las notas cifradas se exportan como texto cifrado y el diálogo de exportación te avisa primero. Como la extensión no importa notas, una exportación cifrada no sirve para leer esas notas: para conservar una copia legible, desbloquea la nota y usa **Copiar como Markdown** o **Descargar .md**. Mientras una contraseña del cuaderno está activa, un recorte pendiente del menú contextual se mantiene en `storage.session`, de modo que su texto sin formato no toca el disco.
 
-### Papelera (Premium)
+### Papelera
 
-- Con Premium activo, eliminar una nota la mueve a la **Papelera** en lugar de borrarla.
-- Los elementos de la papelera se pueden restaurar en cualquier momento dentro de **30 días**; después se eliminan automáticamente.
-- **Vaciar papelera** y **Eliminar para siempre** eliminan los elementos de inmediato y no se pueden deshacer.
-- Las eliminaciones del plan gratuito son permanentes: deshacer durante 7 segundos es la única recuperación.
-- Si Premium caduca, los elementos existentes de la papelera siguen disponibles para restaurar o eliminar; solo las nuevas eliminaciones siguen la regla del plan gratuito.
+- Eliminar una nota la mueve a la **Papelera** en cualquier plan: nada desaparece en silencio.
+- La papelera gratuita conserva los elementos **7 días**; Premium los conserva **30 días**. Al vencer la ventana, el elemento se elimina automáticamente.
+- Dentro de la ventana puedes **Restaurar** o **Eliminar para siempre**; **Vaciar papelera** lo borra todo de inmediato y no se puede deshacer.
+- La ventana sigue el plan activo: si Premium caduca, los elementos de más de 7 días se retiran en la siguiente limpieza diaria.
+- Los **10 segundos** de **Deshacer** en la lista de notas son el atajo justo después de borrar; la Papelera es la red de seguridad posterior.
 
 ### Notas sobre el nivel gratuito
 
 - Sin límite diario de notas nuevas: el plan gratuito es un cuaderno completo, no una prueba
 - Editar notas existentes es siempre ilimitado
+- La exportación JSON de todo el cuaderno y la papelera de 7 días están incluidas en el plan gratuito
 - Los números de secuencia de títulos de notas pueden tener huecos después de eliminar — esto es intencionado
 
 ### Exportar y descargar
 
 - **Nota individual → archivo .md**: pulsa el icono ⬇ en cualquier tarjeta de nota para descargarla como archivo Markdown (gratis)
-- **Todas las notas → JSON** (Premium): pulsa **📥 Exportar** para descargar todas las notas en un archivo JSON estructurado; las notas con contraseña permanecen cifradas
+- **Todas las notas → JSON** (gratis): pulsa **📥 Exportar** para descargar todo el cuaderno en un único archivo JSON estructurado; las notas con contraseña permanecen cifradas
+- **Exportaciones avanzadas** (Premium): ZIP de Markdown con imágenes incluidas, paquete HTML o Imprimir → PDF, organizados por carpeta
 - El archivo exportado es solo para respaldo/referencia — **la extensión no soporta importar notas**, por lo que las notas cifradas no se pueden leer ni restaurar desde ese archivo
 
 ---
@@ -160,7 +176,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    El menú aparece cuando seleccionas texto o haces clic derecho en una imagen. Usa la opción unificada "Guardar en vkt-note".
 
 2. **¿Las notas desaparecen al reinstalar?**
-   Todas las notas se almacenan en `storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar (Premium exporta todas las notas en un único archivo JSON, con las notas protegidas por contraseña en texto cifrado; el plan gratuito permite copiar o descargar las notas de una en una).
+   Todas las notas se almacenan en `storage.local`. Desinstalar la extensión elimina permanentemente todos los datos. Exporta tus notas antes de desinstalar: el plan gratuito descarga todo el cuaderno en un único archivo JSON (las notas protegidas por contraseña quedan en texto cifrado) y también permite copiar o descargar las notas de una en una.
 
 3. **¿Las imágenes en las notas se mueven rotas?**
    Las imágenes Markdown almacenan solo URLs remotas. Si el sitio web de origen no está disponible, bloquea el hotlinking o la imagen se elimina, la imagen no se cargará.
@@ -169,10 +185,10 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    No. La exportación JSON es solo para respaldo manual. La extensión no soporta importar notas de vuelta.
 
 5. **¿Hay un límite de notas nuevas?**
-   No. Las notas nuevas son ilimitadas en ambos planes; Premium añade la exportación JSON completa y una papelera de 30 días.
+   No. Las notas nuevas son ilimitadas en ambos planes; Premium amplía la papelera de 7 a 30 días y añade el historial de versiones, las carpetas y etiquetas, las búsquedas guardadas, las operaciones en lote y las exportaciones avanzadas.
 
 6. **¿Olvidé mi contraseña? ¿Se puede recuperar?**
-   No. La contraseña nunca se almacena, solo un verificador que no puede revertir el cifrado. Una contraseña por nota solo se puede eludir eliminando esa nota. Si olvidaste la contraseña del cuaderno, el proceso de restablecimiento elimina permanentemente todas las notas, elementos de la papelera y borradores protegidos por ella; las notas con contraseña propia sobreviven.
+   No. La contraseña nunca se almacena, solo un verificador que no puede revertir el cifrado. Una contraseña por nota solo se puede eludir eliminando esa nota. Si olvidaste la contraseña del cuaderno, el proceso de restablecimiento elimina permanentemente todas las notas y elementos de la papelera protegidos por ella; las notas con contraseña propia sobreviven.
 
 7. **¿Puedo ver los títulos de las notas cuando el cuaderno está bloqueado?**
    Sí. Los títulos, las fechas y los recuentos de palabras siguen visibles por diseño para que encuentres la nota que buscas; el contenido, los fragmentos y las coincidencias de búsqueda por contenido permanecen ocultos hasta que se desbloquee. La búsqueda por título sigue funcionando.
@@ -181,7 +197,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    Se exportan como texto cifrado, no como texto sin formato. El diálogo de exportación te avisa cuando se incluyen notas cifradas. Como la extensión no importa notas, el archivo JSON no sirve para leer ni volver a importar esas notas. Para conservar una copia legible, desbloquea la nota y usa **Copiar como Markdown** o **Descargar .md**.
 
 9. **¿Adónde van las notas eliminadas?**
-   Con Premium, van a la Papelera y se pueden recuperar durante 30 días. En el plan gratuito, la eliminación es permanente después de los 7 segundos para deshacer.
+   A la Papelera, en cualquier plan: 7 días recuperables con Free y 30 días con Premium, y después se eliminan automáticamente. Justo después de borrar también tienes 10 segundos para **Deshacer** desde la lista de notas.
 
 ---
 
@@ -191,7 +207,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 
 - ✅ Todas las notas se almacenan en `storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
 - ✅ La protección con contraseña opcional cifra el contenido de las notas en reposo con AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 iteraciones); las contraseñas y las claves derivadas nunca se almacenan ni se transmiten
-- ✅ La única solicitud saliente es la comprobación opcional de licencia Premium (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas
+- ✅ Las únicas solicitudes a nuestros servidores son las comprobaciones opcionales de licencia Premium (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas. La extensión además puede cargar URLs de imágenes que ya figuran en sus propias notas (vista previa Markdown, exportación Premium con imágenes); esas peticiones van al sitio de la imagen, nunca a nosotros
 - ✅ Sin analíticas, sin rastreo, sin cookies
 - ✅ El contenido de la página se accede solo cuando activas explícitamente guardar o insertar (menú contextual, botones de insertar, selector de tablas) — nunca en segundo plano
 - ✅ Los archivos JSON exportados se crean localmente y nunca se transmiten; las notas cifradas siguen siendo texto cifrado en las exportaciones
@@ -205,7 +221,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 | `sidePanel` | Mostrar la interfaz de la extensión en un panel lateral (solo Chrome / Edge) |
 | `contextMenus` | Menú de clic derecho para crear notas desde texto seleccionado o imágenes |
 | `scripting` | Inyectar el conversor HTML→Markdown solo cuando activas guardar / insertar / acciones de tabla |
-| `alarms` | Ejecutar la tarea diaria que elimina los elementos de la papelera con más de 30 días |
+| `alarms` | Ejecutar la tarea diaria que retira los elementos de la papelera fuera de la ventana del plan actual (7 días Free / 30 días Premium) y purga el historial de versiones caducado |
 | Host `<all_urls>` | Permite que esas acciones explícitas lean la selección, tablas, URL y título de la página actual — sin acceso en segundo plano ni al historial de navegación |
 
 - [Política de privacidad completa](https://annmax1983.github.io/vkt-note/privacy-policy.html)
@@ -242,3 +258,12 @@ Este software es de código cerrado y propietario. Sin autorización escrita ofi
 Si te resulta útil vkt-note, ¡considera invitar al desarrollador a un café!
 
 **[👉 Haz clic aquí para apoyar](https://ko-fi.com/annmax?buyACoffee=true&ref=vkt-note)**
+
+---
+
+## Enlaces
+
+- **Sitio oficial:** https://annmax1983.com/
+- **Esta extensión:** https://annmax1983.com/extensions/vkt-note
+- **Privacidad:** https://annmax1983.com/privacy
+- **Contacto:** support@annmax1983.com
