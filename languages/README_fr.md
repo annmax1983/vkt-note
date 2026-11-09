@@ -67,12 +67,6 @@ La plupart des extensions de prise de notes nécessitent des comptes, une synchr
 
 ---
 
-## Aperçu
-
-> 📸 Les visuels de la boutique et les captures d'écran se trouvent dans le répertoire `screenshots/`.
-
----
-
 ## Navigateurs compatibles
 
 | Navigateur | Statut | Version minimum |
@@ -238,7 +232,9 @@ vkt-note respecte les principes de confidentialité dès la conception :
 
 ## Avis sur le code source
 
-> ⚠️ **Ce dépôt est maintenu pour le développement et le conditionnement des versions.** Le code source est propriétaire et ne peut être ni redistribué ni reconditionné. L'extension est distribuée via les boutiques officielles d'extensions de navigateur (Chrome Web Store, Microsoft Edge Add-ons et Firefox Add-ons AMO) ; aucun package d'installation hors ligne n'est fourni.
+> ⚠️ **Ce dépôt sert uniquement à la présentation du projet — le code source complet n'y est pas publié.** Il ne contient que la documentation d'utilisation, les notes de version et les informations d'assistance de l'extension.
+
+> 📥 **Téléchargement et installation uniquement depuis les boutiques officielles :** Chrome Web Store · Microsoft Edge Add-ons · Modules complémentaires Firefox (AMO). Aucun installateur hors ligne n'est distribué ici.
 
 ---
 

@@ -67,12 +67,6 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 
 ---
 
-## Vista previa
-
-> 📸 Los recursos gráficos y las capturas de pantalla están en el directorio `screenshots/`.
-
----
-
 ## Navegadores compatibles
 
 | Navegador | Estado | Versión mínima |
@@ -238,7 +232,13 @@ vkt-note sigue principios de privacidad desde el diseño:
 
 ## Aviso sobre el código fuente
 
-> ⚠️ **Este repositorio se mantiene para el desarrollo y el empaquetado de versiones.** El código fuente es propietario y no puede redistribuirse ni reempaquetarse. La extensión se distribuye a través de las tiendas oficiales de extensiones del navegador (Chrome Web Store, Microsoft Edge Add-ons y Firefox Add-ons AMO); no se proporcionan paquetes de instalación sin conexión.
+---
+
+## Aviso sobre el código fuente
+
+> ⚠️ **Este repositorio es solo para presentar el proyecto: el código fuente completo no se publica aquí.** Solo contiene la documentación de uso, las notas de versión y la información de soporte de la extensión.
+
+> 📥 **Descárgala e instálala únicamente desde las tiendas oficiales de navegadores:** Chrome Web Store · Microsoft Edge Add-ons · Complementos de Firefox (AMO). Desde aquí no se distribuye ningún instalador sin conexión.
 
 ---
 

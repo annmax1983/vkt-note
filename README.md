@@ -67,12 +67,6 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 
 ---
 
-## Preview
-
-> 📸 Store artwork and screenshots are kept in [`screenshots/`](screenshots/).
-
----
-
 ## Supported Browsers
 
 | Browser | Status | Minimum Version | UI |
@@ -238,7 +232,9 @@ vkt-note follows privacy-by-design principles:
 
 ## Source Code Notice
 
-> ⚠️ **This repository is maintained for development and release packaging.** The source code is proprietary and may not be redistributed or repackaged. The extension is distributed through official browser extension stores (Chrome Web Store, Microsoft Edge Add-ons and Firefox Add-ons); no offline installation packages are distributed to end users.
+> ⚠️ **This repository is for project showcase only — the full source code is not published here.** It contains the user documentation, release notes and support information for the extension.
+
+> 📥 **Download and install only from the official browser stores:** Chrome Web Store · Microsoft Edge Add-ons · Firefox Add-ons (AMO). No offline installation package is distributed from this repository.
 
 ---
 

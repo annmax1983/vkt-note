@@ -67,12 +67,6 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 
 ---
 
-## Vorschau
-
-> 📸 Store-Grafiken und Screenshots liegen im Verzeichnis `screenshots/`.
-
----
-
 ## Unterstützte Browser
 
 | Browser | Status | Mindestversion |
@@ -237,7 +231,9 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 ## Hinweis zum Quellcode
 
-> ⚠️ **Dieses Repository wird für die Entwicklung und das Verpacken von Releases gepflegt.** Der Quellcode ist proprietär und darf nicht weiterverbreitet oder neu verpackt werden. Die Erweiterung wird über offizielle Browser-Erweiterungstores (Chrome Web Store, Microsoft Edge Add-ons und Firefox-Add-ons AMO) vertrieben; es werden keine Offline-Installationspakete bereitgestellt.
+> ⚠️ **Dieses Repository dient ausschließlich der Projektpräsentation — der vollständige Quellcode wird hier nicht veröffentlicht.** Es enthält nur die Nutzungsdokumentation, die Release-Notizen und Support-Informationen zur Erweiterung.
+
+> 📥 **Installation ausschließlich über die offiziellen Browser-Stores:** Chrome Web Store · Microsoft Edge Add-ons · Firefox-Add-ons (AMO). Von hier werden keine Offline-Installer verteilt.
 
 ---
 
