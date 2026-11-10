@@ -18,7 +18,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 🔒 **Nur lokal** | Alle Notizen in `storage.local` — keine Cloud, kein Konto, kein Tracking |
 | 🔐 **Echte Verschlüsselung** | Eine Notiz oder das ganze Notizbuch mit einem Passwort schützen — AES-256-GCM-Chiffrat im Ruhezustand, Schlüssel werden nie gespeichert |
 | ✏️ **Markdown-Editor** | Quellbearbeitung mit Formatierungsleiste, Auto-Speicherung und Live-Markdown-Vorschau |
-| 🗑 **Papierkorb** | Gelöschte Notizen bleiben wiederherstellbar — 7 Tage kostenlos, 30 Tage mit Premium |
+| 🗑 **Papierkorb** | Gelöschte Notizen bleiben wiederherstellbar — 7 Tage kostenlos, 30 Tage mit Pro |
 
 ---
 
@@ -52,7 +52,7 @@ Die meisten Notiz-Erweiterungen brauchen Konten, Cloud-Sync oder Abos. vkt-note 
 | 🔒 **Lokale Speicherung** | Alle Notizen lokal — keine Notiz-Übertragung, keine Cloud |
 | 🏗️ **Manifest V3** | Auf Manifest V3 aufgebaut — Side Panel unter Chrome / Edge, Seitenleiste unter Firefox |
 
-### ⭐ Premium-Funktionen (Lizenz erforderlich)
+### ⭐ Pro-Funktionen (Lizenz erforderlich)
 
 | Funktion | Beschreibung |
 |----------|-------------|
@@ -118,7 +118,7 @@ Die Leiste über dem Editor bietet schnelle Formatierung: **Fett**, *Kursiv*, ~~
 - **👁 Vorschau** zeigt die gerenderten Markdown-Inhalte im Vorschau-Tab des Editors
 - Per Rechtsklick gespeicherte Notizen erhalten den Titel der Quellseite; neue leere Notizen starten als `Note N` — beides frei editierbar
 
-### Notizen organisieren (Premium)
+### Notizen organisieren (Pro)
 
 - **Ordner** — Ordner unter **Einstellungen → Ordner verwalten** anlegen, dann Notizen im Editor einordnen oder im Stapelmodus mehrere auf einmal verschieben
 - **Tags** — bis zu 12 Tags pro Notiz im Editor hinzufügen; in der Filterleiste auf einen Tag klicken, um die Liste einzugrenzen
@@ -142,9 +142,9 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
 ### Papierkorb
 
 - In jedem Plan wandert eine gelöschte Notiz in den **Papierkorb** — nichts verschwindet kommentarlos.
-- Der Papierkorb des kostenlosen Plans bewahrt Einträge **7 Tage**; Premium bewahrt sie **30 Tage**. Nach Ablauf des Zeitraums wird ein Eintrag automatisch entfernt.
+- Der Papierkorb des kostenlosen Plans bewahrt Einträge **7 Tage**; Pro bewahrt sie **30 Tage**. Nach Ablauf des Zeitraums wird ein Eintrag automatisch entfernt.
 - Innerhalb des Zeitraums können Sie **Wiederherstellen** oder **Endgültig löschen** wählen; **Papierkorb leeren** entfernt alles sofort und kann nicht rückgängig gemacht werden.
-- Der Zeitraum folgt dem aktuell aktiven Plan: Wenn Premium abläuft, werden beim nächsten täglichen Aufrämlauf alle Einträge entfernt, die älter als 7 Tage sind.
+- Der Zeitraum folgt dem aktuell aktiven Plan: Wenn Pro abläuft, werden beim nächsten täglichen Aufrämlauf alle Einträge entfernt, die älter als 7 Tage sind.
 - Das 10-Sekunden-**Undo** in der Notizliste ist der schnelle Weg direkt nach einer Löschung; der Papierkorb ist danach das Sicherheitsnetz.
 
 ### Hinweise zur kostenlosen Version
@@ -158,7 +158,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
 
 - **Einzelne Notiz → .md-Datei**: Klick auf das ⬇-Symbol auf einer Notizkarte lädt sie als Markdown-Datei herunter (kostenlos)
 - **Alle Notizen → JSON** (kostenlos): **📥 Export** lädt das ganze Notizbuch als eine strukturierte JSON-Datei herunter; Notizen mit Passwort bleiben Chiffrat
-- **Erweiterter Export** (Premium): Markdown-ZIP mit eingebetteten Bildern, HTML-Sammlung oder Drucken → PDF — inklusive Ordnerstruktur
+- **Erweiterter Export** (Pro): Markdown-ZIP mit eingebetteten Bildern, HTML-Sammlung oder Drucken → PDF — inklusive Ordnerstruktur
 - Die exportierte Datei dient nur zur Sicherung/Referenz — **die Erweiterung unterstützt keinen Import von Notizen**, daher lassen sich verschlüsselte Notizen nicht aus der Datei lesen oder wiederherstellen
 
 ---
@@ -178,7 +178,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Nein. Der JSON-Export dient nur zur manuellen Sicherung. Die Erweiterung unterstützt keinen Import von Notizen.
 
 5. **Gibt es ein Limit für neue Notizen?**
-   Nein. Neue Notizen sind in beiden Plänen unbegrenzt; Premium erweitert den Papierkorb von 7 auf 30 Tage und ergänzt Versionsverlauf, Ordner & Tags, gespeicherte Suchen, Stapelaktionen und erweiterten Export.
+   Nein. Neue Notizen sind in beiden Plänen unbegrenzt; Pro erweitert den Papierkorb von 7 auf 30 Tage und ergänzt Versionsverlauf, Ordner & Tags, gespeicherte Suchen, Stapelaktionen und erweiterten Export.
 
 6. **Ich habe mein Passwort vergessen. Kann es wiederhergestellt werden?**
    Nein. Das Passwort wird nie gespeichert, nur ein Prüfwert, mit dem sich die Verschlüsselung nicht umkehren lässt. Ein Passwort pro Notiz lässt sich nur durch Löschen dieser Notiz umgehen. Bei einem vergessenen Notebook-Passwort löscht der Zurücksetzen-Vorgang dauerhaft alle dadurch geschützten Notizen und Papierkorb-Einträge; Notizen mit eigenem Passwort bleiben erhalten.
@@ -190,7 +190,7 @@ Verschlüsselte Notizen sind weiterhin nach Titel durchsuchbar, ihr Inhalt wird 
    Sie werden als Chiffrat exportiert, nicht als Klartext. Der Export-Dialog warnt Sie, wenn verschlüsselte Notizen enthalten sind. Da die Erweiterung keinen Import unterstützt, lässt sich die JSON-Datei nicht zum Lesen oder erneuten Importieren dieser Notizen verwenden. Für eine lesbare Kopie entsperren Sie die Notiz und verwenden **Als Markdown kopieren** oder **.md herunterladen**.
 
 9. **Wohin gelangen gelöschte Notizen?**
-   Jede Löschung landet im Papierkorb und ist dort 7 Tage (Gratisplan) bzw. 30 Tage (Premium) wiederherstellbar. Das 10-Sekunden-Undo deckt unmittelbare Versehentlichkeiten ab.
+   Jede Löschung landet im Papierkorb und ist dort 7 Tage (Gratisplan) bzw. 30 Tage (Pro) wiederherstellbar. Das 10-Sekunden-Undo deckt unmittelbare Versehentlichkeiten ab.
 
 ---
 
@@ -200,7 +200,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 
 - ✅ Alle Notizen in `storage.local` gespeichert — **Notizinhalte werden niemals an einen Server übertragen**
 - ✅ Optionaler Passwortschutz verschlüsselt Notizinhalte im Ruhezustand mit AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 Iterationen); Passwörter und abgeleitete Schlüssel werden niemals gespeichert oder übertragen
-- ✅ Die einzigen Anfragen an unsere Server sind die optionalen Premium-Lizenzprüfungen (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs. Zusätzlich kann die Erweiterung Bild-URLs laden, die bereits in Ihren eigenen Notizen stehen (Markdown-Vorschau, Premium-Export mit Bildern); diese gehen an das Bild, niemals an uns
+- ✅ Die einzigen Anfragen an unsere Server sind die optionalen Pro-Lizenzprüfungen (Lizenzschlüssel, eine zufällige Installationskennung, grundlegende Browser-Metadaten) — keine Notizen, keine Seiten-URLs. Zusätzlich kann die Erweiterung Bild-URLs laden, die bereits in Ihren eigenen Notizen stehen (Markdown-Vorschau, Pro-Export mit Bildern); diese gehen an das Bild, niemals an uns
 - ✅ Keine Analyse, kein Tracking, keine Cookies
 - ✅ Seiteninhalt wird nur bei explizitem Auslösen von Speichern/Einfügen/Tabellenauswahl gelesen (Kontextmenü, Einfügen-Buttons, Tabellenauswahl) — nie im Hintergrund
 - ✅ Exportierte JSON-Dateien werden lokal erstellt und niemals übertragen; verschlüsselte Notizen bleiben in Exporten als Chiffrat erhalten
@@ -214,7 +214,7 @@ vkt-note folgt den Privacy-by-Design-Prinzipien:
 | `sidePanel` | Erweiterungs-UI in einer Seitenleiste anzeigen (nur Chrome / Edge) |
 | `contextMenus` | Rechtsklick-Menü zum Erstellen von Notizen aus Textauswahl oder Bildern |
 | `scripting` | HTML→Markdown-Konverter nur bei Speichern/Einfügen/Tabellen-Aktionen injizieren |
-| `alarms` | Führt den täglichen Auftrag aus, der Papierkorb-Einträge außerhalb des Zeitraums des aktuellen Plans (7 Tage kostenlos / 30 Tage Premium) entfernt und abgelaufenen Versionsverlauf aufräumt |
+| `alarms` | Führt den täglichen Auftrag aus, der Papierkorb-Einträge außerhalb des Zeitraums des aktuellen Plans (7 Tage kostenlos / 30 Tage Pro) entfernt und abgelaufenen Versionsverlauf aufräumt |
 | Host `<all_urls>` | Ermöglicht diesen Aktionen, die aktuelle Seitenauswahl, Tabellen, URL und Titel zu lesen — kein Hintergrund- oder Verlaufszugriff |
 
 - [Vollständige Datenschutzerklärung](https://annmax1983.github.io/vkt-note/privacy-policy.html)

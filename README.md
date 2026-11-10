@@ -18,7 +18,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | 🔒 **Local Only** | All notes stored in the extension's local storage — no cloud, no accounts, no tracking |
 | 🔐 **Real Encryption** | Protect one note or the whole notebook with a password — AES-256-GCM ciphertext at rest, keys never stored |
 | ✏️ **Markdown Editor** | Source editing with formatting toolbar, auto-save, and live Markdown preview |
-| 🗑 **Trash** | Deleted notes stay recoverable — 7 days on Free, 30 days on Premium |
+| 🗑 **Trash** | Deleted notes stay recoverable — 7 days on Free, 30 days on Pro |
 
 ---
 
@@ -52,7 +52,7 @@ Most note-taking extensions require accounts, cloud sync, or subscriptions. vkt-
 | 🔒 **Local Storage** | All notes stored locally — no note upload, no cloud sync |
 | 🏗️ **Manifest V3** | Built on Manifest V3 — side panel on Chrome / Edge, Firefox sidebar on Firefox |
 
-### ⭐ Premium Features (License Required)
+### ⭐ Pro Features (License Required)
 
 | Feature | Description |
 |---------|-------------|
@@ -119,7 +119,7 @@ The toolbar above the editor provides quick formatting: **Bold**, *Italic*, ~~St
 - Preview note: deeply nested lists flatten to a single level in preview (the saved Markdown always keeps full fidelity)
 - Notes saved via right-click are titled after the source page; new blank notes start as `Note N` — both are freely editable
 
-### Organizing Notes (Premium)
+### Organizing Notes (Pro)
 
 - **Folders** — create folders in **Settings → Manage folders**, then file a note from the editor or move several at once in bulk mode
 - **Tags** — add up to 12 tags per note from the editor; tap any tag in the filter bar to narrow the list
@@ -143,9 +143,9 @@ Encrypted notes are still searchable by title, but their content is not indexed 
 ### Trash
 
 - Deleting a note moves it to **Trash** on every plan — nothing vanishes silently.
-- Free-plan Trash keeps items for **7 days**; Premium keeps them for **30 days**. After the window an item is removed automatically.
+- Free-plan Trash keeps items for **7 days**; Pro keeps them for **30 days**. After the window an item is removed automatically.
 - Within the window you can **Restore** or **Delete forever**; **Empty Trash** clears everything immediately and cannot be undone.
-- The window follows the plan that is active: if Premium expires, items older than 7 days are removed on the next daily cleanup.
+- The window follows the plan that is active: if Pro expires, items older than 7 days are removed on the next daily cleanup.
 - The 10-second **Undo** in the note list is the fast path right after a deletion; Trash is the safety net after that.
 
 ### Free Tier Notes
@@ -159,7 +159,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
 
 - **Single note → .md file**: click the ⬇ icon on any note card to download it as a Markdown file (free)
 - **All notes → JSON** (free): click **📥 Export** to download the whole notebook as one structured JSON file; notes with passwords stay encrypted ciphertext
-- **Enhanced exports** (Premium): Markdown ZIP with bundled images, HTML bundle, or Print → PDF, laid out by folder
+- **Enhanced exports** (Pro): Markdown ZIP with bundled images, HTML bundle, or Print → PDF, laid out by folder
 - Exported files are for backup/reference only — **the extension does not support importing notes**, so encrypted notes in the export cannot be read or restored from the file
 
 ---
@@ -179,7 +179,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
    No. The JSON export is for manual backup only. The extension does not support importing notes back.
 
 5. **Is there a limit on how many notes I can create?**
-   No daily limit — create as many notes as you need. Premium extends the Trash from 7 to 30 days and adds version history, folders & tags, saved searches, bulk operations and enhanced exports.
+   No daily limit — create as many notes as you need. Pro extends the Trash from 7 to 30 days and adds version history, folders & tags, saved searches, bulk operations and enhanced exports.
 
 6. **I forgot my password. Can it be recovered?**
    No. The password is never stored, only a verifier that cannot reverse the encryption. A per-note password can only be bypassed by deleting that note. For a forgotten notebook password, the reset flow permanently deletes every note and Trash item protected by it; per-note protected notes survive.
@@ -191,7 +191,7 @@ Encrypted notes are still searchable by title, but their content is not indexed 
    They are exported as ciphertext, not plaintext. The export dialog warns you when encrypted notes are included. Since the extension has no import feature, the JSON file cannot be used to read or re-import those notes. To keep a readable copy, unlock the note and use **Copy as Markdown** or **Download .md**.
 
 9. **Where do deleted notes go?**
-   Every deletion goes to Trash — recoverable for 7 days on the Free plan, 30 days on Premium. The 10-second undo window covers immediate mistakes.
+   Every deletion goes to Trash — recoverable for 7 days on the Free plan, 30 days on Pro. The 10-second undo window covers immediate mistakes.
 
 ---
 
@@ -201,7 +201,7 @@ vkt-note follows privacy-by-design principles:
 
 - ✅ All notes stored in the extension's local storage — **note content is never uploaded to any server**
 - ✅ Optional password protection encrypts note content at rest with AES-256-GCM (PBKDF2-HMAC-SHA256, 600,000 iterations); passwords and derived keys are never stored or transmitted
-- ✅ The only requests to our servers are the optional Premium license checks (license key, random install identifier, basic browser metadata) — no notes, no page URLs. The extension may also load image URLs that already appear in your own notes (Markdown preview, Premium image-bundled export); those go to the image host, never to us
+- ✅ The only requests to our servers are the optional Pro license checks (license key, random install identifier, basic browser metadata) — no notes, no page URLs. The extension may also load image URLs that already appear in your own notes (Markdown preview, Pro image-bundled export); those go to the image host, never to us
 - ✅ No analytics, no tracking, no cookies
 - ✅ Page content is accessed only when you explicitly trigger save or insert (context menu, insert buttons, table picker) — never in the background
 - ✅ Exported JSON files are created locally and never transmitted; encrypted notes remain ciphertext in exports
@@ -214,7 +214,7 @@ vkt-note follows privacy-by-design principles:
 | `unlimitedStorage` | Lift the default local storage ceiling so a long note history never hits a write failure | All |
 | `contextMenus` | Right-click menu for creating notes from selected text or images | All |
 | `scripting` | Inject the HTML→Markdown converter only when you trigger save / insert / table actions | All |
-| `alarms` | Run the daily job that removes Trash items past the current plan's window (7 days Free / 30 days Premium) and prunes expired version history | All |
+| `alarms` | Run the daily job that removes Trash items past the current plan's window (7 days Free / 30 days Pro) and prunes expired version history | All |
 | `sidePanel` | Display the extension UI in a side panel | Chrome / Edge only — Firefox uses `sidebar_action`, which needs no permission |
 | Host `<all_urls>` | Lets those explicit actions read the current page's selection, tables, URL and title — no background or browsing-history access | All |
 

@@ -18,7 +18,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 🔒 **Solo local** | Todas las notas se almacenan en `storage.local` — sin nube, sin cuentas, sin rastreo |
 | 🔐 **Cifrado real** | Protege una nota o todo el cuaderno con una contraseña — texto cifrado AES-256-GCM en reposo, claves nunca almacenadas |
 | ✏️ **Editor Markdown** | Edición en código fuente con barra de herramientas de formato, guardado automático y vista previa Markdown en vivo |
-| 🗑 **Papelera** | Las notas borradas siguen recuperables — 7 días gratis, 30 días con Premium |
+| 🗑 **Papelera** | Las notas borradas siguen recuperables — 7 días gratis, 30 días con Pro |
 
 ---
 
@@ -52,7 +52,7 @@ La mayoría de extensiones de notas requieren cuentas, sincronización en la nub
 | 🔒 **Almacenamiento local** | Todas las notas se almacenan localmente — sin subida de notas, sin sincronización en la nube |
 | 🏗️ **Manifest V3** | Construida sobre Manifest V3: panel lateral en Chrome / Edge, barra lateral en Firefox |
 
-### ⭐ Funcionalidades Premium (requieren licencia)
+### ⭐ Funcionalidades Pro (requieren licencia)
 
 | Funcionalidad | Descripción |
 |---------|-------------|
@@ -119,7 +119,7 @@ La barra sobre el editor proporciona formato rápido: **Negrita**, *Cursiva*, ~~
 - Nota de vista previa: las listas anidadas profundamente se aplanan a un solo nivel en la vista previa (el Markdown guardado siempre mantiene la fidelidad completa)
 - Las notas guardadas con clic derecho usan el título de la página de origen; las notas nuevas en blanco empiezan como `Note N` — ambas se pueden editar libremente
 
-### Organizar notas (Premium)
+### Organizar notas (Pro)
 
 - **Carpetas** — crea carpetas en **Configuración → Gestionar carpetas** y después archiva una nota desde el editor o mueve varias a la vez en el modo en lote
 - **Etiquetas** — añade hasta 12 etiquetas por nota desde el editor; pulsa cualquier etiqueta en la barra de filtros para reducir la lista
@@ -143,9 +143,9 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
 ### Papelera
 
 - Eliminar una nota la mueve a la **Papelera** en cualquier plan: nada desaparece en silencio.
-- La papelera gratuita conserva los elementos **7 días**; Premium los conserva **30 días**. Al vencer la ventana, el elemento se elimina automáticamente.
+- La papelera gratuita conserva los elementos **7 días**; Pro los conserva **30 días**. Al vencer la ventana, el elemento se elimina automáticamente.
 - Dentro de la ventana puedes **Restaurar** o **Eliminar para siempre**; **Vaciar papelera** lo borra todo de inmediato y no se puede deshacer.
-- La ventana sigue el plan activo: si Premium caduca, los elementos de más de 7 días se retiran en la siguiente limpieza diaria.
+- La ventana sigue el plan activo: si Pro caduca, los elementos de más de 7 días se retiran en la siguiente limpieza diaria.
 - Los **10 segundos** de **Deshacer** en la lista de notas son el atajo justo después de borrar; la Papelera es la red de seguridad posterior.
 
 ### Notas sobre el nivel gratuito
@@ -159,7 +159,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
 
 - **Nota individual → archivo .md**: pulsa el icono ⬇ en cualquier tarjeta de nota para descargarla como archivo Markdown (gratis)
 - **Todas las notas → JSON** (gratis): pulsa **📥 Exportar** para descargar todo el cuaderno en un único archivo JSON estructurado; las notas con contraseña permanecen cifradas
-- **Exportaciones avanzadas** (Premium): ZIP de Markdown con imágenes incluidas, paquete HTML o Imprimir → PDF, organizados por carpeta
+- **Exportaciones avanzadas** (Pro): ZIP de Markdown con imágenes incluidas, paquete HTML o Imprimir → PDF, organizados por carpeta
 - El archivo exportado es solo para respaldo/referencia — **la extensión no soporta importar notas**, por lo que las notas cifradas no se pueden leer ni restaurar desde ese archivo
 
 ---
@@ -179,7 +179,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    No. La exportación JSON es solo para respaldo manual. La extensión no soporta importar notas de vuelta.
 
 5. **¿Hay un límite de notas nuevas?**
-   No. Las notas nuevas son ilimitadas en ambos planes; Premium amplía la papelera de 7 a 30 días y añade el historial de versiones, las carpetas y etiquetas, las búsquedas guardadas, las operaciones en lote y las exportaciones avanzadas.
+   No. Las notas nuevas son ilimitadas en ambos planes; Pro amplía la papelera de 7 a 30 días y añade el historial de versiones, las carpetas y etiquetas, las búsquedas guardadas, las operaciones en lote y las exportaciones avanzadas.
 
 6. **¿Olvidé mi contraseña? ¿Se puede recuperar?**
    No. La contraseña nunca se almacena, solo un verificador que no puede revertir el cifrado. Una contraseña por nota solo se puede eludir eliminando esa nota. Si olvidaste la contraseña del cuaderno, el proceso de restablecimiento elimina permanentemente todas las notas y elementos de la papelera protegidos por ella; las notas con contraseña propia sobreviven.
@@ -191,7 +191,7 @@ Las notas cifradas siguen siendo buscables por título, pero su contenido no se 
    Se exportan como texto cifrado, no como texto sin formato. El diálogo de exportación te avisa cuando se incluyen notas cifradas. Como la extensión no importa notas, el archivo JSON no sirve para leer ni volver a importar esas notas. Para conservar una copia legible, desbloquea la nota y usa **Copiar como Markdown** o **Descargar .md**.
 
 9. **¿Adónde van las notas eliminadas?**
-   A la Papelera, en cualquier plan: 7 días recuperables con Free y 30 días con Premium, y después se eliminan automáticamente. Justo después de borrar también tienes 10 segundos para **Deshacer** desde la lista de notas.
+   A la Papelera, en cualquier plan: 7 días recuperables con Free y 30 días con Pro, y después se eliminan automáticamente. Justo después de borrar también tienes 10 segundos para **Deshacer** desde la lista de notas.
 
 ---
 
@@ -201,7 +201,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 
 - ✅ Todas las notas se almacenan en `storage.local` — **el contenido de las notas nunca se sube a ningún servidor**
 - ✅ La protección con contraseña opcional cifra el contenido de las notas en reposo con AES-256-GCM (PBKDF2-HMAC-SHA256, 600.000 iteraciones); las contraseñas y las claves derivadas nunca se almacenan ni se transmiten
-- ✅ Las únicas solicitudes a nuestros servidores son las comprobaciones opcionales de licencia Premium (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas. La extensión además puede cargar URLs de imágenes que ya figuran en sus propias notas (vista previa Markdown, exportación Premium con imágenes); esas peticiones van al sitio de la imagen, nunca a nosotros
+- ✅ Las únicas solicitudes a nuestros servidores son las comprobaciones opcionales de licencia Pro (clave de licencia, un identificador de instalación aleatorio, metadatos básicos del navegador) — sin notas, sin URL de páginas. La extensión además puede cargar URLs de imágenes que ya figuran en sus propias notas (vista previa Markdown, exportación Pro con imágenes); esas peticiones van al sitio de la imagen, nunca a nosotros
 - ✅ Sin analíticas, sin rastreo, sin cookies
 - ✅ El contenido de la página se accede solo cuando activas explícitamente guardar o insertar (menú contextual, botones de insertar, selector de tablas) — nunca en segundo plano
 - ✅ Los archivos JSON exportados se crean localmente y nunca se transmiten; las notas cifradas siguen siendo texto cifrado en las exportaciones
@@ -215,7 +215,7 @@ vkt-note sigue principios de privacidad desde el diseño:
 | `sidePanel` | Mostrar la interfaz de la extensión en un panel lateral (solo Chrome / Edge) |
 | `contextMenus` | Menú de clic derecho para crear notas desde texto seleccionado o imágenes |
 | `scripting` | Inyectar el conversor HTML→Markdown solo cuando activas guardar / insertar / acciones de tabla |
-| `alarms` | Ejecutar la tarea diaria que retira los elementos de la papelera fuera de la ventana del plan actual (7 días Free / 30 días Premium) y purga el historial de versiones caducado |
+| `alarms` | Ejecutar la tarea diaria que retira los elementos de la papelera fuera de la ventana del plan actual (7 días Free / 30 días Pro) y purga el historial de versiones caducado |
 | Host `<all_urls>` | Permite que esas acciones explícitas lean la selección, tablas, URL y título de la página actual — sin acceso en segundo plano ni al historial de navegación |
 
 - [Política de privacidad completa](https://annmax1983.github.io/vkt-note/privacy-policy.html)
